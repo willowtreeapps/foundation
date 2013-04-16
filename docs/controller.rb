@@ -8,6 +8,10 @@ ignore /Gemfile.*/
 ignore /Procfile/
 ignore /compile.rb/
 
+before /test\/.*html\.erb/ do
+  layout 'test/layout.html.erb'
+end
+
 helpers do
   def asset_path
     if @_stasis.options[:asset_path]

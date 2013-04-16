@@ -1,0 +1,56 @@
+<!doctype html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation Docs: <%= @page_title %></title>
+    <link rel="stylesheet" href="<%= asset_path %>/normalize.css" />
+    <link rel="stylesheet" href="<%= asset_path %>/docs.css" />
+    <script src="<%= asset_path %>/vendor/custom.modernizr.js"></script>
+  </head>
+
+		<!-- Test files require a <body>, but not a </body> -->
+		
+		<%= yield %>
+
+
+
+	   <script>
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(
+        ['_setAccount', 'UA-2195009-2'],
+        ['_trackPageview'],
+        ['b._setAccount', 'UA-2195009-27'],
+        ['b._trackPageview']
+      );
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+      document.write('<script src="<%= asset_path %>/vendor/'
+        + ('__proto__' in {} ? 'zepto' : 'jquery')
+        + '.js"><\/script>');
+    </script>
+    <script src="<%= asset_path %>/docs.js"></script>
+    <script>
+      $(document)
+      <% if @joyride %>
+        .foundation()
+        .foundation('joyride', 'start');
+      <% else %>
+        .foundation();
+      <% end %>
+
+      // For Kitchen Sink Page
+      $('#start-jr').on('click', function() {
+        $(document).foundation('joyride','start');
+      });
+    </script>
+  </body>
+</html>
