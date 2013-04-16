@@ -79,3 +79,4 @@ $complementary-large-width: 20%;
 
 body.off-canvas { @include off-canvas(); }
 body.off-canvas.paneled { @include off-canvas($style: paneled); }
+body.off-canvas.nav-on-top { @include off-canvas($style: nav-on-top); }
