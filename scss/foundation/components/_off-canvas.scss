@@ -1,70 +1,60 @@
 //
-// Off Canvas Variable
-//
-
-$timing: 0.25s;
-$main-large-width: 80%;
-$complementary-large-width: 20%;
-
-//
 // Off Canvas Mixins
 //
-@mixin off-canvas($style: false) {
+@mixin off-canvas($style: false, $main-element: "[role='main']", $complementary-element: "[role='complementary']", $nav-element: "[role='navigation']", $panels: ".page-panel", $main-row: ".row", $nested-rows: ".row", $menu-button: ".menu-button", $sidebar-button: ".sidebar-button", $timing: 0.25s, $main-large-width: 80%, $complementary-large-width: 20%, $panel-count: 5) {
 
 	padding: 0; 
 	margin: 0;
 
-	.row { overflow: hidden; }
-	.row .row { overflow: visible; }
+	#{$main-row} { overflow: hidden; }
+	#{$main-row} #{$nested-rows} { overflow: visible; }
 
-	[role="main"]:before { content: " "; position: absolute; z-index: -1; top: 0; left: -100%; width: 100%; height: 100%; }
+	#{$main-element}:before { content: " "; position: absolute; z-index: -1; top: 0; left: -100%; width: 100%; height: 100%; }
 
-	[role="complementary"], [role="main"] { width: 100%; padding: 0 15px; display: block; position: relative; z-index: 1; -webkit-transition: $timing all ease-in; -moz-transition: $timing all ease-in; -o-transition: $timing all ease-in; transition: $timing all ease-in; }
+	#{$complementary-element}, #{$main-element} { width: 100%; padding: 0 15px; display: block; position: relative; z-index: 1; -webkit-transition: $timing all ease-in; -moz-transition: $timing all ease-in; -o-transition: $timing all ease-in; transition: $timing all ease-in; }
 
-	[role="complementary"] { margin-left: -100%; width: 80%; float: left; z-index: 2; }
+	#{$complementary-element} { margin-left: -100%; width: $main-large-width; float: left; z-index: 2; }
 
-	[role="main"] { margin-left: 0; float: right; z-index: 1; position: relative; }
+	#{$main-element} { margin-left: 0; float: right; z-index: 1; position: relative; }
 
-	&.active [role="complementary"] { margin-left: 0; }
-	&.active [role="main"] { margin-right: -80%; }
+	&.active #{$complementary-element} { margin-left: 0; }
+	&.active #{$main-element} { margin-right: -$main-large-width; }
 
 	//Global off canvas styles for screens larger than 768px
 	@media #{$small} {
-		.menu-button, .sidebar-button { display: none; }
-  	[role="complementary"] { width: 20%; margin-left: 0; float: left; padding: 0 15px; }
-  	[role="main"] { width: 80%; padding: 0 15px; }
+		#{$menu-button} , #{$sidebar-button}  { display: none; }
+  	#{$complementary-element} { width: $complementary-large-width; margin-left: 0; float: left; padding: 0 15px; }
+  	#{$main-element} { width: $main-large-width; padding: 0 15px; }
 
-  	.hide-extras [role="main"] { width: 100%; }
-  	.hide-extras [role="complementary"] { display: none; }
+  	.hide-extras #{$main-element} { width: 100%; }
+  	.hide-extras #{$complementary-element} { display: none; }
 	}
 
 	//Top Nav Style
 	@if $style == nav-on-top {
-		[role="navigation"]#topMenu { -webkit-transition: $timing all ease-in; -moz-transition: $timing all ease-in; -o-transition: $timing all ease-in; transition: $timing all ease-in; }
+		#{$nav-element} { -webkit-transition: $timing all ease-in; -moz-transition: $timing all ease-in; -o-transition: $timing all ease-in; transition: $timing all ease-in; }
 
-		[role="navigation"]#topMenu ul { margin-top: 0; }
+		#{$nav-element} ul { margin-top: 0; }
 
-		&.active-menu [role="navigation"]#topMenu { margin-top: 0 !important; }
+		&.active-menu #{$nav-element} { margin-top: 0 !important; }
 
 		@media #{$small} {
-			[role="navigation"]#topMenu { display: none; }
+			#{$nav-element} { display: none; }
 		}
 	}
 
 	//Paneled Style
 	@else if $style == paneled {
 
-		.container { overflow: hidden; }
-		.row { width: 100%; }
+		&> * { overflow: hidden; }
+		#{$main-row} { width: 100%; }
 
-		[role="main"] { padding: 0; background: #fff; width: 500%; overflow: hidden; float: none; position: relative; left: 0; -webkit-transition: 0.15s all ease-in; -moz-transition: 0.15s all ease-in; -o-transition: 0.15s all ease-in; transition: 0.15s all ease-in; }
+		#{$main-element} { padding: 0; background: #fff; width: percentage($panel-count); overflow: hidden; float: none; position: relative; left: 0; -webkit-transition: 0.15s all ease-in; -moz-transition: 0.15s all ease-in; -o-transition: 0.15s all ease-in; transition: 0.15s all ease-in; }
 
-		.page-panel { width: 100%; padding: 0 15px; -webkit-transition: $timing margin ease-in-out; -moz-transition: $timing margin ease-in-out; -o-transition: $timing margin ease-in-out; transition: $timing margin ease-in-out; background: #fff; min-height: 400px; float: left; margin: 0; width: 20%; }
-
-		#switchPanels { margin: 0 -15px; }
+		#{$panels} { width: 100%; padding: 0 15px; -webkit-transition: $timing margin ease-in-out; -moz-transition: $timing margin ease-in-out; -o-transition: $timing margin ease-in-out; transition: $timing margin ease-in-out; background: #fff; min-height: 400px; float: left; margin: 0; width: percentage(1 / $panel-count ); }
 
 		@media #{$small} {
-			[role="main"] { width: 100%; padding: 0; background: #f4f4f4; left: 0 !important; }
+			#{$main-element} { width: 100%; padding: 0; background: #f4f4f4; left: 0 !important; }
   		.page-panel { display: block; min-height: 800px; float: none; margin: 0; width: 100%; background: #f4f4f4; }
 		}
 	}
