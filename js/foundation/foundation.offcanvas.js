@@ -1,9 +1,10 @@
 /*jslint unparam: true, browser: true, indent: 2 */
 
-;(function (window, document, $) {
+;(function ($, window, document, undefined) {
   // Set the negative margin on the top menu for slide-menu pages
   var $selector1 = $('#topMenu'),
-    events = 'click.fndtn';
+      events = 'click.fndtn';
+      
   if ($selector1.length > 0) $selector1.css("margin-top", $selector1.height() * -1);
 
   // Watch for clicks to show the sidebar
