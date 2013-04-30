@@ -8,6 +8,7 @@
 =require foundation/foundation.joyride
 =require foundation/foundation.magellan
 =require foundation/foundation.offcanvas
+=require foundation/foundation.flip
 =require foundation/foundation.orbit
 =require foundation/foundation.placeholder
 =require foundation/foundation.reveal

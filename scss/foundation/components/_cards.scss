@@ -2,7 +2,7 @@
 // Cards Mixin
 //
 
-@mixin card($ratio: false, $perspective: 1000, $flipper: ".flipper", $front: ".front", $back: ".back") {
+@mixin card($ratioX: false, $ratioY: false, $perspective: 1000, $padding: 1em, $flipper: ".flipper", $front: ".front", $back: ".back") {
 
 	position: relative;
 	padding: 0; margin: 0 0 1em 0;
@@ -21,7 +21,7 @@
 
 		#{$front}, #{$back} {
 			width: 100%;
-			padding: 1em;
+			padding: $padding;
 			-webkit-backface-visibility: hidden; 
 			backface-visibility: hidden; 
 		}
@@ -37,6 +37,14 @@
 			left: 0; top: 0;
 			-webkit-transform: rotateY(180deg);
 			transform: rotateY(180deg);
+		}
+
+		//Ratio detection and settings
+		@if ($ratioX != false) and ($ratioY != false) {
+
+			width: 100%; height: 0;
+			padding-bottom: percentage($ratioY / $ratioX);
+
 		}
 
 		@media #{$small} {
@@ -58,4 +66,4 @@
 //
 
 .card { @include card(); }
-.card.square { @include card($ratio: 1x1); }
+.card.square { @include card($ratioX: 1, $ratioY: 1); }
