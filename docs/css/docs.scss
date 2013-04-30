@@ -1,5 +1,7 @@
 @import "settings";
+@import "normalize";
 @import "foundation";
+@import "off-canvas";
 @import "coderay";
 
 /* Documentation Overrides */
@@ -20,6 +22,7 @@ ul, ol, dl { list-style-position: inside; }
 .html > .CodeRay:before { content: "HTML"; }
 .css > .CodeRay:before { content: "SCSS"; }
 .js > .CodeRay:before { content: "JS"; }
+
 
 /* Docs Footer Styles */
 .row.full-width {
@@ -53,6 +56,77 @@ footer.row.full-width {
 
 .docs.section-container a.active { font-weight: bold; }
 
+/* Documentation Custom Styles for matching the Marketing page */
+@font-face { font-family: 'OpenSans'; src: url('../assets/OpenSans-Light-webfont.eot'); src: url('../assets/OpenSans-Light-webfont.eot?#iefix') format("embedded-opentype"), url('../assets/OpenSans-Light-webfont.woff') format("woff"), url('../assets/OpenSans-Light-webfont.ttf') format("truetype"), url('../assets/OpenSans-Light-webfont.svg#OpenSansLight') format("svg"); font-weight: light; font-weight: 300; font-style: normal; }
+@font-face { font-family: 'OpenSans'; src: url('../assets/OpenSans-Regular-webfont.eot'); src: url('../assets/OpenSans-Regular-webfont.eot?#iefix') format("embedded-opentype"), url('../assets/OpenSans-Regular-webfont.woff') format("woff"), url('../assets/OpenSans-Regular-webfont.ttf') format("truetype"), url('../assets/OpenSans-Regular-webfont.svg#OpenSansRegular') format("svg"); font-weight: normal; font-weight: 500; font-style: normal; }
+@font-face { font-family: 'OpenSans'; src: url('../assets/OpenSans-Bold-webfont.eot'); src: url('../assets/OpenSans-Bold-webfont.eot?#iefix') format("embedded-opentype"), url('../assets/OpenSans-Bold-webfont.woff') format("woff"), url('../assets/OpenSans-Bold-webfont.ttf') format("truetype"), url('../assets/OpenSans-Bold-webfont.svg#OpenSansBold') format("svg"); font-weight: bold; font-weight: 700; font-style: normal; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "OpenSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  margin-top: 0;
+
+  &.normal { font-weight: normal; }
+}
+
+li.name h1 { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+header {
+  background: $primary-color;
+  padding: 22px 0;
+
+  a,
+  p,
+  a:active,
+  a:hover,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #fff;
+  }
+
+  h1 { margin: 6px 0 0 0; }
+}
+
+#mainContent {
+  margin-top: 44px;
+  position: relative;
+
+  @media #{$small} { h2 { margin-top: -10px; } }
+}
+
+#sidebarButton {
+  margin-top: 30px;
+}
+
+.section-container.auto > section .content,
+.section-container.auto > .section .content {
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  padding: 20px 0 0 0;
+}
+
+.next-step .inline-list { overflow: visible; @include clearfix; }
+.next-step .button { margin-bottom: 0; }
+
+//
+// Custom Styles for Examples throughout the Docs
+//
 
 /* Alert Docs */
 .alert-base {
@@ -163,7 +237,8 @@ input[type="text"].attached-input {
 /* ZURBjobs */
 .jobs {
   border: 1px solid #eee;
-  padding: 10px 20px 20px;
+  padding: 16px 20px 20px;
+  margin-bottom: 20px;
   font-size: 14px;
   line-height: 1.1;
   ul { list-style: none;

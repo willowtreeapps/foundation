@@ -5,21 +5,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- For third-generation iPad with high-resolution Retina display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= asset_path %>/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/favicons/apple-touch-icon-144x144-precomposed.png">
     <!-- For iPhone with high-resolution Retina display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%= asset_path %>/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/favicons/apple-touch-icon-114x114-precomposed.png">
     <!-- For first- and second-generation iPad: -->
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= asset_path %>/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/favicons/apple-touch-icon-72x72-precomposed.png">
     <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <link rel="apple-touch-icon-precomposed" href="<%= asset_path %>/apple-touch-icon-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/favicons/apple-touch-icon-precomposed.png">
 
-    <link rel="icon" href="<%= asset_path %>/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="img/favicons/favicon.ico" type="image/x-icon" />
 
     <title>Foundation Docs: <%= @page_title %></title>
+    <link rel="stylesheet" href="<%= asset_path %>/normalize.css" />
     <link rel="stylesheet" href="<%= asset_path %>/docs.css" />
     <script src="<%= asset_path %>/vendor/custom.modernizr.js"></script>
   </head>
-  <body class="off-canvas antialiased">
+  <body class="antialiased">
 
     <nav class="top-bar">
       <ul class="title-area">
@@ -52,16 +53,14 @@
       </section>
     </nav>
 
-    <header>
-      <div class="row">
-        <div class="large-12 columns">
-          <h1 class="normal"><a href="http://foundation.zurb.com/docs/">Foundation 4 Documentation</a></h1>
-          <h4>Everything you need to know to build for the future.</h4>
-
-          <a href="" class="show-for-small secondary small button" id="sidebarButton">Side Menu</a>
-        </div>
+    <% @page_title = "4 Documentation" %>
+    <div class="row">
+      <div class="large-12 columns">
+        <h1 class="docs header"><a href="http://foundation.zurb.com/docs/">Foundation <%= @page_title %></a></h1>
+        <h6 class="docs subheader"><a href="http://foundation.zurb.com/old-docs/f3">Want F3 Docs?</a></h6>
+        <hr>
       </div>
-    </header>
+    </div>
 
     <%= yield %>
 
@@ -122,7 +121,6 @@
         + '.js"><\/script>');
     </script>
     <script src="<%= asset_path %>/docs.js"></script>
-    <script src="<%= asset_path %>/off-canvas.js"></script>
     <script>
       $(document)
       <% if @joyride %>
