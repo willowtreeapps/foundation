@@ -1,7 +1,7 @@
 //
 // Off Canvas Mixins
 //
-@mixin off-canvas($style: false, $main-element: "[role='main']", $complementary-element: "[role='complementary']", $nav-element: "[role='navigation']", $panels: ".page-panel", $main-row: ".row", $nested-rows: ".row", $menu-button: ".menu-button", $sidebar-button: ".sidebar-button", $timing: 0.25s, $main-large-width: 80%, $complementary-large-width: 20%, $panel-count: 5) {
+@mixin off-canvas($style: false, $main-element: "[role='main']", $complementary-element: "[role='complementary']", $nav-element: "[role='navigation']", $panels: ".page-panel", $main-row: ".row", $nested-rows: ".row", $menu-button: ".menu-button", $sidebar-button: ".sidebar-button", $timing: 0.25s, $main-large-width: 80%, $complementary-large-width: 20%, $panel-count: 5, $use3d: false) {
 
 	padding: 0; 
 	margin: 0;
@@ -13,12 +13,27 @@
 
 	#{$complementary-element}, #{$main-element} { width: 100%; padding: 0 15px; display: block; position: relative; z-index: 1; -webkit-transition: $timing all ease-in; -moz-transition: $timing all ease-in; -o-transition: $timing all ease-in; transition: $timing all ease-in; }
 
-	#{$complementary-element} { margin-left: -100%; width: $main-large-width; float: left; z-index: 2; }
+	@if $use3d {
 
-	#{$main-element} { margin-left: 0; float: right; z-index: 1; position: relative; }
+		#{$complementary-element} { margin-left: -100%; width: $main-large-width; float: left; z-index: 2; }
+		#{$main-element} { margin-left: 0; float: right; z-index: 1; position: relative; }
 
-	&.active #{$complementary-element} { margin-left: 0; }
-	&.active #{$main-element} { margin-right: -$main-large-width; }
+		&.active #{$complementary-element} { 
+			-webkit-transform: translate3d(percentage(1 / ($main-large-width/100%)),0,0);
+		}
+		&.active #{$main-element} { 
+			-webkit-transform: translate3d($main-large-width,0,0); 
+		}
+
+	} @else {
+		
+		#{$complementary-element} { margin-left: -100%; width: $main-large-width; float: left; z-index: 2; }
+		#{$main-element} { margin-left: 0; float: right; z-index: 1; position: relative; }
+
+		&.active #{$complementary-element} { margin-left: 0; }
+		&.active #{$main-element} { margin-right: -$main-large-width; }
+
+	}
 
 	//Global off canvas styles for screens larger than 768px
 	@media #{$small} {
@@ -66,6 +81,6 @@
 // Default CSS Classes
 //
 
-body.off-canvas { @include off-canvas(); }
+body.off-canvas { @include off-canvas($use3d: true); }
 body.off-canvas.paneled { @include off-canvas($style: paneled); }
 body.off-canvas.nav-on-top { @include off-canvas($style: nav-on-top); }
