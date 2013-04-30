@@ -17,7 +17,6 @@ Foundation was made by [ZURB](http://www.zurb.com), a product design company in 
 
 If Foundation knocks your socks off the way we hope it does and you want more, why not check out [our jobs](http://www.zurb.com/talent)?
 
-
 MIT Open Source License
 =======================
 
