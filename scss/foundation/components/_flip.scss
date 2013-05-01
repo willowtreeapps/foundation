@@ -10,10 +10,7 @@
 	$y-flip: 1;
 	$x-flip: 0;
 
-	@if $flip-axis == y {
-		$y-flip: 1;
-		$x-flip: 0;
-	} @else if $flip-axis == x {
+	@if $flip-axis == x {
 		$y-flip: 0;
 		$x-flip: 1;
 	}
