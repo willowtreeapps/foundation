@@ -1,0 +1,97 @@
+//
+// Cards Mixin
+//
+
+@mixin flip-object ($perspective: 5000, $ratioX: false, $ratioY: false, $clip-back: false, $flip-axis: y, $container: ".container", $front: ".front", $back: ".back", $flip-target: "a.flip-this") {
+
+	position: relative;
+	padding: 0; margin: 0;
+
+	$y-flip: 1;
+	$x-flip: 0;
+
+	@if $flip-axis == y {
+		$y-flip: 1;
+		$x-flip: 0;
+	} @else if $flip-axis == x {
+		$y-flip: 0;
+		$x-flip: 1;
+	}
+
+	-webkit-perspective: $perspective;
+	perspective: $perspective;
+
+	#{$container} {	
+		
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		-webkit-transition: 0.6s;
+		transition: 0.6s;
+
+		#{$front}, #{$back} {
+			width: 100%;
+
+			-webkit-backface-visibility: hidden; 
+			backface-visibility: hidden;
+
+			.row, .column, .columns {
+				-webkit-backface-visibility: hidden; 
+				backface-visibility: hidden;
+			}
+		}
+
+		#{$front} {
+			z-index: 2;
+		}
+
+		#{$back} {
+			position: absolute;
+			height: 100%;
+			left: 0; top: 0;
+
+			@if $clip-back {
+				overflow-y: scroll;
+			}
+
+			@if $flip-axis == y {
+				-webkit-transform: rotateY(180deg);
+				transform: rotateY(180deg);
+			} @else if $flip-axis == x {
+				-webkit-transform: rotateX(180deg);
+				transform: rotateX(180deg);
+			}
+		}
+
+		//Ratio detection and settings
+		@if ($ratioX != false) and ($ratioY != false) {
+
+			width: 100%; height: 0;
+			padding-bottom: percentage($ratioY / $ratioX);
+
+		}
+		
+		//Detect a link to flip back and forth, or flip on hover
+		@if $flip-target {
+			&.active {
+				-webkit-transform: rotate3d($x-flip,$y-flip,0,180deg);
+				transform: rotate3d($x-flip,$y-flip,0,180deg);
+			}
+		} @else {
+			&:hover {
+				-webkit-transform: rotate3d($x-flip,$y-flip,0,180deg);
+				transform: rotate3d($x-flip,$y-flip,0,180deg);
+			}
+		}
+
+	}
+
+}
+
+
+//
+// Default CSS Classes
+//
+
+.flip { @include flip-object(); }
+.card { @include flip-object($flip-target: false, $clip-back: true); }
+.card.square { @include flip-object($flip-target: false, $clip-back: true, $ratioX: 1, $ratioY: 1); }
