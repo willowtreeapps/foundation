@@ -81,6 +81,17 @@
 		}
 
 	}
+}
+
+@mixin flip-card-style($padding: 1em, $border-color: #eee, $border-width: 1px, $container: ".container", $front: ".front", $back: ".back") { 
+	
+	#{$container} {
+
+		border: solid $border-width $border-color;
+
+		#{$front}, #{$back} { padding: $padding; }
+
+	}
 
 }
 
@@ -90,5 +101,5 @@
 //
 
 .flip { @include flip-object(); }
-.card { @include flip-object($flip-target: false, $clip-back: true); }
-.card.square { @include flip-object($flip-target: false, $clip-back: true, $ratioX: 1, $ratioY: 1); }
+.card { @include flip-object($flip-target: false, $clip-back: true); @include flip-card-style(); }
+.card.square { @include flip-object($flip-target: false, $clip-back: true, $ratioX: 1, $ratioY: 1); @include flip-card-style(); }
