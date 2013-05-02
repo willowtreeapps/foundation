@@ -4,66 +4,15 @@
 @import "off-canvas";
 @import "coderay";
 
-/* Documentation Overrides */
-
-/* Coderay styles */
-.html, .css, .scss, .js { position: relative; }
-
-ul, ol, dl { list-style-position: inside; }
-
-.CodeRay:before {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  display: block;
-  color: #ccc;
-  font-size: .75em;
-}
-.html > .CodeRay:before { content: "HTML"; }
-.css > .CodeRay:before { content: "SCSS"; }
-.js > .CodeRay:before { content: "JS"; }
-
-
-/* Docs Footer Styles */
-.row.full-width {
-  max-width: 100%;
-}
-footer.row.full-width {
-  padding-top: 30px;
-  border-top: solid 1px #ddd;
-  font-size: 14px;
-}
-
-#copyright {
-  background: #3f3f3f;
-  color: #fff;
-  padding: 11px 0;
-  margin-top: 30px;
-
-  a {
-    color: #fff;
-    font-size: 14px;
-  }
-
-  p,
-  ul { margin-bottom: 0; }
-}
-
-.docs.header { margin-bottom: 10px; }
-.docs.subheader {
-  float: $default-float;
-}
-
-.docs.section-container a.active { font-weight: bold; }
-
 /* Documentation Custom Styles for matching the Marketing page */
+
+/* Typography Overrides */
+.docs.header { margin-bottom: 10px; }
+.docs.subheader { float: $default-float; }
+.docs.section-container a.active { font-weight: bold; }
 @font-face { font-family: 'OpenSans'; src: url('../assets/OpenSans-Light-webfont.eot'); src: url('../assets/OpenSans-Light-webfont.eot?#iefix') format("embedded-opentype"), url('../assets/OpenSans-Light-webfont.woff') format("woff"), url('../assets/OpenSans-Light-webfont.ttf') format("truetype"), url('../assets/OpenSans-Light-webfont.svg#OpenSansLight') format("svg"); font-weight: light; font-weight: 300; font-style: normal; }
 @font-face { font-family: 'OpenSans'; src: url('../assets/OpenSans-Regular-webfont.eot'); src: url('../assets/OpenSans-Regular-webfont.eot?#iefix') format("embedded-opentype"), url('../assets/OpenSans-Regular-webfont.woff') format("woff"), url('../assets/OpenSans-Regular-webfont.ttf') format("truetype"), url('../assets/OpenSans-Regular-webfont.svg#OpenSansRegular') format("svg"); font-weight: normal; font-weight: 500; font-style: normal; }
 @font-face { font-family: 'OpenSans'; src: url('../assets/OpenSans-Bold-webfont.eot'); src: url('../assets/OpenSans-Bold-webfont.eot?#iefix') format("embedded-opentype"), url('../assets/OpenSans-Bold-webfont.woff') format("woff"), url('../assets/OpenSans-Bold-webfont.ttf') format("truetype"), url('../assets/OpenSans-Bold-webfont.svg#OpenSansBold') format("svg"); font-weight: bold; font-weight: 700; font-style: normal; }
-
-body {
-  -webkit-font-smoothing: antialiased;
-}
 
 h1,
 h2,
@@ -81,7 +30,12 @@ h6 {
 }
 
 li.name h1 { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+.subheader { margin-bottom: 20px; }
 
+.button { box-shadow: none !important; border: none; }
+.panel .button.secondary { background-color: #fff; }
+
+/* Blue Header */
 header {
   background: $primary-color;
   padding: 22px 0;
@@ -108,25 +62,17 @@ header {
   margin-top: 44px;
   position: relative;
 
-  @media #{$small} { h2 { margin-top: -10px; } }
+  @media #{$small} { h3 { margin-top: -7px; } }
 }
 
-#sidebarButton {
-  margin-top: 30px;
-}
+#sidebarButton { margin-bottom: 30px; margin-top: 30px; }
 
-.section-container.auto > section .content,
-.section-container.auto > .section .content {
-  border-left: 0;
-  border-right: 0;
-  border-bottom: 0;
-  border-top: 0;
-  padding: 20px 0 0 0;
+.next-step { margin-bottom: 0;
+  .inline-list { overflow: visible; @include clearfix; }
 }
-
-.next-step .inline-list { overflow: visible; @include clearfix; }
 .next-step .button { margin-bottom: 0; }
 
+/* All Components Mega List */
 #allElements {
   position: absolute;
   right: 16px;
@@ -153,7 +99,7 @@ header {
 
 .all-elements {
   display: none;
-  background: #454545;
+  background: rgba(#222,0.96);
   width: 100%;
   top: -100px;
   z-index: 100;
@@ -174,7 +120,7 @@ header {
     display: block;
     padding: 10px 12px;
   }
-  a:hover { background: #515151; }
+  a:hover { background: #333; }
   &.open {
     top: 0px;
   }
@@ -182,7 +128,7 @@ header {
   > .row {
     min-width: 100%;
     padding: 40px 50px;
-    border-bottom: solid 1px #555;
+    border-bottom: solid 1px #333;
 
     .columns > h4 { padding-left: 10px; }
   }
@@ -229,26 +175,113 @@ header {
   }
 }
 
-.context.round.label {
-  width: auto;
-  position: absolute;
-  z-index: 1;
-  top: -5px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  display: block;
+/* Wells */
+.well {
+  border: solid 1px #ddd;
+  position: relative;
 
-  a { width: 100%; color: #fff; }
+  // Example Well
+  &.example {
+    padding: 30px 10px 10px 10px;
+    background: #fafafa;
+    box-shadow: 0 0 6px rgba(0,0,0,0.07) inset;
+    margin: 0;
 
-  section.active & { background: black; }
+    &:after {
+      content: attr(data-label);
+      font-family: 'Consolas', 'Liberation Mono', Courier, monospace;
+      display: block;
+      width: 100%;
+      position: absolute;
+      color: #bbb;
+      top: 0;
+      left: 0;
+      text-transform: uppercase;
+      font-size: 11px;
+      height: 20px;
+      line-height: 20px;
+      text-align: right;
+      padding-right: 5px;
+    }
+  }
 }
 
-.pill-tabs { margin-top: 20px; }
+/* Options Panel */
+.panel.options {
+  background: #fafafa;
+  border-color: #e5e5e5;
+  padding: 14px !important;
+  margin-bottom: 0;
+  font-size: .9em;
+
+  h5, h6 { font-weight: normal; }
+}
+
+/* Custom pill tabs */
+.section-container.switcheroo.tabs {
+  margin-top: 10px;
+
+  > .section {
 
 
-//
+    .title {
+      top: -5px;
+      background: none;
+      border: none;
+      padding-right: 6px;
+
+      a {
+        padding: 10px 26px;
+        font-weight: bold;
+        background: #eee;
+        @include radius(1000px);
+      }
+    }
+
+    &.active .title {
+
+      a {
+        color: #fff;
+        background-color: $primary-color;
+      }
+    }
+
+    .content {
+      border: 0;
+      padding: 20px 0 0 0;
+    }
+  }
+}
+
+/* Docs Footer */
+.row.full-width {
+  max-width: 100%;
+}
+footer.row.full-width {
+  padding-top: 30px;
+  border-top: solid 1px #ddd;
+  font-size: 14px;
+}
+
+#copyright {
+  background: #3f3f3f;
+  color: #fff;
+  padding: 11px 0;
+  margin-top: 30px;
+
+  a {
+    color: #fff;
+    font-size: 14px;
+  }
+
+  p,
+  ul { margin-bottom: 0; }
+}
+
+
+/*
 // Custom Styles for Examples throughout the Docs
-//
+/*
 
 /* Alert Docs */
 .alert-base {
@@ -359,16 +392,37 @@ input[type="text"].attached-input {
 /* ZURBjobs */
 .jobs {
   border: 1px solid #eee;
-  padding: 16px 20px 20px;
-  margin-bottom: 20px;
+  border-top: none;
+  padding: 16px 20px 10px;
+  margin-bottom: 60px;
   font-size: 14px;
   line-height: 1.1;
-  ul { list-style: none;
-    li { margin-bottom: 10px; }
+  overflow: hidden;
+  position: relative;
+
+  ul {
+    list-style: none;
+
+    li {
+      margin-bottom: 10px;
+      width: 50%;
+      float: left;
+
+      &:nth-child(2n+1) { clear: both; }
+    }
   }
   .location {
     display: block;
     color: #555;
+  }
+  #via {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    font-size: 11px;
+    color: lighten($primary-color, 25%);
+
+    &:hover { color: lighten($primary-color, 25%); }
   }
 }
 

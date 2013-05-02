@@ -5,11 +5,27 @@ $value: #ca3f1d;
 $selector: #2c80b3;
 $comment: #47545f;
 
-/* CodeRay Syntax Highlighting Styles to match Github */
+/* Coderay styles */
+.html, .css, .scss, .js { position: relative; }
+
+ul, ol, dl { list-style-position: inside; }
+
+.CodeRay:before {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: block;
+  color: lighten(#13181e, 35%);
+  font-size: .75em;
+}
+.html > .CodeRay:before { content: "HTML"; }
+.css > .CodeRay:before { content: "SCSS"; }
+.js > .CodeRay:before { content: "JS"; }
+
 .CodeRay {
-  background-color: $bg;
+  background-color: lighten($bg,10%);
   font-family: 'Consolas', 'Liberation Mono', Courier, monospace;
-  color: $txt;
+  color: darken($txt, 20%);
   padding: .8em 0 .8em .8em;
   margin-bottom: 1.3em;
   overflow: auto;
