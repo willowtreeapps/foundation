@@ -13,20 +13,7 @@
         <% @page_title = "Alert Boxes" %>
 
         <h3><%= @page_title %></h3>
-        <h6 class="subheader">Alerts are a handy element you can drop into a form or inline on a page to communicate success, warnings, failure or just information. They'll <a href="http://youtu.be/0lw17Pb7Nso">stretch</a> to 100% of the container width you put them in.</h6>
-
-        <div class="example well" data-label="example">
-          <div data-alert class="alert-box">
-            This is a standard alert.
-            <a href="" class="close">&times;</a>
-          </div>
-        </div>
-
-<%= code_example '
-<div data-alert class="alert-box">
-  <!-- Replace with your content -->
-  <a href="#" class="close">&times;</a>
-</div>', :html %>
+        <h6 class="subheader">An alert box is an element you can drop into a form or inline on a page to communicate success, warnings, failure or just information. They'll <a href="http://youtu.be/0lw17Pb7Nso" rel="nofollow">stretch</a> to 100% of the container width you put them in.</h6>
 
       </div>
     </div>
@@ -34,196 +21,238 @@
     <div class="row">
       <div class="large-12 columns">
 
-        <div class="section-container tabs switcheroo" data-section="tabs" data-options="one_up: false">
+        <div class="section-container tabs switcheroo" data-section="tabs" data-options="one_up: false; deep_linking: true">
 
           <section class="section">
-            <span class="title" data-section-title><a href="#">CSS</a></span>
-            <div class="content">
+            <span class="title" data-section-title><a href="#css">CSS</a></span>
+            <div class="content" data-slug="css">
+
+              <p>Creating alert boxes with CSS is as easy as copy and paste, just make sure you've followed the <a href="css-start.html">Getting Started with CSS</a> guide to setup your project correctly.</p>
+
+              <div class="example well top-border" data-label="example">
+                <div data-alert class="alert-box">
+                  This is a standard alert.
+                  <a href="" class="close">&times;</a>
+                </div>
+              </div>
+
+<%= code_example '
+<div data-alert class="alert-box">
+  <!-- Replace with your content -->
+  <a href="#" class="close">&times;</a>
+</div>', :html %>
 
               <div class="panel options">
-                <h5>Available Classes</h5>
+
+                <h4>Available Classes</h4>
 
                 <ul>
                   <li><code>alert-box:</code> Contains all the default styles for an alert box.</li>
                   <li><code>success:</code> Turn the background green, great for success messages.</li>
                   <li><code>alert:</code> Turn the background red, great for error messages.</li>
                   <li><code>secondary:</code> Turn the background gray, great for subtle messages.</li>
+                </ul>
+
+                <p>The following classes can be combined with any of the classes above to alter the border radius. Like so: <kbd>class="alert-box success radius"</kbd></p>
+
+                <ul>
                   <li><code>radius:</code> Add a 3px radius to the corners.</li>
                   <li><code>round:</code> Add a 1000px radius to the corners, making it look like a pill.</li>
                 </ul>
+
               </div>
+
               <div class="well example" data-label="success">
                 <div data-alert class="alert-box success">
-                  This is a success alert.
+                  success
                   <a href="" class="close">&times;</a>
                 </div>
               </div>
               <div class="well example" data-label="alert">
                 <div data-alert class="alert-box alert">
-                  This is an alert alert (I N C E P T I O N !).
+                  alert
                   <a href="" class="close">&times;</a>
                 </div>
               </div>
               <div class="well example" data-label="secondary">
                 <div data-alert class="alert-box secondary">
-                  This is a secondary alert.
+                  secondary
                   <a href="" class="close">&times;</a>
                 </div>
               </div>
               <div class="well example" data-label="radius">
                 <div data-alert class="alert-box radius">
-                  This is a radius alert.
+                  radius
                   <a href="" class="close">&times;</a>
                 </div>
               </div>
-              <div class="well example" data-label="round">
-                <div data-alert class="alert-box round">
-                  This is a round alert.
+              <div class="well example" data-label="round success">
+                <div data-alert class="alert-box round success">
+                  round success
                   <a href="" class="close">&times;</a>
                 </div>
               </div>
-              <!-- <h3>Build With Predefined HTML Classes</h3>
-              <p>There are two ways to build alerts in Foundation 4: with our predefined HTML classes or with our structure and mixins. Building an alert using our predefined class is super-easy, you only need a block-level element with a class of <code>.alert-box</code> (we usually use a <code>&lt;div&gt;</code>). You may also include an anchor with a class of <code>.close</code> to create a close box. Here is the markup you'll need:</p> -->
+
+              <hr>
+
+              <h4>The Close Button</h4>
+              <p>If you don't want people to have access to a close button, simply leave out the anchor and the <code>data-alert</code> attribute, like so:</p>
+
+              <div class="well example top-border">
+                <div class="alert-box">
+                  Neener, neener, neener. You can't close me!
+                </div>
+              </div>
+
+<%= code_example '
+<div class="alert-box">
+  <!-- Replace with your content -->
+</div>', :html %>
+
             </div>
           </section>
 
           <section class="section">
-            <span class="title" data-section-title><a href="#">Scss</a></span>
-            <div class="content">
-              <h3>Build with Mixins</h3>
-              <p>We've included SCSS mixins used to style alert boxes. To use these mixins, you'll need to have the <a href="../sass.html">extension installed</a> or grab <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/_foundation-global.scss">_foundation-global.scss</a>, <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_global.scss">_global.scss</a> and <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_alert-boxes.scss">_alert-boxes.scss</a> from Github and throw them into a Foundation folder in your project directory. From there, you can import the files at the top of your own SCSS stylesheet, like so:</p>
+            <span class="title" data-section-title><a href="#scss">SCSS</a></span>
+            <div class="content" data-slug="scss">
+              <p>To create an alert box using our SCSS mixin, make sure you've followed the <a href="scss-start.html">Getting Started with SCSS</a> guide to setup your project correctly.</p>
+
+              <div class="example well top-border" data-label="example">
+                <div data-alert class="alert-box">
+                  This is a standard alert.
+                  <a href="" class="close">&times;</a>
+                </div>
+              </div>
 
 <%= code_example '
-@import "foundation/foundation-global", "foundation/components/global", "foundation/components/alerts";
-', :css %>
-
-              <p>If you are using the mixins, you may include the styles on whatever class or ID you'd like, just make sure you follow our markup structure:</p>
-
-<%= code_example '
-<div data-alert class="your-class-name">
-  <!-- Your content goes here -->
+<div data-alert class="your-class">
+  <!-- Replace with your content -->
   <a href="#" class="close">&times;</a>
 </div>', :html %>
 
-
-              <h5>Quick Mixin</h5>
-              <p>You can build your alert using our global mixin by including it on your custom class or ID in your stylesheet. The mixin contains options for changing the background color, which also controls the border and text color. The rest of the defaults can be modified using the available variables. The global mixin looks like this:</p>
-
 <%= code_example '
-/* Using the default styles */
-.your-class-name { @include alert; }
-
-/* Using the available options */
-.your-class-name { @include alert(#ff6c3c); }
+.your-class { @include alert;
+  .close { @include alert-close; }
+}
 ', :css %>
 
-              <div data-alert class="alert-box">
-              This is a default alert.
-              <a href="#" class="close">&times;</a>
+              <div class="panel options">
+
+                <h4>Available Options</h4>
+
+                <ul>
+                  <li><code>$bg:</code> Control the background color of the alert box. This also changes the font color based on background lightness.</li>
+                </ul>
+
               </div>
 
-              <div data-alert class="alert-base custom-bg">
-              This is an alert with a custom background set.
-              <a href="#" class="close">&times;</a>
+              <div class="well example" data-label="$bg: #ff6c3c">
+                <div data-alert class="alert-base custom-bg">
+                  $bg: #ff6c3c
+                  <a href="" class="close">&times;</a>
+                </div>
+              </div>
+              <div class="well example" data-label="$bg: #eeeeee">
+                <div data-alert class="alert-base custom-bg-lt">
+                  $bg: #eeeeee
+                  <a href="" class="close">&times;</a>
+                </div>
+              </div>
+<%= code_example '
+.your-class { @include alert($bg: your-color); }
+', :css %>
+
+              <hr>
+
+              <h4>Internal Mixins</h4>
+              <p>We use smaller mixins to build the default mixin.</p>
+
+              <div class="panel options">
+
+                <h5>Base Mixin</h5>
+                <p>Styles for creating the basic structure of an alert box.</p>
+
               </div>
 
-              <h5>Base Mixin</h5>
-              <p>Use this mixin to create the base styles for alert boxes. This will include styles that create the basic structure of an alert box.</p>
-
+              <div class="well example" data-label="alert-base">
+                <div data-alert class="alert-base">alert-base</div>
+              </div>
 
 <%= code_example '
 .your-class-name { @include alert-base; }
 ', :css %>
 
-              <div class="alert-base">This is the base mixin.</div>
+              <div class="panel options">
 
-              <h5>Background Mixin</h5>
-              <p>You can control the background, border and text styles for the alert using this mixin. We base the border and text style on the background color you choose using some sweet Sass logic.</p>
+                <h5>Style Mixin</h5>
+                <p>Control background color, border and text style. Just set the background options and we'll take care of the text and border color using some logic.</p>
+
+              </div>
+
+              <div class="well example" data-label="alert-style($bg)">
+                <div data-alert class="alert-base bg">alert-style($bg)</div>
+              </div>
 
 <%= code_example '
 .your-class-name {
   @include alert-base;
-  @include alert-style($bg);
+  @include alert-style;($bg);
 }', :css %>
 
-              <div data-alert class="alert-base bg">This is base and bg mixins.</div>
+              <div class="panel options">
 
-              <p>You can set <code>$bg</code> color to any of our predefined color variables or any hexadecimal color of your choosing. To set this value to something other than our default, use <code>@include alert-bg(#hexcolor);</code></p>
+                <h5>Close Button Mixin</h5>
+                <p>Include the close button with this simple mixin. Using the 'data-alert' attribute will tell the JS to do it's thing and close the alert box.</p>
 
-              <h5>Close Box Mixin</h5>
-              <p>You can include a close box with each of the alert boxes by adding an anchor right before the closing <code>&lt;/div&gt;</code>. This anchor should have a class of <code>.close</code> in order to work with <strong>foundation.alerts.js</strong>, which contains the interaction for closing.</p>
+              </div>
+
+              <div class="well example" data-label="alert-close">
+                <div data-alert class="alert-base">alert-close.
+                  <a href="#" class="close">&times;</a>
+                </div>
+              </div>
 
 <%= code_example '
-.your-class-name {
-  @include alert-base;
-  @include alert-style;
+.your-class-name { @include alert-base;
   .close { @include alert-close; }
 }', :css %>
 
-              <div data-alert class="alert-base bg">
-                This is base, bg and close mixins.
-                <a href="" class="close">&times;</a>
-              </div>
-
-              <h5>Radius Mixin</h5>
-              <p>We've also created a global radius mixin that you can use to add border-radius to any element you'd like.</p>
-
-<%= code_example '
-.your-class-name {
-  @include alert-base;
-  @include alert-style($success-color);
-  @include radius($radius);
-}', :css %>
-
-              <div data-alert class="alert-base bg radius success">
-              This is base, bg and radius mixins.
-              <a href="" class="close">&times;</a>
-              </div>
-
-              <h5>Default SCSS Variables</h5>
-<%= code_example '
-/* We use this to control alert padding. */
-$alert-padding-top:         emCalc(11px);
-$alert-padding-left:        $alert-padding-top;
-$alert-padding-right:       $alert-padding-top + emCalc(10px);
-$alert-padding-bottom:      $alert-padding-top + emCalc(1px);
-
-/* We use these to control text style. */
-$alert-font-weight:         bold;
-$alert-font-size:           emCalc(14px);
-$alert-font-color:          #fff;
-$alert-font-color-alt:      darken($secondary-color, 60%);
-
-/* We use this for close hover effect. */
-$alert-function-factor:     10%;
-
-/* We use these to control border styles. */
-$alert-border-style:        solid;
-$alert-border-width:        1px;
-$alert-border-color:        darken($primary-color, $alert-function-factor);
-$alert-bottom-margin:       emCalc(20px);
-
-/* We use these to style the close buttons */
-$alert-close-color:         #333;
-$alert-close-position:      emCalc(5px);
-$alert-close-font-size:     emCalc(22px);
-$alert-close-opacity:       0.3;
-$alert-close-opacity-hover: 0.5;
-$alert-close-padding:       5px 4px 4px;
-
-/* We use this to control border radius */
-$alert-radius:              $global-radius;
-', :css %>
-
-              <p><strong>Note:</strong> <code>emCalc();</code> is a function we wrote to convert <code>px</code> to <code>em</code>.</p>
-
               <hr>
+
+              <div class="panel options">
+
+                <h4>Default SCSS Variables</h4>
+
+                <ul>
+                  <li><code>$alert-padding-top:</code> Top padding for the alert boxes.</li>
+                  <li><code>$alert-padding-right:</code> Right padding for the alert boxes.</li>
+                  <li><code>$alert-padding-bottom:</code> Bottom padding for the alert boxes.</li>
+                  <li><code>$alert-padding-left:</code> Left padding for the alert boxes.</li>
+                  <li><code>$alert-font-weight</code> Font weight for text inside alert boxes.</li>
+                  <li><code>$alert-font-size:</code> Font size for text inside alert boxes.</li>
+                  <li><code>$alert-font-color:</code> Font color for text inside alert boxes when the background is dark enough.</li>
+                  <li><code>$alert-font-color-alt:</code> Font color for text inside alert boxes when the background is light enough.</li>
+                  <li><code>$alert-function-factor:</code> The percentage to change colors on hover, etc.</li>
+                  <li><code>$alert-border-style:</code> Border style for alert boxes.</li>
+                  <li><code>$alert-border-width:</code> Border width for alert boxes.</li>
+                  <li><code>$alert-border-color:</code> Border color for alert boxes.</li>
+                  <li><code>$alert-bottom-margin:</code> Space below alert boxes.</li>
+                  <li><code>$alert-close-color:</code> Font color for the close button.</li>
+                  <li><code>$alert-close-position:</code> How far from the edge is the close button?</li>
+                  <li><code>$alert-close-font-size:</code> Font size for the close button.</li>
+                  <li><code>$alert-close-opacity:</code> Default opacity for the close button.</li>
+                  <li><code>$alert-close-opacity-hover</code> Hover opacity for the close button.</li>
+                  <li><code>$alert-close-padding:</code> Set the padding around the close buttons to create bigger hit area.</li>
+                </ul>
+
+              </div>
+
             </div>
           </section>
 
           <section class="section">
-            <span class="title" data-section-title><a href="#">Javascript</a></span>
-            <div class="content">
+            <span class="title" data-section-title><a href="#js">JS</a></span>
+            <div class="content" data-slug="js">
               <h3>Using the JavaScript</h3>
               <p>You don't need ths JS to create alert boxes with Foundation. The only reason you'll need to include <code>foundation.alerts.js</code> is if you want to add the ability to close an alert. You'll also need to make sure to include <code>zepto.js</code> and <code>foundation.js</code> above the alert plugin. Above your closing <code>&lt;/body&gt;</code> tag include the following line of code and make sure you have the JS in your directory:</p>
 
@@ -243,6 +272,8 @@ $alert-radius:              $global-radius;
           </section>
         </div>
 
+        <hr>
+
         <div class="panel next-step">
           <h4 class="normal">Next: Navigate Like a Boss</h4>
           <p>Donec id elit non mi porta gravida at eget metus. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus mollis interdum.</p>
@@ -251,9 +282,6 @@ $alert-radius:              $global-radius;
             <li><a class="small button" href="#">Download Foundation 4</a></li>
           </ul>
         </div>
-
-        <!-- ZURBjobs Posts -->
-        <%= render "_jobs.html.erb" %>
 
       </div>
     </div>

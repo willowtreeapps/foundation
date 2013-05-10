@@ -1,4 +1,17 @@
 //
+// @version
+//   4.1.6
+//
+// @title
+//   Alert Boxes
+//
+// @description
+//   An alert box is an element you can drop into a form or inline on a page to communicate success, warnings,
+//   failure or just information. They'll [stretch](http://youtu.be/0lw17Pb7Nso) to 100% of the container width you put them in.
+//
+
+
+//
 // Alert Variables
 //
 
@@ -87,20 +100,69 @@ $alert-radius:              $global-radius                                 !defa
   @include radius($radius);
 }
 
+
+// Controls output of default classes
 @if $include-html-alert-classes != false {
 
-  /* Foundation Alerts */
+// @CSS
+//   Creating alert boxes with CSS is as easy as copy and paste, just make sure you've followed the
+//   [Getting Started with CSS](http://comedian.local:4000/components/css-start.html) guide to setup your project correctly.
+
+// @example
+//   <div data-alert class="alert-box">
+//     This is a standard alert.
+//     <a href="#" class="close">&times;</a>
+//   </div>
+
+// @classes
+//   .alert-box: Contains all the default styles for an alert box.
+
+// @text
+//   The following classes can be added to "alert-box" to control the background color.
+
+// .success: Turn the background green, great for success messages.
+// .alert: Turn the background red, great for error messages.
+// .secondary: Turn the background gray, great for subtle messages.
+
+// @text
+//   The following classes can be combined with any of the classes above to alter the border radius. Like so: <class="alert-box success radius>"
+
+// .radius: Add a 3px radius to the corners.
+// .round: Add a 1000px radius to the corners, making it look like a pill.
+
+// @example-prototype alert-box
+//   <div data-alert class="alert-box @@param">
+//     This is a standard alert.
+//     <a href="#" class="close">&times;</a>
+//   </div>
+//   @example: @@success
+//   @example: @@alert
+//   @example: @@secondary
+//   @example: @@radius
+//   @example: @@round success
+
   .alert-box {
     @include alert;
-
-    .close { @include alert-close; }
-
-    &.radius { @include radius($alert-radius); }
-    &.round { @include radius($global-rounded); }
 
     &.success { @include alert-style($success-color); }
     &.alert { @include alert-style($alert-color); }
     &.secondary { @include alert-style($secondary-color); }
+    &.radius { @include radius($alert-radius); }
+    &.round { @include radius($global-rounded); }
+
+// @feature
+//   The Close Button
+//
+// @desc
+//   If you don't want people to have access to a close button, simply leave out the anchor and the <data-alert> attribute, like so:
+
+// @example
+//   <div class="alert-box">
+//     Neener, neener, neener. You can't close me!
+//   </div>
+
+    // Default styles alert box close buttons.
+    .close { @include alert-close; }
   }
 
 }

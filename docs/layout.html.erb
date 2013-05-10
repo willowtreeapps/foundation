@@ -348,16 +348,20 @@
         $(document).foundation('joyride','start');
       });
 
+
+      // Mega Components Menu
       $(document).ready(function() {
         $('.all-elements').height($(window).height());
 
         $('#allElements').on('click', function(e) {
           e.preventDefault();
           $('.all-elements').fadeIn(200).addClass('open');
+          $('body').css('position','fixed');
         });
 
         $('.close-all-elements').on('click', function() {
           $('.all-elements').fadeOut(200).removeClass('open');
+          $('body').css('position','');
         });
 
         $(window).resize(function() {
