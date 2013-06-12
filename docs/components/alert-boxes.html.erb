@@ -180,7 +180,7 @@
               <hr>
 
               <h3>Close Button Mixin</h3>
-              <p>Include the close button with this simple mixin, just make sure you also include the anchor. Adding <code>data-alert</code> will tell the Javascripts to do their thing and close the alert box when someone clicks the close button.</p>
+              <p>Include the close button markup and <code>data-alert</code> attribute. Remove the anchor and data-attribute if you don't want people to be able to close it.</p>
 
               <div data-alert class="alert-base">&nbsp;
                 <a href="#" class="close">&times;</a>
@@ -193,33 +193,29 @@
 
               <hr>
 
-              <div class="panel options">
+              <h3>Default SCSS Variables</h3>
 
-                <h4>Default SCSS Variables</h4>
-
-                <ul>
-                  <li><code>$alert-padding-top:</code> Top padding for the alert boxes.</li>
-                  <li><code>$alert-padding-right:</code> Right padding for the alert boxes.</li>
-                  <li><code>$alert-padding-bottom:</code> Bottom padding for the alert boxes.</li>
-                  <li><code>$alert-padding-left:</code> Left padding for the alert boxes.</li>
-                  <li><code>$alert-font-weight</code> Font weight for text inside alert boxes.</li>
-                  <li><code>$alert-font-size:</code> Font size for text inside alert boxes.</li>
-                  <li><code>$alert-font-color:</code> Font color for text inside alert boxes when the background is dark enough.</li>
-                  <li><code>$alert-font-color-alt:</code> Font color for text inside alert boxes when the background is light enough.</li>
-                  <li><code>$alert-function-factor:</code> The percentage to change colors on hover, etc.</li>
-                  <li><code>$alert-border-style:</code> Border style for alert boxes.</li>
-                  <li><code>$alert-border-width:</code> Border width for alert boxes.</li>
-                  <li><code>$alert-border-color:</code> Border color for alert boxes.</li>
-                  <li><code>$alert-bottom-margin:</code> Space below alert boxes.</li>
-                  <li><code>$alert-close-color:</code> Font color for the close button.</li>
-                  <li><code>$alert-close-position:</code> How far from the edge is the close button?</li>
-                  <li><code>$alert-close-font-size:</code> Font size for the close button.</li>
-                  <li><code>$alert-close-opacity:</code> Default opacity for the close button.</li>
-                  <li><code>$alert-close-opacity-hover</code> Hover opacity for the close button.</li>
-                  <li><code>$alert-close-padding:</code> Set the padding around the close buttons to create bigger hit area.</li>
-                </ul>
-
-              </div>
+              <ul>
+                <li><code>$alert-padding-top:</code> Top padding for the alert boxes.</li>
+                <li><code>$alert-padding-right:</code> Right padding for the alert boxes.</li>
+                <li><code>$alert-padding-bottom:</code> Bottom padding for the alert boxes.</li>
+                <li><code>$alert-padding-left:</code> Left padding for the alert boxes.</li>
+                <li><code>$alert-font-weight</code> Font weight for text inside alert boxes.</li>
+                <li><code>$alert-font-size:</code> Font size for text inside alert boxes.</li>
+                <li><code>$alert-font-color:</code> Font color for text inside alert boxes when the background is dark enough.</li>
+                <li><code>$alert-font-color-alt:</code> Font color for text inside alert boxes when the background is light enough.</li>
+                <li><code>$alert-function-factor:</code> The percentage to change colors on hover, etc.</li>
+                <li><code>$alert-border-style:</code> Border style for alert boxes.</li>
+                <li><code>$alert-border-width:</code> Border width for alert boxes.</li>
+                <li><code>$alert-border-color:</code> Border color for alert boxes.</li>
+                <li><code>$alert-bottom-margin:</code> Space below alert boxes.</li>
+                <li><code>$alert-close-color:</code> Font color for the close button.</li>
+                <li><code>$alert-close-position:</code> How far from the edge is the close button?</li>
+                <li><code>$alert-close-font-size:</code> Font size for the close button.</li>
+                <li><code>$alert-close-opacity:</code> Default opacity for the close button.</li>
+                <li><code>$alert-close-opacity-hover</code> Hover opacity for the close button.</li>
+                <li><code>$alert-close-padding:</code> Set the padding around the close buttons to create bigger hit area.</li>
+              </ul>
 
             </div>
           </section>
@@ -227,21 +223,51 @@
           <section class="section">
             <span class="title" data-section-title><a href="#js">JS</a></span>
             <div class="content" data-slug="js">
-              <h3>Using the JavaScript</h3>
-              <p>You don't need ths JS to create alert boxes with Foundation. The only reason you'll need to include <code>foundation.alerts.js</code> is if you want to add the ability to close an alert. You'll also need to make sure to include <code>zepto.js</code> and <code>foundation.js</code> above the alert plugin. Above your closing <code>&lt;/body&gt;</code> tag include the following line of code and make sure you have the JS in your directory:</p>
 
-              <p><a href="../javascript.html" title="How to install Foundation JavaScript">Read how to install Foundation JavaScript</a></p>
-
-              <p>Required Foundation Library: <code>foundation.alerts.js</code></p>
-
-              <p>Then, you'll need to add a data-attribute to make the JS work properly on that element. That looks like:</p>
+              <h3>Initialization</h3>
+              <ul>
+                <li><code>$(document).foundation();</code></li>
+                <li><code>$(document).foundation('alerts');</code></li>
+                <li><code>$('#id').foundation('alert');</code></li>
+                <li><code>$('.class').foundation('alert');</code></li>
+              </ul>
 
 <%= code_example '
-<div data-alert class="alert-box">
-  <!-- Your content goes here -->
-  <a href="#" class="close">&times;</a>
-</div>
-', :html %>
+// Code Example', :js %>
+
+              <hr>
+
+              <h3>Configuration (Settings)</h3>
+              <ul>
+                <li>$(document).foundation('alerts', {speed: 500});</li>
+                <li>data-options="speed:500"</li>
+              </ul>
+
+<%= code_example '
+// Code Example', :js %>
+
+              <hr>
+
+              <h3>Loading After Page Loads</h3>
+              <ul>
+                <li>$(document).foundation('alerts', 'reflow');</li>
+              </ul>
+
+<%= code_example '
+// Code Example', :js %>
+
+              <hr>
+
+              <h3>Public Methods</h3>
+              <ul>
+                <li>reflow, close</li>
+                <li>Options, bulleted</li>
+                <li>Examples in code</li>
+              </ul>
+
+<%= code_example '
+// Code Example', :js %>
+
             </div>
           </section>
         </div>
