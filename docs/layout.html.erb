@@ -59,7 +59,11 @@
           <h4>Everything you need to know to build for the future.</h4>
 
           <a href="" class="show-for-small secondary small button" id="sidebarButton">Side Menu</a>
-          <a href="#" id="allElements">All Components</a>
+
+          <div class="header-buttons">
+            <a href="#" class="header-button" id="allElements">All Components</a>
+            <a href="#" class="header-button" id="versions">Version 5.1</a>
+          </div>
         </div>
       </div>
     </header>
@@ -351,6 +355,7 @@
 
       // Mega Components Menu
       $(document).ready(function() {
+
         $('.all-elements').height($(window).height());
 
         $('#allElements').on('click', function(e) {
