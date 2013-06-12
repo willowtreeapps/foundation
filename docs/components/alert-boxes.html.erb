@@ -12,8 +12,8 @@
 
         <% @page_title = "Alert Boxes" %>
 
-        <h3><%= @page_title %></h3>
-        <h6 class="subheader">An alert box is an element you can drop into a form or inline on a page to communicate success, warnings, failure or just information. They'll <a href="http://youtu.be/0lw17Pb7Nso" rel="nofollow">stretch</a> to 100% of the container width you put them in.</h6>
+        <h2><%= @page_title %></h2>
+        <h5 class="subheader">An alert box is an element you can drop into a form or inline on a page to communicate success, warnings, failure or just information. They'll <a href="http://youtu.be/0lw17Pb7Nso" rel="nofollow">stretch</a> to 100% of the container width you put them in.</h5>
 
       </div>
     </div>
@@ -27,81 +27,73 @@
             <span class="title" data-section-title><a href="#css">CSS</a></span>
             <div class="content" data-slug="css">
 
-              <p>Creating alert boxes with CSS is as easy as copy and paste, just make sure you've followed the <a href="css-start.html">Getting Started with CSS</a> guide to setup your project correctly.</p>
+              <h3>CSS Example</h3>
 
-              <div class="example well top-border" data-label="example">
-                <div data-alert class="alert-box">
-                  This is a standard alert.
-                  <a href="" class="close">&times;</a>
-                </div>
+              <div data-alert class="alert-box">
+                This is a standard alert.
+                <a href="" class="close">&times;</a>
               </div>
 
 <%= code_example '
-<div data-alert class="alert-box">
+<div class="alert-box" data-alert>
   <!-- Replace with your content -->
   <a href="#" class="close">&times;</a>
 </div>', :html %>
 
-              <div class="panel options">
+              <hr>
 
-                <h4>Available Classes</h4>
+              <h3>Available Classes</h3>
 
-                <ul>
-                  <li><code>alert-box:</code> Contains all the default styles for an alert box.</li>
-                  <li><code>success:</code> Turn the background green, great for success messages.</li>
-                  <li><code>alert:</code> Turn the background red, great for error messages.</li>
-                  <li><code>secondary:</code> Turn the background gray, great for subtle messages.</li>
-                </ul>
+              <h6 class="strong">Default Class</h6>
+              <ul>
+                <li><code>alert-box:</code> Contains all the default styles for an alert box.</li>
+              </ul>
 
-                <p>The following classes can be combined with any of the classes above to alter the border radius. Like so: <kbd>class="alert-box success radius"</kbd></p>
+              <h6 class="strong">Color Modifier Classes</h6>
+              <ul>
+                <li><code>success:</code> Turn the background green, great for success messages.</li>
+                <li><code>alert:</code> Turn the background red, great for error messages.</li>
+                <li><code>secondary:</code> Turn the background gray, great for subtle messages.</li>
+              </ul>
 
-                <ul>
-                  <li><code>radius:</code> Add a 3px radius to the corners.</li>
-                  <li><code>round:</code> Add a 1000px radius to the corners, making it look like a pill.</li>
-                </ul>
+              <h6 class="strong">Style Modifier Classes</h6>
+              <ul>
+                <li><code>radius:</code> Add a 3px radius to the corners.</li>
+                <li><code>round:</code> Add a 1000px radius to the corners, making it look like a pill.</li>
+              </ul>
 
+              <div data-alert class="alert-box success">
+                class="alert-box success"
+                <a href="" class="close">&times;</a>
               </div>
 
-              <div class="well example" data-label="success">
-                <div data-alert class="alert-box success">
-                  success
-                  <a href="" class="close">&times;</a>
-                </div>
+              <div data-alert class="alert-box alert">
+                class="alert-box alert"
+                <a href="" class="close">&times;</a>
               </div>
-              <div class="well example" data-label="alert">
-                <div data-alert class="alert-box alert">
-                  alert
-                  <a href="" class="close">&times;</a>
-                </div>
+
+              <div data-alert class="alert-box secondary">
+                class="alert-box secondary"
+                <a href="" class="close">&times;</a>
               </div>
-              <div class="well example" data-label="secondary">
-                <div data-alert class="alert-box secondary">
-                  secondary
-                  <a href="" class="close">&times;</a>
-                </div>
+
+              <div data-alert class="alert-box radius">
+                class="alert-box radius"
+                <a href="" class="close">&times;</a>
               </div>
-              <div class="well example" data-label="radius">
-                <div data-alert class="alert-box radius">
-                  radius
-                  <a href="" class="close">&times;</a>
-                </div>
-              </div>
-              <div class="well example" data-label="round success">
-                <div data-alert class="alert-box round success">
-                  round success
-                  <a href="" class="close">&times;</a>
-                </div>
+
+              <div data-alert class="alert-box round success">
+                class="alert-box round success"
+                <a href="" class="close">&times;</a>
               </div>
 
               <hr>
 
-              <h4>The Close Button</h4>
+              <h3>The Close Button</h3>
               <p>If you don't want people to have access to a close button, simply leave out the anchor and the <code>data-alert</code> attribute, like so:</p>
 
-              <div class="well example top-border">
-                <div class="alert-box">
-                  Neener, neener, neener. You can't close me!
-                </div>
+              <div class="alert-box">
+                Neener, neener, neener. You can't close me!
               </div>
 
 <%= code_example '
@@ -115,13 +107,12 @@
           <section class="section">
             <span class="title" data-section-title><a href="#scss">SCSS</a></span>
             <div class="content" data-slug="scss">
-              <p>To create an alert box using our SCSS mixin, make sure you've followed the <a href="scss-start.html">Getting Started with SCSS</a> guide to setup your project correctly.</p>
 
-              <div class="example well top-border" data-label="example">
-                <div data-alert class="alert-box">
-                  This is a standard alert.
-                  <a href="" class="close">&times;</a>
-                </div>
+              <h3>SCSS Mixin Example</h3>
+
+              <div data-alert class="alert-box">
+                This is a standard alert.
+                <a href="" class="close">&times;</a>
               </div>
 
 <%= code_example '
@@ -136,80 +127,63 @@
 }
 ', :css %>
 
-              <div class="panel options">
+              <hr>
 
-                <h4>Available Options</h4>
+              <h3>Mixin Options</h3>
 
-                <ul>
-                  <li><code>$bg:</code> Control the background color of the alert box. This also changes the font color based on background lightness.</li>
-                </ul>
+              <ul>
+                <li><code>$bg:</code> Control the background color of the alert box. This also changes the font color based on bg-lightness.</li>
+              </ul>
 
+              <div data-alert class="alert-base custom-bg">
+                @include alert($bg: #ff6c3c);
+                <a href="" class="close">&times;</a>
               </div>
 
-              <div class="well example" data-label="$bg: #ff6c3c">
-                <div data-alert class="alert-base custom-bg">
-                  $bg: #ff6c3c
-                  <a href="" class="close">&times;</a>
-                </div>
+              <div data-alert class="alert-base custom-bg-lt">
+                @include alert($bg: #eee);
+                <a href="" class="close">&times;</a>
               </div>
-              <div class="well example" data-label="$bg: #eeeeee">
-                <div data-alert class="alert-base custom-bg-lt">
-                  $bg: #eeeeee
-                  <a href="" class="close">&times;</a>
-                </div>
-              </div>
+
 <%= code_example '
 .your-class { @include alert($bg: your-color); }
 ', :css %>
 
               <hr>
 
-              <h4>Internal Mixins</h4>
-              <p>We use smaller mixins to build the default mixin.</p>
+              <h3>Internal Mixins</h3>
 
-              <div class="panel options">
+              <ul>
+                <li><code>@include alert-base;</code> Create the basic structure of an alert box.</li>
+                <li><code>@include alert-style($bg);</code> Add the default style of an alert box.
+                  <ul>
+                    <li><code>$bg</code> Set to any hex value, controls background, border and font-color.</li>
+                  </ul>
+                </li>
+              </ul>
 
-                <h5>Base Mixin</h5>
-                <p>Styles for creating the basic structure of an alert box.</p>
+              <div data-alert class="alert-base">@include alert-base;</div>
 
-              </div>
+              <div data-alert class="alert-base bg">alert-style($bg)</div>
 
-              <div class="well example" data-label="alert-base">
-                <div data-alert class="alert-base">alert-base</div>
-              </div>
-
-<%= code_example '
-.your-class-name { @include alert-base; }
-', :css %>
-
-              <div class="panel options">
-
-                <h5>Style Mixin</h5>
-                <p>Control background color, border and text style. Just set the background options and we'll take care of the text and border color using some logic.</p>
-
-              </div>
-
-              <div class="well example" data-label="alert-style($bg)">
-                <div data-alert class="alert-base bg">alert-style($bg)</div>
+              <div data-alert class="alert-base custom-bg">
+                @include alert($bg: #ff6c3c);
               </div>
 
 <%= code_example '
 .your-class-name {
   @include alert-base;
-  @include alert-style;($bg);
-}', :css %>
+  @include alert-style($bg: your-color);
+}
+', :css %>
 
-              <div class="panel options">
+              <hr>
 
-                <h5>Close Button Mixin</h5>
-                <p>Include the close button with this simple mixin. Using the 'data-alert' attribute will tell the JS to do it's thing and close the alert box.</p>
+              <h3>Close Button Mixin</h3>
+              <p>Include the close button with this simple mixin, just make sure you also include the anchor. Adding <code>data-alert</code> will tell the Javascripts to do their thing and close the alert box when someone clicks the close button.</p>
 
-              </div>
-
-              <div class="well example" data-label="alert-close">
-                <div data-alert class="alert-base">alert-close.
-                  <a href="#" class="close">&times;</a>
-                </div>
+              <div data-alert class="alert-base">&nbsp;
+                <a href="#" class="close">&times;</a>
               </div>
 
 <%= code_example '

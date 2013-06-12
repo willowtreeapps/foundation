@@ -4,7 +4,7 @@
 @import "off-canvas";
 @import "coderay";
 
-.row { max-width: 1140px; }
+.row { max-width: 1200px; }
 
 /* Documentation Custom Styles for matching the Marketing page */
 
@@ -23,13 +23,14 @@ h4,
 h5,
 h6 {
   font-family: "OpenSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-weight: normal;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   margin-top: 0;
-
-  &.normal { font-weight: normal; }
 }
+
+.strong,
+strong { font-weight: bold; }
 
 li.name h1 { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 .subheader { margin-bottom: 20px; }
@@ -53,9 +54,7 @@ header {
   h3,
   h4,
   h5,
-  h6 {
-    color: #fff;
-  }
+  h6 { color: #fff; }
 
   h1 { margin: 6px 0 0 0; }
 }
@@ -64,17 +63,17 @@ header {
   margin-top: 44px;
   position: relative;
 
-  @media #{$small} { h3 { margin-top: -7px; } }
+  @media #{$small} { h2 { margin-bottom: 10px; margin-top: -10px; } }
+
+  > [role="main"] ul:not(.inline-list), [role="main"] ol { margin-left: 34px; }
 }
 
 #sidebarButton { margin-bottom: 30px; margin-top: 30px; }
 
-.next-step { margin-bottom: 60px;
+.next-step { margin-bottom: 60px; margin-top: 30px;
   .inline-list { overflow: visible; @include clearfix; }
 }
 .next-step .button { margin-bottom: 0; }
-
-.html + .css { margin-top: -1.3em; border-top: solid 1px #555; }
 
 /* All Components Mega List */
 #allElements {
@@ -273,13 +272,17 @@ footer.row.full-width {
   padding-top: 30px;
   border-top: solid 1px #ddd;
   font-size: 14px;
+  background: #333;
+  padding-bottom: 30px;
+  color: #fff;
+
+  h6 { color: #fff; }
 }
 
 #copyright {
-  background: #3f3f3f;
+  background: #222;
   color: #fff;
   padding: 11px 0;
-  margin-top: 30px;
 
   a {
     color: #fff;
