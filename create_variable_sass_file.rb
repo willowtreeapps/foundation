@@ -5,6 +5,7 @@
 require "sass"
 # require "json"
 
+
 class Sass::Environment
   attr_accessor :children
   alias old_initialize initialize
@@ -35,7 +36,17 @@ class VariableExtractor
   end
 end
 
+file = File.open("./scss/foundation/components/_alert-boxes.scss", "r")
+content = file.read
+comments = /\/\/\*\n\/\/\s\D+\n\/\/\*/.match(content)
+puts comments
 
+            # EXAMPLE OF REGEX PULLING PHONE NUMBER
+            # phone = "2004-959-559 #This is Phone Number"
+
+            # Delete Ruby-style comments
+            # phone = phone.sub!(/#.*$/, "")
+            # puts "Phone Num : #{phone}"
 
 variables_dump_file = File.new("_variables_dump.scss", "w")
 
@@ -54,9 +65,9 @@ file_string += "\n"
 components.each do |pth|
   puts pth.inspect
   file_string += "// #{pth}\n"
-  
+
   begin
-  
+
   vars = VariableExtractor.new(pth).extract
   vars = vars.reject {|k,v| global_vars.keys.include?(k)}
   vars.each do |setting, value|
