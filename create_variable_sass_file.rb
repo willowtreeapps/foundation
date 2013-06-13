@@ -2,7 +2,40 @@
 # gem install extract-sass-vars --pre
 # Usage: ruby create_variables_files.rb
 
-require "json"
+require "sass"
+# require "json"
+
+class Sass::Environment
+  attr_accessor :children
+  alias old_initialize initialize
+  def initialize(parent = nil, options = nil)
+    old_initialize(parent,options)
+    self.children = []
+    if parent
+      parent.children << self
+    end
+  end
+end
+
+class VariableExtractor
+  def initialize(filename)
+    @filename = filename
+  end
+
+  def extract
+    engine = Sass::Engine.for_file(@filename, {})
+    tree = engine.to_tree
+    environment = Sass::Environment.new
+    visitor = Sass::Tree::Visitors::Perform.new(environment)
+    visitor.send(:visit, tree)
+    environment.children.each do |child_env|
+      vars = child_env.instance_variable_get("@vars")
+      return vars
+    end
+  end
+end
+
+
 
 variables_dump_file = File.new("_variables_dump.scss", "w")
 
@@ -10,25 +43,23 @@ components = Dir.glob("./scss/foundation/components/**/_*.scss")
 
 file_string = ""
 
-`extract-sass-vars ./scss/foundation/components/_global.scss _global_dump.json`
-file_string += "// ./scss/foundation/components/_global.scss\n"
-global_json = JSON.parse(File.read("./_global_dump.json"))
-global_json.each do |setting, value|
+pth = "./scss/foundation/components/_global.scss"
+global_vars = VariableExtractor.new(pth).extract
+global_vars.each do |setting, value|
   file_string += "$#{setting}: #{value};\n"
 end
+file_string += "// #{pth}\n"
 file_string += "\n"
 
 components.each do |pth|
   puts pth.inspect
   file_string += "// #{pth}\n"
-  filename = File.basename(pth, File.extname(pth))
-  cmd = "extract-sass-vars #{pth} #{filename}_dump.json"
-  puts cmd
+  
   begin
-  `#{cmd}`
-  json = JSON.parse(File.read("./#{filename}_dump.json"))
-  json = json.reject {|k,v| global_json.keys.include?(k)}
-  json.each do |setting, value|
+  
+  vars = VariableExtractor.new(pth).extract
+  vars = vars.reject {|k,v| global_vars.keys.include?(k)}
+  vars.each do |setting, value|
     file_string += "$#{setting}: #{value};\n"
   end
   file_string += "\n"
@@ -40,9 +71,6 @@ end
 File.open("_variables_dump.scss", "w") do |f|
   f.puts file_string
 end
-
-# Remove JSON parser files
-`rm _*.json`
 
 # Done
 puts "Output written to `_variables_dump.scss`"
