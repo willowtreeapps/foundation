@@ -36,18 +36,6 @@ class VariableExtractor
   end
 end
 
-file = File.open("./scss/foundation/components/_alert-boxes.scss", "r")
-content = file.read
-comments = /\/\/\*\n\/\/\s\D+\n\/\/\*/.match(content)
-puts comments
-
-            # EXAMPLE OF REGEX PULLING PHONE NUMBER
-            # phone = "2004-959-559 #This is Phone Number"
-
-            # Delete Ruby-style comments
-            # phone = phone.sub!(/#.*$/, "")
-            # puts "Phone Num : #{phone}"
-
 variables_dump_file = File.new("_variables_dump.scss", "w")
 
 components = Dir.glob("./scss/foundation/components/**/_*.scss")
@@ -67,7 +55,10 @@ components.each do |pth|
   file_string += "// #{pth}\n"
 
   begin
-
+  comments = /\/\/\*\n\/\/\s\D+\n\/\/\*/.match(File.read(pth))
+  
+  file_string += comments.to_s if comments
+  file_string += "\n"
   vars = VariableExtractor.new(pth).extract
   vars = vars.reject {|k,v| global_vars.keys.include?(k)}
   vars.each do |setting, value|
