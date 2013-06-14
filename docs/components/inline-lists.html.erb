@@ -62,21 +62,7 @@
         </ul>
 
         <h5>Default SCSS Variables</h5>
-
-<%= code_example '
-/* We use this to control the margins and padding of the inline list. */
-$inline-list-margin-bottom: emCalc(17px) emCalc(-22px );
-$inline-list-margin: 0 0;
-$inline-list-padding: 0;
-
-/* We use this to control the overflow of the inline list. */
-$inline-list-overflow: hidden;
-
-/* We use this to control the list items */
-$inline-list-display: block;
-
-/* We use this to control any elements within list items */
-$inline-list-children-display: block;', :css %>
+        <%= settings_table_for('inline-lists') %>
 
         <p><strong>Note:</strong> <code>emCalc();</code> is a function we wrote to convert <code>px</code> to <code>em</code>. It is included in <strong>_variables.scss</strong>.</p>
 

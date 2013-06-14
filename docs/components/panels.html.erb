@@ -95,24 +95,7 @@ $adjust: true
         </div>
 
         <h5>Default SCSS Variables</h5>
-
-<%= code_example '
-/* We use these to control the background and border styles */
-$panel-bg: darken(#fff, 5%);
-$panel-border-style: solid;
-$panel-border-size: 1px;
-
-/* We use this % to control how much we darken things on hover */
-$panel-function-factor: 10%;
-$panel-border-color: darken($panel-bg, $panel-function-factor);
-
-/* We use these to set default inner padding and bottom margin */
-$panel-margin-bottom: emCalc(20px);
-$panel-padding: emCalc(20px);
-
-/* We use these to set default font colors */
-$panel-font-color: #333;
-$panel-font-color-alt: #fff;', :css %>
+        <%= settings_table_for('panels') %>
 
         <p><strong>Note:</strong> <code>emCalc();</code> is a function we wrote to convert <code>px</code> to <code>em</code>. It is included in <strong>_variables.scss</strong>.</p>
 
