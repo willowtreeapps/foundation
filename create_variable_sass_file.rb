@@ -1,78 +1,61 @@
-# Install extract-sass-vars gem
-# gem install extract-sass-vars --pre
-# Usage: ruby create_variables_files.rb
+#!/usr/bin/env ruby
+# USAGE ./create_variable_sass_file.rb
+require "set"
 
-require "sass"
-# require "json"
+class SassVariableExtractor
+  # Format: $body-bg: blue !default; // Line comment
+  # Match:      1       2            3  4
+  REGEX = /\$([^:]+):\s*([^; ]+) !default;\s*(\/\/\s*(.*))?/
+  def initialize(filepath)
+    @file = File.open(filepath, "r")
+    @vars = Set.new
+  end
 
-
-class Sass::Environment
-  attr_accessor :children
-  alias old_initialize initialize
-  def initialize(parent = nil, options = nil)
-    old_initialize(parent,options)
-    self.children = []
-    if parent
-      parent.children << self
+  def extract_sass_variables
+    @file.rewind
+    @file.lines.each do |line|
+      
+      if match=REGEX.match(line)
+        @vars.add({
+          name: match[1],
+          value: match[2],
+          comment: match[4]
+        })
+      end
     end
-  end
-end
-
-class VariableExtractor
-  def initialize(filename)
-    @filename = filename
+    @vars
   end
 
-  def extract
-    engine = Sass::Engine.for_file(@filename, {})
-    tree = engine.to_tree
-    environment = Sass::Environment.new
-    visitor = Sass::Tree::Visitors::Perform.new(environment)
-    visitor.send(:visit, tree)
-    environment.children.each do |child_env|
-      vars = child_env.instance_variable_get("@vars")
-      return vars
+  def extract_docs
+    @file.rewind
+    docs = "\n// #{File.basename(@file.path)}\n"
+    started = false
+    @file.lines.each do |line|
+      if started
+        docs += line
+        return docs if line.start_with?("// *")
+      end
+      if line.start_with?("// *") && !started
+        started = true
+        docs += line
+      end
     end
+    return docs
   end
 end
 
-variables_dump_file = File.new("_variables_dump.scss", "w")
-
-components = Dir.glob("./scss/foundation/components/**/_*.scss")
-
-file_string = ""
-
-pth = "./scss/foundation/components/_global.scss"
-global_vars = VariableExtractor.new(pth).extract
-global_vars.each do |setting, value|
-  file_string += "$#{setting}: #{value};\n"
-end
-file_string += "// #{pth}\n"
-file_string += "\n"
-
-components.each do |pth|
-  puts pth.inspect
-  file_string += "// #{pth}\n"
-
-  begin
-  comments = /\/\/\*\n\/\/\s\D+\n\/\/\*/.match(File.read(pth))
-  
-  file_string += comments.to_s if comments
-  file_string += "\n"
-  vars = VariableExtractor.new(pth).extract
-  vars = vars.reject {|k,v| global_vars.keys.include?(k)}
-  vars.each do |setting, value|
-    file_string += "$#{setting}: #{value};\n"
-  end
-  file_string += "\n"
-  rescue Exception => e
-    puts "ERROR: #{e.inspect}"
+output_file = File.new("./scss/foundation/_variables.scss", "w")
+sass_files = Dir.glob("./scss/foundation/components/**/_*.scss")
+sass_files.each do |pth|
+  # puts "Processing: #{pth}"
+  sve = SassVariableExtractor.new(pth)
+  output_file.puts sve.extract_docs
+  sve.extract_sass_variables.each do |v|
+    line  = "// $#{v[:name]}: #{v[:value]};"
+    line += " // #{v[:comment]}" if v[:comment]
+    output_file.puts line
   end
 end
+output_file.close
 
-File.open("_variables_dump.scss", "w") do |f|
-  f.puts file_string
-end
-
-# Done
-puts "Output written to `_variables_dump.scss`"
+puts "Output written to: #{output_file.path}"
