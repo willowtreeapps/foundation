@@ -1,0 +1,10 @@
+.docs-sidebar.section-container {
+
+  > section .title a { padding: 11px 15px; }
+
+  .side-nav li {
+    a:hover, a.active { color: darken($primary-color, 10%); }
+    a.active { font-weight: bold; }
+  }
+
+}

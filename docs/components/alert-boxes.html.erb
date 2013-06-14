@@ -1,4 +1,5 @@
 <% @side_nav = "css" %>
+<% @page_title = "Alert Boxes" %>
 
 <div class="row" id="mainContent">
 
@@ -9,10 +10,7 @@
   <div class="large-9 columns" role="main">
     <div class="row">
       <div class="large-12 columns">
-
-        <% @page_title = "Alert Boxes" %>
-
-        <h2><%= @page_title %></h2>
+        <h1><%= @page_title %></h1>
         <h5 class="subheader">An alert box is an element you can drop into a form or inline on a page to communicate success, warnings, failure or just information. They'll <a href="http://youtu.be/0lw17Pb7Nso" rel="nofollow">stretch</a> to 100% of the container width you put them in.</h5>
 
       </div>
@@ -44,19 +42,19 @@
 
               <h3>Available Classes</h3>
 
-              <h6 class="strong">Default Class</h6>
+              <h6>Default Class</h6>
               <ul>
                 <li><code>alert-box:</code> Contains all the default styles for an alert box.</li>
               </ul>
 
-              <h6 class="strong">Color Modifier Classes</h6>
+              <h6>Color Modifier Classes</h6>
               <ul>
                 <li><code>success:</code> Turn the background green, great for success messages.</li>
                 <li><code>alert:</code> Turn the background red, great for error messages.</li>
                 <li><code>secondary:</code> Turn the background gray, great for subtle messages.</li>
               </ul>
 
-              <h6 class="strong">Style Modifier Classes</h6>
+              <h6>Style Modifier Classes</h6>
               <ul>
                 <li><code>radius:</code> Add a 3px radius to the corners.</li>
                 <li><code>round:</code> Add a 1000px radius to the corners, making it look like a pill.</li>
@@ -171,7 +169,7 @@
               </div>
 
 <%= code_example '
-.your-class-name {
+.your-class {
   @include alert-base;
   @include alert-style($bg: your-color);
 }
@@ -187,7 +185,7 @@
               </div>
 
 <%= code_example '
-.your-class-name { @include alert-base;
+.your-class { @include alert-base;
   .close { @include alert-close; }
 }', :css %>
 
@@ -268,6 +266,17 @@
 <%= code_example '
 // Code Example', :js %>
 
+              <hr>
+
+              <h3>Callbacks &amp; Events</h3>
+              <ul>
+                <li>Callback function?</li>
+                <li>Event Callback</li>
+              </ul>
+
+<%= code_example '
+// Code Example', :js %>
+
             </div>
           </section>
         </div>
@@ -275,12 +284,14 @@
         <hr>
 
         <div class="panel next-step">
-          <h4 class="normal">Next: Navigate Like a Boss</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus mollis interdum.</p>
-          <ul class="inline-list">
-            <li><a class="small secondary button" href="#">Learn about the Top Bar &rarr;</a></li>
-            <li><a class="small button" href="#">Download Foundation 4</a></li>
-          </ul>
+          <div class="row">
+            <h4 class="large-6 columns">Next: Navigate Like a Boss</h4>
+            <ul class="inline-list large-6 columns">
+              <li><a class="small secondary button" href="#">Top Bar Docs &rarr;</a></li>
+              <li class="show-for-small"><a class="small button" href="#">Download</a></li>
+              <li class="hide-for-small"><a class="small button" href="#">Download Foundation</a></li>
+            </ul>
+          </div>
         </div>
 
       </div>

@@ -1,0 +1,21 @@
+/* Docs Footer */
+footer.row.full-width {
+  padding-top: 30px;
+  border-top: solid 1px #ddd;
+  font-size: 14px;
+  background: #333;
+  padding-bottom: 30px;
+  color: #fff;
+
+  h6 { color: #fff; }
+}
+#copyright {
+  background: #222;
+  color: #fff;
+  padding: 11px 0;
+
+  a { color: #fff; font-size: 14px; }
+
+  p,
+  ul { margin-bottom: 0; }
+}

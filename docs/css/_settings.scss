@@ -91,7 +91,7 @@ $em-base: 16px !default;
 // Grid Variables
 //
 
-// $row-width: emCalc(1000px);
+$row-width: emCalc(1200px);
 // $column-gutter: emCalc(30px);
 // $total-columns: 12;
 
@@ -315,7 +315,7 @@ $em-base: 16px !default;
 
 //// Button border styles.
 
-// $button-border-width: 1px;
+$button-border-width: 0;
 // $button-border-style: solid;
 // $button-border-color: darken($primary-color, $button-function-factor);
 

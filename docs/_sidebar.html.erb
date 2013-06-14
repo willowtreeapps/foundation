@@ -1,6 +1,16 @@
-<p><a href="http://foundation.zurb.com/download.php" class="button expand" style="margin-bottom: 0;">Get Foundation 4</a></p>
-
-<div class="docs section-container accordion" data-section="accordion" data-options="one_up: false">
+<div class="docs-sidebar section-container accordion" data-section="accordion" data-options="one_up: false">
+  <section class="show-for-small section <%= @side_nav == 'using' ? 'active': '' %>">
+    <p class="title"><a href="#">Main Nav</a></p>
+    <div class="content">
+      <ul class="side-nav">
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Add-ons</a></li>
+        <li><a href="#">Case Studies</a></li>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">Training</a></li>
+      </ul>
+    </div>
+  </section>
   <section class="section <%= @side_nav == 'using' ? 'active': '' %>">
     <p class="title"><a href="#">Getting Started</a></p>
     <div class="content">
@@ -10,6 +20,7 @@
         <li><a href="../sass.html">Start with Scss</a></li>
         <li><a href="../rails.html">Start with Rails</a></li>
         <li><a href="../javascript.html">JS Overview</a></li>
+        <li><a href="../javascript.html">All Components</a></li>
       </ul>
     </div>
   </section>
@@ -92,9 +103,6 @@
       </ul>
     </div>
   </section>
- <!--  <section class="section">
-    <p class="title"><a href="#" id="allElements">All Elements</a></p>
-  </section> -->
   <section class="section <%= @page_title == 'FAQ' ? 'active': '' %>">
     <p class="title"><a href="../faq.html">FAQ &amp; Support</a></p>
     <div class="content">
@@ -107,5 +115,7 @@
   </section>
 </div>
 
+<p><a href="http://foundation.zurb.com/download.php" class="button expand" style="margin-bottom: 0;">Get Foundation 4</a></p>
+
 <!-- ZURBjobs Posts -->
-<%= render "_jobs.html.erb" %>
+<!-- <%= render "_jobs.html.erb" %> -->

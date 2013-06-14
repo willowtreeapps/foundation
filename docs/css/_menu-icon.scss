@@ -1,0 +1,21 @@
+/* Menu Icon for Off-Canvas Menu */
+%menu-icon {
+  display: block;
+  width: 19px;
+  height: 3px;
+  background: #111;
+  position: absolute;
+  top: 0;
+  left: 8px;
+  background-color: #fff;
+}
+#sidebarButton {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  text-indent: -9999px;
+
+  .menu-bar-top    { @extend %menu-icon; top: 10px; }
+  .menu-bar-middle { @extend %menu-icon; top: 16px; }
+  .menu-bar-bottom { @extend %menu-icon; top: 22px; }
+}

@@ -21,7 +21,7 @@
   </head>
   <body class="off-canvas antialiased">
 
-    <nav class="top-bar">
+    <nav class="top-bar hide-for-small">
       <ul class="title-area">
         <!-- Title Area -->
         <li class="name">
@@ -41,28 +41,29 @@
           <li class="divider"></li>
           <li><a href="<%= case_studies_path %>">Case Studies</a></li>
           <li class="divider"></li>
-          <li><a href="<%= docs_path %>">Docs</a></li>
+          <li><a href="<%= docs_path %>">Documentation</a></li>
           <li class="divider"></li>
           <li><a href="<%= training_path %>">Training</a></li>
           <li class="divider"></li>
           <li class="has-form">
-            <a href="http://foundation.zurb.com/docs" class="button">Getting Started</a>
+            <a href="http://foundation.zurb.com/docs" class="button">Download</a>
           </li>
         </ul>
       </section>
     </nav>
 
-    <header>
+    <header class="foundation-header">
       <div class="row">
         <div class="large-12 columns">
-          <h1 class="normal"><a href="http://foundation.zurb.com/docs/">Foundation 4 Documentation</a></h1>
-          <h4>Everything you need to know to build for the future.</h4>
-
-          <a href="" class="show-for-small secondary small button" id="sidebarButton">Side Menu</a>
+          <h2 class="normal"><a href="http://foundation.zurb.com/docs/"><span class="hide-for-small">Foundation 4 Documentation</span><span class="show-for-small">Foundation 4 Docs</span></a></h2>
 
           <div class="header-buttons">
+            <a href="#" class="header-button show-for-small" id="sidebarButton">
+              Side Menu
+              <span class="menu-bar-top"></span><span class="menu-bar-middle"></span><span class="menu-bar-bottom"></span>
+            </a>
             <a href="#" class="header-button" id="allElements">All Components</a>
-            <a href="#" class="header-button" id="versions">Version 5.1</a>
+            <a href="#" class="header-button" id="versions">Version 5.0.0</a>
           </div>
         </div>
       </div>
@@ -279,7 +280,31 @@
 
     <%= yield %>
 
-    <footer class="row full-width">
+    <div class="zurb-footer-bottom">
+      <div class="row">
+        <div class="large-4 push-8 columns">
+          <ul class="home-social">
+              <li><a href="http://www.twitter.com/ZURB" class="twitter"></a></li>
+              <li><a href="http://www.facebook.com/ZURB" class="facebook"></a></li>
+              <li><a href="/contact" class="mail"></a></li>
+            </ul>
+         </div>
+         <div class="large-8 pull-4 columns">
+            <a href="http://www.zurb.com" class="zurb-logo regular"></a>
+            <ul class="zurb-links">
+              <li><a href="http://zurb.com/about">About</a></li>
+              <li><a href="http://zurb.com/blog">Blog</a></li>
+              <li><a href="http://zurb.com/news">News<span class="show-for-medium-up"> &amp; Events</span></a></li>
+              <li><a href="http://zurb.com/contact">Contact</a></li>
+              <li><a href="http://zurb.com/sitemap">Sitemap</a></li>
+           </ul>
+           <p class="copyright">© 1998–2013 ZURB, Inc. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- OLD FOOTER -->
+    <!-- <footer class="row full-width">
       <div class="large-5 columns">
         <h6><strong>Made by ZURB</strong></h6>
         <p>Foundation is made by <a href="http://www.zurb.com/">ZURB</a>, a product design company in Campbell, California. We've put more than 14 years of experience building web products, services and websites into this framework. <a href="http://foundation.zurb.com/about.php">Foundation Info and Goodies &rarr;</a></p>
@@ -312,7 +337,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <script>
 
