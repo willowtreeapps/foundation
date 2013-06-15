@@ -451,12 +451,12 @@
         $('#allElements').on('click', function(e) {
           e.preventDefault();
           $('.all-elements').fadeIn(200).addClass('open');
-          $('body').css('position','fixed');
+          // $('body').css('position','fixed');
         });
 
         $('.close-all-elements').on('click', function() {
           $('.all-elements').fadeOut(200).removeClass('open');
-          $('body').css('position','');
+          // $('body').css('position','');
         });
 
         $(window).resize(function() {
