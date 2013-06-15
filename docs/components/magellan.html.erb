@@ -1,13 +1,13 @@
 <% @side_nav = "js" %>
+<% @page_title = magellan_title %>
 
 <div class="row">
   <div class="large-9 push-3 columns">
 
-    <% @page_title = "Magellan" %>
     <div class="row">
       <div class="large-12 columns">
         <h2><%= @page_title %></h2>
-        <h4 class="subheader">Magellan is a style agnostic plugin that lets you style a sticky navigation that denotes where you are on the page.</h4>
+        <h4 class="subheader"><%= magellan_description %></h4>
 
         <div data-magellan-expedition="fixed">
           <dl class="sub-nav">

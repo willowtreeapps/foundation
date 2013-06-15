@@ -1,13 +1,13 @@
 <% @side_nav = "nav" %>
+<% @page_title = sub_nav_title %>
 
 <div class="row">
   <div class="large-9 push-3 columns">
 
-    <% @page_title = "Sub Nav" %>
     <div class="row">
       <div class="large-12 columns">
         <h1><%= @page_title %></h1>
-        <h4 class="subheader">This simple sub nav is great for moving between different states of a page. We use these frequently to show iterations of something, typically by date, but they're also handy for filters like these.</h4>
+        <h4 class="subheader"><%= sub_nav_description %></h4>
       </div>
     </div>
 

@@ -1,8 +1,7 @@
 <% @side_nav = "css" %>
-<% @page_title = "Alert Boxes" %>
+<% @page_title = alert_boxes_title %>
 
 <div class="row" id="mainContent">
-
   <div class="large-3 columns" role="complementary">
     <%= render "_sidebar.html.erb" %>
   </div>
@@ -11,8 +10,7 @@
     <div class="row">
       <div class="large-12 columns">
         <h1><%= @page_title %></h1>
-        <h5 class="subheader">An alert box is an element you can drop into a form or inline on a page to communicate success, warnings, failure or just information. They'll <a href="http://youtu.be/0lw17Pb7Nso" rel="nofollow">stretch</a> to 100% of the container width you put them in.</h5>
-
+        <h5 class="subheader"><%= alert_boxes_description %></h5>
       </div>
     </div>
 
@@ -22,7 +20,7 @@
         <div class="section-container tabs switcheroo" data-section="tabs" data-options="one_up: false; deep_linking: true">
 
           <section class="section">
-            <span class="title" data-section-title><a href="#css">CSS</a></span>
+            <h6 class="title" data-section-title><a href="#css">CSS</a></h6>
             <div class="content" data-slug="css">
 
               <h3>CSS Example</h3>
@@ -103,7 +101,7 @@
           </section>
 
           <section class="section">
-            <span class="title" data-section-title><a href="#scss">SCSS</a></span>
+            <h6 class="title" data-section-title><a href="#scss">SCSS</a></h6>
             <div class="content" data-slug="scss">
 
               <h3>SCSS Mixin Example</h3>
@@ -219,7 +217,7 @@
           </section>
 
           <section class="section">
-            <span class="title" data-section-title><a href="#js">JS</a></span>
+            <h6 class="title" data-section-title><a href="#js">JS</a></h6>
             <div class="content" data-slug="js">
 
               <h3>Initialization</h3>

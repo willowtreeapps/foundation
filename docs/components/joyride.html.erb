@@ -1,16 +1,17 @@
-
-<% 
-  @side_nav = "js" 
+<%
+  @side_nav = "js"
   @joyride = true
 %>
+<% @page_title = joyride_title %>
+
 <div class="row">
   <div class="large-9 push-3 columns">
 
-    <% @page_title = "Joyride" %>
+
     <div class="row">
       <div class="large-12 columns">
         <h2><%= @page_title %></h2>
-        <h4 class="subheader">Joyride is an extremely flexible plugin that gives users a tour of your site or app when they visit.</h4>
+        <h4 class="subheader"><%= joyride_description %></h4>
 
         <div id="firstStop" class="panel">Some awesome part of your site!</div>
 

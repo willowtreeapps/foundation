@@ -40,11 +40,13 @@
   overflow: hidden;
   list-style: none;
   margin-bottom: 0;
+  position: relative;
+  top: -3px;
 
   li {
     width: 50%;
     float: left;
-
+    h6 { margin-bottom: 0; }
     p { display: none; }
   }
 

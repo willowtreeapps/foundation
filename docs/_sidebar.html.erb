@@ -28,10 +28,10 @@
     <p class="title"><a href="#">Grid &amp; Layout</a></p>
     <div class="content">
       <ul class="side-nav">
-        <li><a class="<%= @page_title == 'Grid' ? 'active': '' %>" href="grid.html">Grid</a></li>
-        <li><a class="<%= @page_title == 'Block Grid' ? 'active': '' %>" href="block-grid.html">Block Grid</a></li>
+        <li><a class="<%= @page_title == grid_title ? 'active': '' %>" href="grid.html"><%= grid_title %></a></li>
+        <li><a class="<%= @page_title == block_grid_title ? 'active': '' %>" href="block-grid.html"><%= block_grid_title %></a></li>
         <li><a href="../media-queries.html">Media Queries</a></li>
-        <li><a class="<%= @page_title == 'Visibility Classes' ? 'active': '' %>" href="visibility.html">Visibility Classes</a></li>
+        <li><a class="<%= @page_title == visibility_title ? 'active': '' %>" href="visibility.html"><%= visibility_title %></a></li>
       </ul>
     </div>
   </section>
@@ -39,14 +39,14 @@
     <p class="title"><a href="#">Navigation</a></p>
     <div class="content">
       <ul class="side-nav">
-        <li><a class="<%= @page_title == 'Pagination' ? 'active': '' %>" href="pagination.html">Pagination</a></li>
-        <li><a class="<%= @page_title == 'Side Nav' ? 'active': '' %>" href="side-nav.html">Side Nav</a></li>
-        <li><a class="<%= @page_title == 'Sub Nav' ? 'active': '' %>" href="sub-nav.html">Sub Nav</a></li>
-        <li><a class="<%= @page_title == 'Top Bar' ? 'active': '' %>" href="top-bar.html">Top Bar</a></li>
-        <li><a class="<%= @page_title == 'Breadcrumbs' ? 'active': '' %>" href="breadcrumbs.html">Breadcrumbs</a></li>
-        <li><a class="<%= @page_title == 'Dropdown' ? 'active': '' %>" href="dropdown.html">Dropdown</a></li>
-        <li><a class="<%= @page_title == 'Magellan' ? 'active': '' %>" href="magellan.html">Magellan</a></li>
-        <li><a class="<%= @page_title == 'Joyride' ? 'active': '' %>" href="joyride.html">Joyride</a></li>
+        <li><a class="<%= @page_title == pagination_title ? 'active': '' %>" href="pagination.html"><%= pagination_title %></a></li>
+        <li><a class="<%= @page_title == side_nav_title ? 'active': '' %>" href="side-nav.html"><%= side_nav_title %></a></li>
+        <li><a class="<%= @page_title == sub_nav_title ? 'active': '' %>" href="sub-nav.html"><%= sub_nav_title %></a></li>
+        <li><a class="<%= @page_title == top_bar_title ? 'active': '' %>" href="top-bar.html"><%= top_bar_title %></a></li>
+        <li><a class="<%= @page_title == breadcrumbs_title ? 'active': '' %>" href="breadcrumbs.html"><%= breadcrumbs_title %></a></li>
+        <li><a class="<%= @page_title == dropdown_title ? 'active': '' %>" href="dropdown.html"><%= dropdown_title %></a></li>
+        <li><a class="<%= @page_title == magellan_title ? 'active': '' %>" href="magellan.html"><%= magellan_title %></a></li>
+        <li><a class="<%= @page_title == joyride_title ? 'active': '' %>" href="joyride.html"><%= joyride_title %></a></li>
       </ul>
     </div>
   </section>
@@ -54,10 +54,10 @@
     <p class="title"><a href="#">Buttons</a></p>
     <div class="content">
       <ul class="side-nav">
-        <li><a class="<%= @page_title == 'Buttons' ? 'active': '' %>" href="buttons.html">Buttons</a></li>
-        <li><a class="<%= @page_title == 'Button Groups' ? 'active': '' %>" href="button-groups.html">Button Groups</a></li>
-        <li><a class="<%= @page_title == 'Dropdown Buttons' ? 'active': '' %>" href="dropdown-buttons.html">Dropdown Buttons</a></li>
-        <li><a class="<%= @page_title == 'Split Buttons' ? 'active': '' %>" href="split-buttons.html">Split Buttons</a></li>
+        <li><a class="<%= @page_title == buttons_title ? 'active': '' %>" href="buttons.html"><%= buttons_title %></a></li>
+        <li><a class="<%= @page_title == button_groups_title ? 'active': '' %>" href="button-groups.html"><%= button_groups_title %></a></li>
+        <li><a class="<%= @page_title == dropdown_buttons_title ? 'active': '' %>" href="dropdown-buttons.html"><%= dropdown_buttons_title %></a></li>
+        <li><a class="<%= @page_title == split_buttons_title ? 'active': '' %>" href="split-buttons.html"><%= split_buttons_title %></a></li>
       </ul>
     </div>
   </section>
@@ -65,9 +65,9 @@
     <p class="title"><a href="#">Forms</a></p>
     <div class="content">
       <ul class="side-nav">
-        <li><a class="<%= @page_title == 'Forms' ? 'active': '' %>" href="forms.html">Forms</a></li>
-        <li><a class="<%= @page_title == 'Custom Forms' ? 'active': '' %>" href="custom-forms.html">Custom Forms</a></li>
-        <li><a class="<%= @page_title == 'Switch' ? 'active': '' %>" href="switch.html">Switch</a></li>
+        <li><a class="<%= @page_title == forms_title ? 'active': '' %>" href="forms.html"><%= forms_title %></a></li>
+        <li><a class="<%= @page_title == custom_forms_title ? 'active': '' %>" href="custom-forms.html"><%= custom_forms_title %></a></li>
+        <li><a class="<%= @page_title == switch_title ? 'active': '' %>" href="switch.html"><%= switch_title %></a></li>
       </ul>
     </div>
   </section>
@@ -75,12 +75,12 @@
     <p class="title"><a href="#">Typography</a></p>
     <div class="content">
       <ul class="side-nav">
-        <li><a class="<%= @page_title == 'Typography' ? 'active': '' %>" href="type.html">Type</a></li>
-        <li><a class="<%= @page_title == 'Inline Lists' ? 'active': '' %>" href="inline-lists.html">Inline Lists</a></li>
-        <li><a class="<%= @page_title == 'Labels' ? 'active': '' %>" href="labels.html">Labels</a></li>
-        <li><a class="<%= @page_title == 'Keystrokes' ? 'active': '' %>" href="keystrokes.html">Keystrokes</a></li>
-        <li><a class="<%= @page_title == 'Tooltips' ? 'active': '' %>" href="tooltips.html">Tooltips</a></li>
-        <li><a href="../rtl.html">Right-to-Left Support</a></li>
+        <li><a class="<%= @page_title == typography_title ? 'active': '' %>" href="type.html"><%= typography_title %></a></li>
+        <li><a class="<%= @page_title == inline_lists_title ? 'active': '' %>" href="inline-lists.html"><%= inline_lists_title %></a></li>
+        <li><a class="<%= @page_title == labels_title ? 'active': '' %>" href="labels.html"><%= labels_title %></a></li>
+        <li><a class="<%= @page_title == keystrokes_title ? 'active': '' %>" href="keystrokes.html"><%= keystrokes_title %></a></li>
+        <li><a class="<%= @page_title == tooltips_title ? 'active': '' %>" href="tooltips.html"><%= tooltips_title %></a></li>
+        <li><a href="<%= @page_title == rtl_title ? 'active': '' %>" href="../rtl.html"><%= rtl_title %></a></li>
       </ul>
     </div>
   </section>
@@ -89,17 +89,17 @@
     <div class="content">
       <ul class="side-nav">
         <li><a class="<%= @page_title == 'Global' ? 'active': '' %>" href="global.html">Global Styles</a></li>
-        <li><a class="<%= @page_title == 'Alert Boxes' ? 'active': '' %>" href="alert-boxes.html">Alert Boxes</a></li>
-        <li><a class="<%= @page_title == 'Panels' ? 'active': '' %>" href="panels.html">Panels</a></li>
-        <li><a class="<%= @page_title == 'Pricing Tables' ? 'active': '' %>" href="pricing-tables.html">Pricing Tables</a></li>
-        <li><a class="<%= @page_title == 'Progress Bars' ? 'active': '' %>" href="progress-bars.html">Progress Bars</a></li>
-        <li><a class="<%= @page_title == 'Tables' ? 'active': '' %>" href="tables.html">Tables</a></li>
-        <li><a class="<%= @page_title == 'Thumbnails' ? 'active': '' %>" href="thumbnails.html">Thumbnails</a></li>
-        <li><a class="<%= @page_title == 'Flex Video' ? 'active': '' %>" href="flex-video.html">Flex Video</a></li>
-        <li><a class="<%= @page_title == 'Orbit' ? 'active': '' %>" href="orbit.html">Orbit</a></li>
-        <li><a class="<%= @page_title == 'Reveal' ? 'active': '' %>" href="reveal.html">Reveal</a></li>
-        <li><a class="<%= @page_title == 'Sections' ? 'active': '' %>" href="section.html">Section</a></li>
-        <li><a class="<%= @page_title == 'Clearing' ? 'active': '' %>" href="clearing.html">Clearing</a></li>
+        <li><a class="<%= @page_title == alert_boxes_title ? 'active': '' %>" href="alert-boxes.html"><%= alert_boxes_title %></a></li>
+        <li><a class="<%= @page_title == panels_title ? 'active': '' %>" href="panels.html"><%= panels_title %></a></li>
+        <li><a class="<%= @page_title == pricing_tables_title ? 'active': '' %>" href="pricing-tables.html"><%= pricing_tables_title %></a></li>
+        <li><a class="<%= @page_title == progress_bars_title ? 'active': '' %>" href="progress-bars.html"><%= progress_bars_title %></a></li>
+        <li><a class="<%= @page_title == tables_title ? 'active': '' %>" href="tables.html"><%= tables_title %></a></li>
+        <li><a class="<%= @page_title == thumbnails_title ? 'active': '' %>" href="thumbnails.html"><%= thumbnails_title %></a></li>
+        <li><a class="<%= @page_title == flex_video_title ? 'active': '' %>" href="flex-video.html"><%= flex_video_title %></a></li>
+        <li><a class="<%= @page_title == orbit_title ? 'active': '' %>" href="orbit.html"><%= orbit_title %></a></li>
+        <li><a class="<%= @page_title == reveal_title ? 'active': '' %>" href="reveal.html"><%= reveal_title %></a></li>
+        <li><a class="<%= @page_title == sections_title ? 'active': '' %>" href="section.html"><%= sections_title %></a></li>
+        <li><a class="<%= @page_title == clearing_title ? 'active': '' %>" href="clearing.html"><%= clearing_title %></a></li>
       </ul>
     </div>
   </section>

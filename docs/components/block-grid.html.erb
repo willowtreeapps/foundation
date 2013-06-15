@@ -1,13 +1,12 @@
 <% @side_nav = "grid" %>
+<% @page_title = block_grid_title %>
 
 <div class="row">
   <div class="large-9 push-3 columns">
-
-    <% @page_title = "Block Grid" %>
     <div class="row">
       <div class="large-12 columns">
         <h2><%= @page_title %></h2>
-        <h4 class="subheader">Block grids give you a way to evenly split contents of a list within the grid. If you wanted to create a row of 5 images or paragraphs that need to stay evenly spaced no matter the screen size, the block grid is for you.</h4>
+        <h4 class="subheader"><%= block_grid_description %></h4>
 
         <ul class="small-block-grid-2 large-block-grid-4">
           <li><img class="th" src="../img/demos/demo1.jpg"></li>

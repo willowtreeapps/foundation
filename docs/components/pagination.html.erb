@@ -1,13 +1,13 @@
 <% @side_nav = "nav" %>
+<% @page_title = pagination_title %>
 
 <div class="row">
   <div class="large-9 push-3 columns">
 
-    <% @page_title = "Pagination" %>
     <div class="row">
       <div class="large-12 columns">
         <h1><%= @page_title %></h1>
-        <h4 class="subheader">Moving between pages has become less common with the advent of longer pages and AJAX loading, but it can still be useful for long, repetitive listings or content.</h4>
+        <h4 class="subheader"><%= pagination_description %></h4>
       </div>
     </div>
 

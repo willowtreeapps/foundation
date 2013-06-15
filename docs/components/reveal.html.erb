@@ -1,13 +1,13 @@
 <% @side_nav = "js" %>
+<% @page_title = reveal_title %>
 
 <div class="row">
   <div class="large-9 push-3 columns">
 
-    <% @page_title = "Reveal" %>
     <div class="row">
       <div class="large-12 columns">
         <h2><%= @page_title %></h2>
-        <h4 class="subheader">Modal dialogs, or pop-up windows, are handy for prototyping and production. Foundation includes Reveal our jQuery modal plugin, to make this easy for you.</h4>
+        <h4 class="subheader"><%= reveal_description %></h4>
 
         <a href="#" data-reveal-id="firstModal" class="radius button">Example Modal&hellip;</a>
         <a href="#" data-reveal-id="videoModal" class="radius button">Example Modal w/Video&hellip;</a>
