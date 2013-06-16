@@ -1,14 +1,52 @@
-<% @side_nav = "js" %>
+<% @side_nav = "css" %>
 <% @page_title = sections_title %>
 
-<div class="row">
-  <div class="large-9 push-3 columns">
+<div class="row" id="mainContent">
+  <div class="large-3 columns" role="complementary">
+    <%= render "_sidebar.html.erb" %>
+  </div>
+
+  <div class="large-9 columns" role="main">
+    <div class="row">
+      <div class="large-12 columns">
+        <h1><%= @page_title %></h1>
+        <h4 class="subheader"><%= sections_description %></h4>
+      </div>
+    </div>
 
     <div class="row">
       <div class="large-12 columns">
-        <h2><%= @page_title %></h2>
-        <h4 class="subheader"><%= sections_description %></h4>
 
+        <div class="section-container tabs switcheroo" data-section="tabs" data-options="one_Up: false; deep_linking: true">
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#css">CSS</a></h6>
+            <div class="content" data-slug="css">
+              <h3>CSS Example</h3>
+            </div>
+          </section>
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#scss">SCSS</a></h6>
+            <div class="content" data-slug="scss">
+              <h3>SCSS Example</h3>
+            </div>
+          </section>
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#js">JS</a></h6>
+            <div class="content" data-slug="js">
+              <h3>Javscripts</h3>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!--
         <div class="row">
           <div class="large-3 columns">
             <div class="section-container vertical-nav" data-section="vertical-nav" data-options="one_up: false;">
@@ -374,7 +412,7 @@
 
         <p><strong>Note:</strong> The <code>section</code> element can be replaced with a <code>div.section</code> element if you do not want to use HTML5 elements.</p>
 
-        <hr>
+        <hr> -->
 
       <!--   <h3>Building with Mixins</h3>
         <p>If you are keen on SCSS and use it for your Foundation projects, you have access to mixins that will let you create any type of section you want and change it within a media query too! Building a section with our mixins requires a bit of predefined structure, but you can choose the classes or ID's to style them with. Start with some sort of block-level container, we use a <code>&lt;div&gt;</code>. This container needs to have <code>data-section="type-of-section"</code>. The section types are explained above. Inside this you create "sections", which can be an HTML5 <code>section</code> element or a <code>&lt;div class="section"&gt;</code>, that will hold content.<p>
@@ -402,7 +440,7 @@
 
         <hr> -->
 
-        <h5>Default SCSS Variables</h5>
+       <!--  <h5>Default SCSS Variables</h5>
 <%= code_example '
 /* We use these to set padding and hover factor */
 $section-padding:                emCalc(15px);
@@ -493,4 +531,4 @@ $('#myModal').on('opened', function () {
   <div class="large-3 pull-9 columns">
     <%= render "_sidebar-components.html.erb" %>
   </div>
-</div>
+</div> -->

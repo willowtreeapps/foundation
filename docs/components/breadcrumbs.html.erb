@@ -1,17 +1,45 @@
 <% @side_nav = "nav" %>
 <% @page_title = breadcrumbs_title %>
 
-<div class="row">
-  <div class="large-9 push-3 columns">
+<div class="row" id="mainContent">
+  <div class="large-3 columns" role="complementary">
+    <%= render "_sidebar.html.erb" %>
+  </div>
 
+  <div class="large-9 columns" role="main">
     <div class="row">
       <div class="large-12 columns">
-        <h2><%= @page_title %></h2>
+        <h1><%= @page_title %></h1>
         <h4 class="subheader"><%= breadcrumbs_description %></h4>
       </div>
     </div>
 
     <div class="row">
+      <div class="large-12 columns">
+
+        <div class="section-container tabs switcheroo" data-section="tabs" data-options="one_Up: false; deep_linking: true">
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#css">CSS</a></h6>
+            <div class="content" data-slug="css">
+              <h3>CSS Example</h3>
+            </div>
+          </section>
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#scss">SCSS</a></h6>
+            <div class="content" data-slug="scss">
+              <h3>SCSS Example</h3>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- <div class="row">
       <div class="large-12 columns">
         <ul class="breadcrumbs">
           <li><a href="#">Home</a></li>
@@ -154,3 +182,4 @@ $crumb-slash:                  "/";
     <%= render "_sidebar-components.html.erb" %>
   </div>
 </div>
+ -->

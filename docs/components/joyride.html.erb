@@ -4,22 +4,52 @@
 %>
 <% @page_title = joyride_title %>
 
-<div class="row">
-  <div class="large-9 push-3 columns">
+<div class="row" id="mainContent">
+  <div class="large-3 columns" role="complementary">
+    <%= render "_sidebar.html.erb" %>
+  </div>
 
-
+  <div class="large-9 columns" role="main">
     <div class="row">
       <div class="large-12 columns">
-        <h2><%= @page_title %></h2>
+        <h1><%= @page_title %></h1>
         <h4 class="subheader"><%= joyride_description %></h4>
-
-        <div id="firstStop" class="panel">Some awesome part of your site!</div>
-
-        <hr>
       </div>
     </div>
 
     <div class="row">
+      <div class="large-12 columns">
+
+        <div class="section-container tabs switcheroo" data-section="tabs" data-options="one_Up: false; deep_linking: true">
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#css">CSS</a></h6>
+            <div class="content" data-slug="css">
+              <h3>CSS Example</h3>
+            </div>
+          </section>
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#scss">SCSS</a></h6>
+            <div class="content" data-slug="scss">
+              <h3>SCSS Example</h3>
+            </div>
+          </section>
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#js">JS</a></h6>
+            <div class="content" data-slug="js">
+              <h3>SCSS Example</h3>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- <div class="row">
       <div class="large-12 columns">
         <h2 id="numero1" class="so-awesome">Build Joyride with HTML</h2>
         <p>At the bottom of your page but inside of the body, place either an <code>ol</code> or <code>ul</code> with the <code>data-joyride</code> attribute. This list will contain all of the stops on your tour. To associate the tour stops with an item on your page, make sure the ID and data-id match between the two. If you do not associate an if, the tour stop will take on a modal style, positioning itself in the middle of the screen.</p>
@@ -162,10 +192,10 @@ $joyride-screenfill:          rgba(0,0,0,0.5);
     <%= render "_sidebar-components.html.erb" %>
   </div>
 
-</div>
+</div> -->
 
 <!-- TOUR STOPS -->
-<ol class="joyride-list" data-joyride>
+<!-- <ol class="joyride-list" data-joyride>
   <li data-id="firstStop" data-text="Next">
     <p>Hello and welcome to the Joyride documentation page.</p>
   </li>
@@ -181,4 +211,4 @@ $joyride-screenfill:          rgba(0,0,0,0.5);
     <h4>Stop #4</h4>
     <p>It works as a modal too!</p>
   </li>
-</ol>
+</ol> -->
