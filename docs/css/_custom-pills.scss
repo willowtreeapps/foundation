@@ -1,0 +1,30 @@
+/* Custom pill tabs */
+.section-container.switcheroo.tabs {
+  margin-top: 10px;
+
+  > .section {
+    .title {
+      top: -5px;
+      background: none;
+      border: none;
+      padding-right: 6px;
+
+      a {
+        padding: 10px 26px 9px;
+        font-weight: bold;
+        background: #eee;
+        @include radius(1000px);
+        color: #777;
+      }
+    }
+
+    &.active .title {
+      a { color: #fff; background-color: #333; }
+    }
+
+    .content { border: 0; padding: 20px 0 0 0;
+      .well:first-child { padding-top: 30px; }
+    }
+
+  }
+}

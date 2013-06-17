@@ -1,17 +1,45 @@
 <% @side_nav = "nav" %>
+<% @page_title = side_nav_title %>
 
-<div class="row">
-  <div class="large-9 push-3 columns">
+<div class="row" id="mainContent">
+  <div class="large-3 columns" role="complementary">
+    <%= render "_sidebar.html.erb" %>
+  </div>
 
-    <% @page_title = "Side Nav" %>
+  <div class="large-9 columns" role="main">
     <div class="row">
       <div class="large-12 columns">
         <h1><%= @page_title %></h1>
-        <h4 class="subheader">Side nav, like you'll see on Foundation's main site, is useful for sections of either a site or a page.</h4>
+        <h4 class="subheader"><%= side_nav_description %></h4>
       </div>
     </div>
 
     <div class="row">
+      <div class="large-12 columns">
+
+        <div class="section-container tabs switcheroo" data-section="tabs" data-options="one_Up: false; deep_linking: true">
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#css">CSS</a></h6>
+            <div class="content" data-slug="css">
+              <h3>CSS Example</h3>
+            </div>
+          </section>
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#scss">SCSS</a></h6>
+            <div class="content" data-slug="scss">
+              <h3>SCSS Example</h3>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- <div class="row">
       <div class="large-12 columns">
 
         <div class="row">
@@ -121,4 +149,4 @@ $side-nav-divider-color: darken(#fff, 10%);', :css %>
   <div class="large-3 pull-9 columns">
     <%= render "_sidebar-components.html.erb" %>
   </div>
-</div>
+</div> -->

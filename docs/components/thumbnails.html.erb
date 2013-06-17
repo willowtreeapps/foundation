@@ -1,17 +1,45 @@
 <% @side_nav = "css" %>
+<% @page_title = thumbnails_title %>
 
-<div class="row">
-  <div class="large-9 push-3 columns">
+<div class="row" id="mainContent">
+  <div class="large-3 columns" role="complementary">
+    <%= render "_sidebar.html.erb" %>
+  </div>
 
-    <% @page_title = "Thumbnails" %>
+  <div class="large-9 columns" role="main">
     <div class="row">
       <div class="large-12 columns">
-        <h2><%= @page_title %></h2>
-        <h4 class="subheader">If you are going to use an image as an anchor, we got you covered. All you gotta do is wrap an <code>a.th</code> around your image and voilà!</h4>
+        <h1><%= @page_title %></h1>
+        <h4 class="subheader"><%= thumbnails_description %></h4>
       </div>
     </div>
 
     <div class="row">
+      <div class="large-12 columns">
+
+        <div class="section-container tabs switcheroo" data-section="tabs" data-options="one_Up: false; deep_linking: true">
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#css">CSS</a></h6>
+            <div class="content" data-slug="css">
+              <h3>CSS Example</h3>
+            </div>
+          </section>
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#scss">SCSS</a></h6>
+            <div class="content" data-slug="scss">
+              <h3>SCSS Example</h3>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- <div class="row">
       <div class="large-12 columns">
 
         <a class="th" href="../img/demos/demo1.jpg"><img src="../img/demos/demo1-th.jpg"></a>
@@ -86,4 +114,4 @@ $thumb-transition-speed: 200ms;', :css %>
   <div class="large-3 pull-9 columns">
     <%= render "_sidebar-components.html.erb" %>
   </div>
-</div>
+</div> -->

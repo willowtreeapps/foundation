@@ -1,24 +1,62 @@
 <% @side_nav = "nav" %>
-<div class="row">
-  <div class="large-9 push-3 columns">
+<% @page_title = top_bar_title %>
 
-    <% @page_title = "Top Bar" %>
+<div class="row" id="mainContent">
+  <div class="large-3 columns" role="complementary">
+    <%= render "_sidebar.html.erb" %>
+  </div>
+
+  <div class="large-9 columns" role="main">
     <div class="row">
       <div class="large-12 columns">
         <h1><%= @page_title %></h1>
-        <h4 class="subheader">The Foundation Top Bar gives you a great way to display a complex navigation bar on small or large screens.</h4>
+        <h4 class="subheader"><%= top_bar_description %></h4>
+      </div>
+    </div>
 
-        <nav class="top-bar">
-          <ul class="title-area">
+    <div class="row">
+      <div class="large-12 columns">
+
+        <div class="section-container tabs switcheroo" data-section="tabs" data-options="one_Up: false; deep_linking: true">
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#css">CSS</a></h6>
+            <div class="content" data-slug="css">
+              <h3>CSS Example</h3>
+            </div>
+          </section>
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#scss">SCSS</a></h6>
+            <div class="content" data-slug="scss">
+              <h3>SCSS Example</h3>
+            </div>
+          </section>
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#js">JS</a></h6>
+            <div class="content" data-slug="scss">
+              <h3>Javascripts</h3>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- <nav class="top-bar">
+          <ul class="title-area"> -->
             <!-- Title Area -->
-            <li class="name">
+            <!-- <li class="name">
               <h1><a href="/">Top Bar</a></h1>
-            </li>
+            </li> -->
             <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-            <li class="toggle-topbar menu-icon"><a href=""><span>Menu</span></a></li>
-          </ul>
+            <!-- <li class="toggle-topbar menu-icon"><a href=""><span>Menu</span></a></li>
+          </ul> -->
 
-          <section class="top-bar-section">
+          <!-- <section class="top-bar-section">
             <ul class="left">
               <li class="divider"></li>
               <li class="has-dropdown"><a href="<%= features_path %>">Item 1</a>
@@ -59,9 +97,9 @@
                 </ul>
               </li>
               <li class="divider"></li>
-            </ul>
+            </ul> -->
             <!-- Right Nav Section -->
-            <ul class="right">
+            <!-- <ul class="right">
               <li class="divider hide-for-small"></li>
               <li><a href="#">Item 2</a></li>
             </ul>
@@ -79,7 +117,7 @@
         <p>The top bar is a pretty complex piece of magical UI goodness, which makes it really difficult to create a mixin from it. We rely on many presentational classes to accomplish the styles and there's a lot happening in the JS. The top bar is hoverable by default but can be changed to a click event by adding a simple <code>data-options="is_hover:false"</code> to the <code>&lt;nav&gt;</code> element. <a href="#clickable">See an example below</a>.</p>
 
         <h5>Basic Needs</h5>
-        <p>The top bar has four main elements, three of which are needed for proper functionality: <code>ul.title-area</code>, a <code>ul class="right/left</code> element enclosed in a <code>section class="top-bar-section"</code>, and the <code>li.toggle-topbar</code> element that will expand the menu in the mobile layout. <!-- You can leave out the li class="name" as long as you include the .toggle-topbar element. --></p>
+        <p>The top bar has four main elements, three of which are needed for proper functionality: <code>ul.title-area</code>, a <code>ul class="right/left</code> element enclosed in a <code>section class="top-bar-section"</code>, and the <code>li.toggle-topbar</code> element that will expand the menu in the mobile layout. </p>
 
         <h5>Positioning the Bar</h5>
         <p>The top bar is built with a single <code>nav</code> element with a class of <code>top-bar</code>. It will take on full-browser width by default. To make the top bar stay fixed as you scroll, wrap it in <code>div class="fixed"</code>. If you want your navigation to be set to your grid width, wrap it in <code>div class="contain-to-grid"</code>. You may use <code>fixed</code> and <code>contain-to-grid</code> together.</p>
@@ -211,17 +249,14 @@
       <p>You can now make the top bar clickable by adding a data-attribute to the nav element. Here's an example:</p>
       <nav class="top-bar">
         <ul class="title-area">
-          <!-- Title Area -->
           <li class="name">
             <h1><a href="#">Clickable Top Bar</a></h1>
           </li>
-          <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
           <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
         </ul>
 
         <section class="top-bar-section">
 
-          <!-- Right Nav Section -->
           <ul class="right">
             <li class="divider hide-for-small"></li>
             <li class="has-dropdown"><a href="#">Main Item 1</a>
@@ -358,4 +393,4 @@ $topbar-sticky-class: ".sticky";', :css %>
   <div class="large-3 pull-9 columns">
     <%= render "_sidebar-components.html.erb" %>
   </div>
-</div>
+</div> -->

@@ -1,17 +1,45 @@
-<% @side_nav = "using" %>
+<% @side_nav = "grid" %>
+<% @page_title = visibility_title %>
 
-<div class="row">
-  <div class="large-9 push-3 columns">
+<div class="row" id="mainContent">
+  <div class="large-3 columns" role="complementary">
+    <%= render "_sidebar.html.erb" %>
+  </div>
 
-    <% @page_title = "Visibility Classes" %>
+  <div class="large-9 columns" role="main">
     <div class="row">
       <div class="large-12 columns">
-        <h2><%= @page_title %></h2>
-        <h4 class="subheader">Foundation allows you to easily turn elements on and off based on certain device criteria, like screen size, touch or orientation.</h4>
+        <h1><%= @page_title %></h1>
+        <h4 class="subheader"><%= visibility_description %></h4>
       </div>
     </div>
 
     <div class="row">
+      <div class="large-12 columns">
+
+        <div class="section-container tabs switcheroo" data-section="tabs" data-options="one_Up: false; deep_linking: true">
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#css">CSS</a></h6>
+            <div class="content" data-slug="css">
+              <h3>CSS Example</h3>
+            </div>
+          </section>
+
+          <section class="section">
+            <h6 class="title" data-section-title><a href="#scss">SCSS</a></h6>
+            <div class="content" data-slug="scss">
+              <h3>SCSS Example</h3>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- <div class="row">
       <div class="large-12 columns">
         <h5>Screen Size Visibility Control (Show)</h5>
         <p>The following text should describe the screen size you're using:</p>
@@ -104,7 +132,4 @@
       </div>
     </div>
   </div>
-  <div class="large-3 pull-9 columns">
-    <%= render "_sidebar-components.html.erb" %>
-  </div>
-</div>
+</div> -->

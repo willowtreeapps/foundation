@@ -1,11 +1,16 @@
-<div class="row">
-  <div class="large-12 columns">
+<% @side_nav = "css" %>
+<% @page_title = "Kitchen Sink" %>
+
+<div class="row" id="mainContent">
+  <div class="large-3 columns" role="complementary">
+    <%= render "_sidebar.html.erb" %>
+  </div>
+
+  <div class="large-12 columns" role="main">
     <div class="row">
       <div class="large-12 columns">
-        <% @page_title = "Kitchen Sink" %>
-        <h2><%= @page_title %></h2>
+        <h1><%= @page_title %></h1>
         <h4 class="subheader">This page included every single Foundation element so that we can make sure things work together smoothly.</h4>
-        <hr>
       </div>
     </div>
 

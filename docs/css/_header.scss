@@ -1,0 +1,53 @@
+/* Blue Header */
+.foundation-header {
+  background: $primary-color;
+  padding: 0;
+
+  .row { overflow: visible !important; }
+
+  a,
+  p,
+  a:active,
+  a:hover,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 { color: #fff; }
+
+  h2 {
+    font-weight: bold; margin: 15px 0 10px 0;
+    @media #{$small} { margin-top: 30px; margin-bottom: 30px; }
+  }
+}
+
+/* Header Buttons */
+.header-buttons {
+  margin-bottom: emCalc(15px);
+  overflow: hidden;
+
+  @media #{$small} {
+    float: right;
+    margin-top: -72px;
+    margin-bottom: 0;
+  }
+
+  .header-button {
+    background: lighten($primary-color, 15%);
+    font-size: 14px;
+    padding: 12px 16px 11px 16px;
+    display: inline-block;
+    margin-left: 0px;
+    margin-right: 10px;
+    font-size: 12px;
+    float: left;
+    @include single-transition(all,200ms);
+
+    &.open { background: lighten($primary-color, 5%); }
+    &:hover { background: lighten($primary-color, 10%); }
+
+    @media #{$small} { margin-left: 10px; margin-right: 0px; }
+  }
+
+}

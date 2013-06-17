@@ -5,22 +5,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- For third-generation iPad with high-resolution Retina display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/favicons/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= asset_path %>/apple-touch-icon-144x144-precomposed.png">
     <!-- For iPhone with high-resolution Retina display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/favicons/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%= asset_path %>/apple-touch-icon-114x114-precomposed.png">
     <!-- For first- and second-generation iPad: -->
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/favicons/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= asset_path %>/apple-touch-icon-72x72-precomposed.png">
     <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <link rel="apple-touch-icon-precomposed" href="img/favicons/apple-touch-icon-precomposed.png">
-    <link rel="icon" href="img/favicons/favicon.ico" type="image/x-icon">
-    <title>Foundation Docs: <%= @page_title %></title>
-    <link rel="stylesheet" href="<%= asset_path %>/normalize.css" />
+    <link rel="apple-touch-icon-precomposed" href="<%= asset_path %>/apple-touch-icon-precomposed.png">
+
+    <link rel="icon" href="<%= asset_path %>/favicon.ico" type="image/x-icon" />
+
+    <title>Foundation Documentation: <%= @page_title %></title>
     <link rel="stylesheet" href="<%= asset_path %>/docs.css" />
     <script src="<%= asset_path %>/vendor/custom.modernizr.js"></script>
   </head>
-  <body class="antialiased">
+  <body class="off-canvas antialiased">
 
-    <nav class="top-bar">
+    <nav class="top-bar hide-for-small">
       <ul class="title-area">
         <!-- Title Area -->
         <li class="name">
@@ -40,59 +41,123 @@
           <li class="divider"></li>
           <li><a href="<%= case_studies_path %>">Case Studies</a></li>
           <li class="divider"></li>
-          <li><a href="<%= docs_path %>">Docs</a></li>
+          <li><a href="<%= docs_path %>">Documentation</a></li>
           <li class="divider"></li>
           <li><a href="<%= training_path %>">Training</a></li>
           <li class="divider"></li>
           <li class="has-form">
-            <a href="http://foundation.zurb.com/docs" class="button">Getting Started</a>
+            <a href="http://foundation.zurb.com/docs" class="button">Download</a>
           </li>
         </ul>
       </section>
     </nav>
 
-    <% @page_title = "4 Documentation" %>
-    <div class="row">
-      <div class="large-12 columns">
-        <h1 class="docs header"><a href="http://foundation.zurb.com/docs/">Foundation <%= @page_title %></a></h1>
-        <h6 class="docs subheader"><a href="http://foundation.zurb.com/old-docs/f3">Want F3 Docs?</a></h6>
-        <hr>
+    <header class="foundation-header">
+      <div class="row">
+        <div class="large-12 columns">
+          <h2 class="normal"><a href="http://foundation.zurb.com/docs/"><span class="hide-for-small">Foundation 4 Documentation</span><span class="show-for-small">Foundation 4 Docs</span></a></h2>
+
+          <div class="header-buttons">
+            <a href="#" class="header-button show-for-small" id="sidebarButton">
+              Side Menu
+              <span class="menu-bar-top"></span><span class="menu-bar-middle"></span><span class="menu-bar-bottom"></span>
+            </a>
+            <a href="#" class="header-button" id="allElements">All Components</a>
+            <a href="#" class="header-button" id="versions">Version 5.0.0</a>
+          </div>
+        </div>
       </div>
-    </div>
+    </header>
+
+    <%= render "_component-list.html.erb" %>
 
     <%= yield %>
 
-    <footer class="row full-width">
-      <div class="large-5 columns">
-        <h6><strong>Made by ZURB</strong></h6>
-        <p>Foundation is made by <a href="http://www.zurb.com/">ZURB</a>, a product design company in Campbell, California. We've put more than 14 years of experience building web products, services and websites into this framework. <a href="http://foundation.zurb.com/about.php">Foundation Info and Goodies &rarr;</a></p>
-      </div>
-
-      <div class="large-3 columns">
-        <h6><strong>Using Foundation?</strong></h6>
-        <p>Let us know how you're using Foundation and we might feature you as an example! <a href="mailto:foundation@zurb.com?subject=I'm%20using%20Foundation">Get in touch &rarr;</a></p>
-      </div>
-
-      <div class="large-4 columns">
-        <h6><strong>Need some help?</strong></h6>
-        <p>For answers or help visit the <a href="http://foundation.zurb.com/docs/support.html">Support page</a>.</p>
-      </div>
-    </footer>
-
-    <div id="copyright">
-      <div class="row full-width">
+    <div class="zurb-footer-top bg-blue">
+      <div class="row property">
         <div class="large-4 columns">
-          <p>Site content &copy; <%= Time.now.year %> ZURB, inc.</p>
+          <div class="property-info">
+            <h2><a href="/home" class="home" title="ZURB">ZURB</a></h2>
+            <p>ZURB is a close-knit team of <a href="http://zurb.com/about" target="_blank">product designers</a> who help companies design better web sites, services and online products. Since 1998, we've helped thousands of teams get stuff done.</p>
+          </div>
         </div>
+
         <div class="large-8 columns">
-          <ul class="inline-list right">
-            <li><a href="http://foundation.zurb.com">Home</a></li>
-            <li><a href="http://foundation.zurb.com/download.php">Download</a></li>
-            <li><a href="http://foundation.zurb.com/docs">Docs</a></li>
-            <li><a href="http://foundation.zurb.com/docs/changelog.html">Changelog</a></li>
-            <li><a href="http://foundation.zurb.com/about.php">About</a></li>
-            <li><a href="http://feeds.feedburner.com/zurb/blog">Subscribe to the ZURBlog</a></li>
-          </ul>
+          <div class="row collapse">
+            <div class="large-4 columns">
+              <div class="learn-links">
+                <h4>Want More?</h4>
+                <ul>
+                  <li><a href="/about">About</a></li>
+                  <li><a href="/services/our-work">Our Work</a></li>
+                  <li><a href="/manifesto">Manifesto</a></li>
+                  <li><a href="http://zurb.com/blog">Blog</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="large-4 columns">
+              <div class="support-links">
+                <h4>Talk to us</h4>
+                <p>Call us at <strong>(408) 341-0600</strong></p>
+                <p>Not a big talker? Email us at <a href="http://zurb.com/contact">getstarted@zurb.com</a></p>
+              </div>
+            </div>
+            <div class="large-4 columns">
+              <div class="connect-links">
+                <h4>Stay in touch</h4>
+                <p>Get monthly updates from ZURB in your inbox. Read our <a href="http://zurb.com/news">latest news &amp; buzz.</a></p>
+                <a href="/newsletter/sign_up" class="small button">Get ZURBnews!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row global">
+        <div class="large-3 columns">
+          <a href="http://zurb.com/services" class="footer-link-block services">
+            <span class="title">Services</span>
+            <span>Helping more than 200 startups succeed since 1998.</span>
+          </a>
+        </div>
+        <div class="large-3 columns">
+          <a href="http://foundation.zurb.com/" class="footer-link-block foundation">
+            <span class="title">Foundation</span>
+            <span>The most advanced front-end framework in the world.</span>
+          </a>
+        </div>
+        <div class="large-3 columns">
+          <a href="http://zurb.com/apps" class="footer-link-block apps">
+            <span class="title">Products</span>
+            <span>Prototype, iterate and collect feedback on your products.</span>
+          </a>
+        </div>
+        <div class="large-3 columns">
+          <a href="http://zurb.com/expo" class="footer-link-block expo">
+            <span class="title">Expo</span>
+            <span>Ideas, thoughts and design resources shared with you.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="zurb-footer-bottom">
+      <div class="row">
+        <div class="large-4 push-8 columns">
+          <ul class="home-social">
+              <li><a href="http://www.twitter.com/ZURB" class="twitter"></a></li>
+              <li><a href="http://www.facebook.com/ZURB" class="facebook"></a></li>
+              <li><a href="/contact" class="mail"></a></li>
+            </ul>
+         </div>
+         <div class="large-8 pull-4 columns">
+            <a href="http://www.zurb.com" class="zurb-logo regular"></a>
+            <ul class="zurb-links">
+              <li><a href="http://zurb.com/about">About</a></li>
+              <li><a href="http://zurb.com/blog">Blog</a></li>
+              <li><a href="http://zurb.com/news">News<span class="show-for-medium-up"> &amp; Events</span></a></li>
+              <li><a href="http://zurb.com/contact">Contact</a></li>
+              <li><a href="http://zurb.com/sitemap">Sitemap</a></li>
+           </ul>
+           <p class="copyright">&copy; 1998&mdash;2013 ZURB, Inc. All rights reserved.</p>
         </div>
       </div>
     </div>
@@ -118,7 +183,9 @@
         + ('__proto__' in {} ? 'zepto' : 'jquery')
         + '.js"><\/script>');
     </script>
+    <script src="<%= asset_path %>/vendor/jquery.js"></script>
     <script src="<%= asset_path %>/docs.js"></script>
+    <script src="<%= asset_path %>/off-canvas.js"></script>
     <script>
       $(document)
       <% if @joyride %>
@@ -131,6 +198,29 @@
       // For Kitchen Sink Page
       $('#start-jr').on('click', function() {
         $(document).foundation('joyride','start');
+      });
+
+
+      // Mega Components Menu
+      $(document).ready(function() {
+
+        $('.all-elements').height($(window).height());
+
+        $('#allElements').on('click', function(e) {
+          e.preventDefault();
+          $('.all-elements').fadeIn(200).addClass('open');
+          $('body').css('position','fixed');
+        });
+
+        $('.close-all-elements').on('click', function() {
+          $('.all-elements').fadeOut(200).removeClass('open');
+          $('body').css('position','');
+        });
+
+        $(window).resize(function() {
+          $('.all-elements').height($(window).height());
+        });
+
       });
     </script>
   </body>
