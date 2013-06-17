@@ -149,8 +149,38 @@ $total-columns: 12 !default;
     .columns.small-centered { @include grid-column($center:true, $collapse:null, $float:false); }
   }
 
+
+  @media only screen and (min-width: 640px) {
+
+    @for $i from 1 through $total-columns {
+      .medium#{-$i} { @include grid-column($columns:$i,$collapse:null,$float:false); }
+    }
+
+    @for $i from 0 through $total-columns - 1 {
+      .row .medium-offset-#{$i} { @include grid-column($offset:$i, $collapse:null,$float:false); }
+    }
+
+    @for $i from 1 through $total-columns - 1 {
+      .medium-push#{-$i} { @include grid-column($push:$i, $collapse:null, $float:false); }
+      .medium-pull#{-$i} { @include grid-column($pull:$i, $collapse:null, $float:false); }
+    }
+
+    .column.medium-centered,
+    .columns.medium-centered { @include grid-column($center:true, $collapse:null, $float:false); }
+
+    .column.medium-uncentered,
+    .columns.medium-uncentered {
+      margin-#{$default-float}: 0;
+      margin-#{$opposite-direction}: 0;
+      float: $default-float !important;
+    }
+
+  }
+
+
   /* Styles for screens that are atleast 768px; */
-  @media #{$small} {
+  // @media #{$small} {
+  @media only screen and (min-width: 1024px) {
 
     @for $i from 1 through $total-columns {
       .large#{-$i} { @include grid-column($columns:$i,$collapse:null,$float:false); }
@@ -161,8 +191,8 @@ $total-columns: 12 !default;
     }
 
     @for $i from 1 through $total-columns - 1 {
-      .push#{-$i} { @include grid-column($push:$i, $collapse:null, $float:false); }
-      .pull#{-$i} { @include grid-column($pull:$i, $collapse:null, $float:false); }
+      .large-push#{-$i} { @include grid-column($push:$i, $collapse:null, $float:false); }
+      .large-pull#{-$i} { @include grid-column($pull:$i, $collapse:null, $float:false); }
     }
 
     .column.large-centered,
