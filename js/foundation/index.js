@@ -10,9 +10,10 @@
 =require foundation/foundation.offcanvas
 =require foundation/foundation.flip
 =require foundation/foundation.orbit
-=require foundation/foundation.placeholder
 =require foundation/foundation.reveal
 =require foundation/foundation.section
 =require foundation/foundation.tooltips
 =require foundation/foundation.topbar
+=require foundation/foundation.interchange
+=require foundation/foundation.placeholder
 */

@@ -52,10 +52,10 @@
         <hr>
 
         <h3>Build with a Mixin</h3>
-        <p>We've included SCSS mixins used to style panels so that you can code smarter. To use the mixin, you'll need to have the <a href="../sass.html">extension installed</a> or grab <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/_foundation-global.scss">_foundation-global.scss</a>, <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_global.scss">_global.scss</a> and <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_panels.scss">_panels.scss</a> from Github and throw them into a Foundation folder in your project directory. From there, you can import the files at the top of your own SCSS stylesheet, like so:</p>
+        <p>We've included SCSS mixins used to style panels so that you can code smarter. To use the mixin, you'll need to have the <a href="../sass.html">extension installed</a> or grab <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/_variables.scss">_variables.scss</a>, <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_global.scss">_global.scss</a> and <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_panels.scss">_panels.scss</a> from Github and throw them into a Foundation folder in your project directory. From there, you can import the files at the top of your own SCSS stylesheet, like so:</p>
 
 <%= code_example '
-@import "foundation/foundation-global", "foundation/components/global", "foundation/components/panels";
+@import "foundation/variables", "foundation/components/global", "foundation/components/panels";
 ', :css %>
 
         <p>If you are using the mixins, you may include the styles on whatever class or ID you'd like to the <code>&lt;div&gt;</code>.</p>
@@ -75,16 +75,19 @@
           Panel content goes here...
         </div>
 
-        <p>You also have <strong>two options</strong> available to customize the panel within the mixin. These control the background color (which also effect border and font color) and the interior padding of the panel itself.</p>
+        <p>You also have <strong>three options</strong> available to customize the panel within the mixin. These control the background color (which also effect border and font color) and the interior padding of the panel itself.</p>
 
 <%= code_example '
-.your-class-name { @include panel($bg, $padding); }
+.your-class-name { @include panel($bg, $padding, $adjust); }
 
 /* This controls the background color, border color and type color based on brightness of the bg. */
 $bg: $secondary-color
 
 /* This controls the interior padding */
 $padding: $panel-padding
+
+/* Control whether panel mixin adjusts header styles */
+$adjust: true
 ', :css %>
 
         <div class="panel-custom">
@@ -95,23 +98,23 @@ $padding: $panel-padding
 
 <%= code_example '
 /* We use these to control the background and border styles */
-$panel-bg:              darken(#fff, 5%);
-$panel-border-style:    solid;
-$panel-border-size:     1px;
+$panel-bg: darken(#fff, 5%);
+$panel-border-style: solid;
+$panel-border-size: 1px;
 
 /* We use this % to control how much we darken things on hover */
 $panel-function-factor: 10%;
-$panel-border-color:    darken($panel-bg, $panel-function-factor);
+$panel-border-color: darken($panel-bg, $panel-function-factor);
 
 /* We use these to set default inner padding and bottom margin */
-$panel-margin-bottom:   emCalc(20px);
-$panel-padding:         emCalc(20px);
+$panel-margin-bottom: emCalc(20px);
+$panel-padding: emCalc(20px);
 
 /* We use these to set default font colors */
-$panel-font-color:      #333;
-$panel-font-color-alt:  #fff;', :css %>
+$panel-font-color: #333;
+$panel-font-color-alt: #fff;', :css %>
 
-        <p><strong>Note:</strong> <code>emCalc();</code> is a function we wrote to convert <code>px</code> to <code>em</code>. It is included in <strong>_foundation-global.scss</strong>.</p>
+        <p><strong>Note:</strong> <code>emCalc();</code> is a function we wrote to convert <code>px</code> to <code>em</code>. It is included in <strong>_variables.scss</strong>.</p>
 
 
       </div>

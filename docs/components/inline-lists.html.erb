@@ -41,10 +41,10 @@
         <hr>
 
         <h3>Build with a Mixin</h3>
-        <p>We've included SCSS mixins used to style inline lists. To use the mixin, you'll need to have the <a href="../sass.html">extension installed</a> or grab <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/_foundation-global.scss">_foundation-global.scss</a>, <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_global.scss">_global.scss</a> and <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_inline-lists.scss">_inline-lists.scss</a> from Github and throw them into a Foundation folder in your project directory. From there, you can import the files at the top of your own SCSS stylesheet, like so:</p>
+        <p>We've included SCSS mixins used to style inline lists. To use the mixin, you'll need to have the <a href="../sass.html">extension installed</a> or grab <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/_variables.scss">_variables.scss</a>, <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_global.scss">_global.scss</a> and <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_inline-lists.scss">_inline-lists.scss</a> from Github and throw them into a Foundation folder in your project directory. From there, you can import the files at the top of your own SCSS stylesheet, like so:</p>
 
 <%= code_example '
-@import "foundation/foundation-global", "foundation/components/global", "foundation/components/inline-lists";
+@import "foundation/variables", "foundation/components/global", "foundation/components/inline-lists";
 ', :css %>
 
         <h5>Quick Mixin</h5>
@@ -65,20 +65,20 @@
 
 <%= code_example '
 /* We use this to control the margins and padding of the inline list. */
-$inline-list-margin-bottom:    emCalc(17px) emCalc(-22px );
-$inline-list-margin:           0 0;
-$inline-list-padding:          0;
+$inline-list-margin-bottom: emCalc(17px) emCalc(-22px );
+$inline-list-margin: 0 0;
+$inline-list-padding: 0;
 
 /* We use this to control the overflow of the inline list. */
-$inline-list-overflow:         hidden;
+$inline-list-overflow: hidden;
 
 /* We use this to control the list items */
-$inline-list-display:          block;
+$inline-list-display: block;
 
-/* We use this to control any elments within list items */
+/* We use this to control any elements within list items */
 $inline-list-children-display: block;', :css %>
 
-        <p><strong>Note:</strong> <code>emCalc();</code> is a function we wrote to convert <code>px</code> to <code>em</code>. It is included in <strong>_foundation-global.scss</strong>.</p>
+        <p><strong>Note:</strong> <code>emCalc();</code> is a function we wrote to convert <code>px</code> to <code>em</code>. It is included in <strong>_variables.scss</strong>.</p>
 
       </div>
     </div>

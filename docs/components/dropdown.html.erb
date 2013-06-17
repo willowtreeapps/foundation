@@ -54,13 +54,25 @@
 
         <p>You may chain one class from each group to build up desired default styles. For these styles to take effect, make sure you have the <strong>default Foundation CSS package</strong> or that you've selected <strong>dropdowns from a custom package</strong>. These should be linked up following our default <a href="../index.html#basicHTMLMarkup">HTML page structure</a>.</p>
 
+        <h5>Hoverable Dropdown Option</h5>
+        <p>If you'd rather have your dropdown be accessible by hover you can add a data-option to the target element:</p>
+
+<%= code_example '
+<a href="#" data-dropdown="drop1" data-options="is_hover:true">Has Dropdown</a>
+
+<ul id="drop1" class="f-dropdown" data-dropdown-content>
+  <li><a href="#">This is a link</a></li>
+  <li><a href="#">This is another</a></li>
+  <li><a href="#">Yet another</a></li>
+</ul>', :html %>
+
         <hr>
 
         <h3>Build With Our Mixins</h3>
-        <p>We've included SCSS mixins used to style dropdowns. To use the mixin, you'll need to have the <a href="../sass.html">extension installed</a> or grab <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/_foundation-global.scss">_foundation-global.scss</a>, <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_global.scss">_global.scss</a> and <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_dropdown.scss">_dropdown.scss</a> from Github and throw them into a foundation folder in your project directory. From there, you can import the files at the top of your own SCSS stylesheet, like so:</p>
+        <p>We've included SCSS mixins used to style dropdowns. To use the mixin, you'll need to have the <a href="../sass.html">extension installed</a> or grab <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/_variables.scss">_variables.scss</a>, <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_global.scss">_global.scss</a> and <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_dropdown.scss">_dropdown.scss</a> from Github and throw them into a foundation folder in your project directory. From there, you can import the files at the top of your own SCSS stylesheet, like so:</p>
 
 <%= code_example '
-@import "foundation/foundation-global", "foundation/components/global", "foundation/components/dropdown";
+@import "foundation/variables", "foundation/components/global", "foundation/components/dropdown";
 ', :css %>
 
         <p>If you are using the mixins, you may include the styles on whatever class or ID you'd like, just make sure you follow our markup structure:</p>
@@ -109,33 +121,37 @@ $max-width: $f-dropdown-max-width
 
 <%= code_example '
 /* We use these to controls height and width styles. */
-$f-dropdown-max-width:            200px;
-$f-dropdown-height:               auto;
-$f-dropdown-max-height:           none;
-$f-dropdown-margin-top:           2px;
+$f-dropdown-max-width: 200px;
+$f-dropdown-height: auto;
+$f-dropdown-max-height: none;
+$f-dropdown-margin-top: 2px;
 
 /* We use this to control the background color */
-$f-dropdown-bg:                   #fff;
+$f-dropdown-bg: #fff;
 
 /* We use this to set the border styles for dropdowns. */
-$f-dropdown-border-style:         solid;
-$f-dropdown-border-width:         1px;
-$f-dropdown-border-color:         darken(#fff, 20%);
+$f-dropdown-border-style: solid;
+$f-dropdown-border-width: 1px;
+$f-dropdown-border-color: darken(#fff, 20%);
 
 /* We use these to style the triangle pip. */
-$f-dropdown-triangle-size:        6px;
-$f-dropdown-triangle-color:       #fff;
+$f-dropdown-triangle-size: 6px;
+$f-dropdown-triangle-color: #fff;
 $f-dropdown-triangle-side-offset: 10px;
 
 /* We use these to control styles for the list elements. */
-$f-dropdown-list-style:           none;
-$f-dropdown-font-color:           #555;
-$f-dropdown-font-size:            emCalc(14px);
-$f-dropdown-list-padding:         emCalc(5px) emCalc(10px);
-$f-dropdown-line-height:          emCalc(18px);
-$f-dropdown-list-hover-bg:        #eeeeee;', :css %>
+$f-dropdown-list-style: none;
+$f-dropdown-font-color: #555;
+$f-dropdown-font-size: emCalc(14px);
+$f-dropdown-list-padding: emCalc(5px) emCalc(10px);
+$f-dropdown-line-height: emCalc(18px);
+$f-dropdown-list-hover-bg: #eeeeee;
+$dropdown-mobile-default-float: 0;
 
-      <p><strong>Note:</strong> <code>emCalc();</code> is a function we wrote to convert <code>px</code> to <code>em</code>. It is included in <strong>_foundation-global.scss</strong>.</p>
+/* We use this to control the styles for when the dropdown has custom content. */
+$f-dropdown-content-padding: emCalc(20px);', :css %>
+
+      <p><strong>Note:</strong> <code>emCalc();</code> is a function we wrote to convert <code>px</code> to <code>em</code>. It is included in <strong>_variables.scss</strong>.</p>
 
       <hr>
 

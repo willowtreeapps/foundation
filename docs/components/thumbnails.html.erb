@@ -31,10 +31,10 @@
         <hr>
 
         <h3>Build with our Mixins</h3>
-        <p>We've included SCSS mixins used to style labels. To use the mixin, you'll need to have the <a href="../sass.html">extension installed</a> or grab <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/_foundation-global.scss">_foundation-global.scss</a>, <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_global.scss">_global.scss</a> and <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_thumbs.scss">_thumbs.scss</a> from Github and throw them into a Foundation folder in your project directory. From there, you can import the files at the top of your own SCSS stylesheet, like so:</p>
+        <p>We've included SCSS mixins used to style labels. To use the mixin, you'll need to have the <a href="../sass.html">extension installed</a> or grab <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/_variables.scss">_variables.scss</a>, <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_global.scss">_global.scss</a> and <a href="https://github.com/zurb/foundation/blob/master/scss/foundation/components/_thumbs.scss">_thumbs.scss</a> from Github and throw them into a Foundation folder in your project directory. From there, you can import the files at the top of your own SCSS stylesheet, like so:</p>
 
 <%= code_example '
-@import "foundation/foundation-global", "foundation/components/global", "foundation/components/labels";
+@import "foundation/variables", "foundation/components/global", "foundation/components/labels";
 ', :css %>
 
         <h5>Quick Mixin</h5>
@@ -70,14 +70,14 @@ $box-shadow-hover: $thumb-box-shadow-hover
 
 <%= code_example '
 /* We use these to control border styles */
-$thumb-border-style:     solid;
-$thumb-border-width:     4px;
-$thumb-border-color:     #fff;
-$thumb-box-shadow:       0 0 0 1px rgba(#000,.2);
+$thumb-border-style: solid;
+$thumb-border-width: 4px;
+$thumb-border-color: #fff;
+$thumb-box-shadow: 0 0 0 1px rgba(#000,.2);
 $thumb-box-shadow-hover: 0 0 6px 1px rgba($primary-color,0.5);
 
 /* Radius and transition speed for thumbs */
-$thumb-radius:           $global-radius;
+$thumb-radius: $global-radius;
 $thumb-transition-speed: 200ms;', :css %>
 
       </div>
