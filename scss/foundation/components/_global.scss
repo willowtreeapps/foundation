@@ -115,14 +115,6 @@ $experimental: true !default;
   }
 }
 
-// We use this to do clear floats
-@mixin clearfix() {
-  *zoom:1;
-  &:before, &:after { content: " "; display: table; }
-  &:after { clear: both; }
-}
-
-
 // We use this to add a glowing effect to block elements
 @mixin block-glowing-effect($selector:focus, $fade-time:300ms, $glowing-effect-color:fade-out($primary-color, .25)) {
   @if $experimental {
@@ -231,6 +223,24 @@ $cursor-default-value: default !default;
 $cursor-pointer-value: pointer !default;
 $cursor-help-value: help !default;
 $cursor-text-value: text !default;
+
+
+// We use this to do clear floats
+%clear-fix {
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+}
+
+      // DEPRACATION WARNING: will be removed in 5.1
+      @mixin clearfix() {
+        &:before, &:after { content: " "; display: table; }
+        &:after { clear: both; }
+      }
+
+// Right and Left "auto" for grid
+%right-auto { #{$opposite-direction}: auto; }
+%left-auto { #{$default-float}: auto; }
+
 
 
 @if $include-html-global-classes {
