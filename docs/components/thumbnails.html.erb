@@ -95,18 +95,7 @@ $box-shadow-hover: $thumb-box-shadow-hover
         <p><a class="th-custom" href="../img/demos/demo4.jpg"><img src="../img/demos/demo4-th.jpg"></a></p>
 
         <h5>Default SCSS Variables</h5>
-
-<%= code_example '
-/* We use these to control border styles */
-$thumb-border-style: solid;
-$thumb-border-width: 4px;
-$thumb-border-color: #fff;
-$thumb-box-shadow: 0 0 0 1px rgba(#000,.2);
-$thumb-box-shadow-hover: 0 0 6px 1px rgba($primary-color,0.5);
-
-/* Radius and transition speed for thumbs */
-$thumb-radius: $global-radius;
-$thumb-transition-speed: 200ms;', :css %>
+        <%= settings_table_for('thumbs') %>
 
       </div>
     </div>
