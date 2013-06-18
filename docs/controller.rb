@@ -1,5 +1,6 @@
 require 'socket'
 require '../lib/foundation/utils/sass_variable_extractor'
+require '../lib/foundation/version'
 layout 'layout.html.erb'
 
 ignore /css\//
@@ -28,6 +29,12 @@ helpers do
     "<div class='#{lang}'>" + CodeRay.scan(code, lang).div(:css => :class) + "</div>"
   end
 
+  def versions
+    `git tag`.split("\n")
+      .select {|t| t.start_with?("v#{Foundation::VERSION.split('.').first}")}
+      .map {|t| t.reverse.chomp("v").reverse}
+  end
+
   def settings_table_for(component)
     filepath = File.absolute_path(File.dirname(__FILE__) + "/../scss/foundation/components/_#{component}.scss")
     variables = SassVariableExtractor.new(filepath).extract_sass_variables
@@ -46,6 +53,28 @@ helpers do
             <td>$<%= v[:name] %></td>
             <td><%= v[:value] %></td>
             <td><%= v[:comment] %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    EOS
+    ERB.new(template).result(binding)
+  end
+
+  def mixin_table_for(component)
+    filepath = File.absolute_path(File.dirname(__FILE__) + "/../scss/foundation/components/_#{component}.scss")
+    mixins = SassVariableExtractor.new(filepath).extract_sass_mixins
+    template = <<-EOS
+      <table width="100%">
+        <thead>
+          <tr>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% mixins.each do |mixin| %>
+          <tr>
+            <td><%= mixin[:name] %></td>
           </tr>
           <% end %>
         </tbody>
