@@ -362,4 +362,11 @@ helpers do
   def rtl_description
     'Right-to-left text direction support in Foundation allows you to easily switch text direction for all components.'
   end
+
+  def global_title
+    'Global'
+  end
+  def global_description
+    'Every Foundation project needs to include these global styles in order to work properly. This includes basic formatting and global utility classes.'
+  end
 end
