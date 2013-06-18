@@ -78,19 +78,16 @@ class SassVariableExtractor
   end
 
   def extract_docs
-    @file.rewind
-    docs = "\n// #{File.basename(@file.path)}\n"
-    started = false
-    @file.lines.each do |line|
-      if started
-        docs += line
-        return docs if line.start_with?("// *")
-      end
-      if line.start_with?("// *") && !started
-        started = true
-        docs += line
+    File.open(@filepath, "r") do |f|
+      f.lines.each do |line|
+        if line.starts_with?("// @version")
+          # read_version
+        elsif line.starts_with?("// @description")
+          # read_description
+        elsif line.start_with?("// @title")
+          # read_title
+        end
       end
     end
-    return docs
   end
 end
