@@ -61,6 +61,14 @@ helpers do
     ERB.new(template).result(binding)
   end
 
+  def description_for(component)
+    "The description for: #{component}"
+  end
+
+  def title_for(component)
+    "The title for: #{component}"
+  end
+
   def mixin_table_for(component)
     filepath = File.absolute_path(File.dirname(__FILE__) + "/../scss/foundation/components/_#{component}.scss")
     mixins = SassVariableExtractor.new(filepath).extract_sass_mixins
