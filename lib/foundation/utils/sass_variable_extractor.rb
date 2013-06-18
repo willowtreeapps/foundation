@@ -6,6 +6,10 @@ class SassVariableExtractor
   VAR_REGEX = /\$([^:]+):\s*([^; ]+) !default;\s*(\/\/\s*(.*))?/
   FUNC_REGEX = /@function (\S+)\(([^\)]+)\)/
   MIXIN_REGEX = /@mixin (\S+)\(([^\)]+)\)/
+  VERSION_REGEX = /@version\n\/\/   (.+)\n\/\//
+  TITLE_REGEX = /@title\n\/\/   (.+)\n\/\//
+  DESC_REGEX = /@description\n\/\/   (.+)\n\/\//
+  
   def initialize(filepath)
     raise "Missing File" unless File.exists?(filepath)
     @filepath = filepath
@@ -78,16 +82,15 @@ class SassVariableExtractor
   end
 
   def extract_docs
-    File.open(@filepath, "r") do |f|
-      f.lines.each do |line|
-        if line.starts_with?("// @version")
-          # read_version
-        elsif line.starts_with?("// @description")
-          # read_description
-        elsif line.start_with?("// @title")
-          # read_title
-        end
-      end
-    end
+    content = File.read(@filepath)
+    v = VERSION_REGEX.match(content)[1]
+    t = TITLE_REGEX.match(content)[1]
+    d = DESC_REGEX.match(content)[1]
+
+    return {
+      :version => v,
+      :title => t,
+      :description => d
+    }
   end
 end

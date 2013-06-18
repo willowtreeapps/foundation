@@ -62,11 +62,13 @@ helpers do
   end
 
   def description_for(component)
-    "The description for: #{component}"
+    filepath = File.absolute_path(File.dirname(__FILE__) + "/../scss/foundation/components/_#{component}.scss")
+    SassVariableExtractor.new(filepath).extract_docs[:description]
   end
 
   def title_for(component)
-    "The title for: #{component}"
+    filepath = File.absolute_path(File.dirname(__FILE__) + "/../scss/foundation/components/_#{component}.scss")
+    SassVariableExtractor.new(filepath).extract_docs[:title]
   end
 
   def mixin_table_for(component)
