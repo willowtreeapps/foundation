@@ -23,7 +23,7 @@ def update_sass_variables_from_components
   # puts "Output written to: #{output_file.path}"
 end
 
-def update_js_versions
+def update_versions
   major_num = Foundation::VERSION.split(".").first
   branch = `git branch`.lines.select {|l| l.start_with?("*")}.first.chop.split("* ").last
   tags = `git tag`.split("\n").map(&:chomp).select {|t| t.start_with?("v#{major_num}")}
@@ -53,14 +53,24 @@ def update_js_versions
 
   # Increment JS File Versions
   js_files.each do |pth|
-    extractor = JsVariableExtractor.new(pth)
-    extractor.set_version!(Foundation::VERSION)
+    if File.exists?(pth)
+      extractor = JsVariableExtractor.new(pth)
+      extractor.set_version!(Foundation::VERSION)
+    end
+  end
+
+  # Increment Sass File Versions
+  sass_files.each do |pth|
+    if File.exists?(pth)
+      extractor = SassVariableExtractor.new(pth)
+      extractor.set_version!(Foundation::VERSION)
+    end
   end
 end
 
 desc "Update versions"
 task :update do
   update_sass_variables_from_components
-  update_js_versions
+  update_versions
   puts "Updated to v#{Foundation::VERSION}"
 end
