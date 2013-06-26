@@ -93,4 +93,16 @@ class SassVariableExtractor
       :description => d
     }
   end
+
+  def set_version!(version)
+    content = File.read(@filepath)
+    if match=VERSION_REGEX.match(content)
+      return false if match[1] == version
+      content.gsub!(VERSION_REGEX, "@version\n\/\/   #{version}\n\/\/")
+      File.open(@filepath, "w") do |f|
+        f.puts content
+      end
+      return true
+    end
+  end
 end

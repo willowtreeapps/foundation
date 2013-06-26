@@ -20,10 +20,11 @@ def update_sass_variables_from_components
     end
   end
   output_file.close
+  `git add #{output_file.path}`
   # puts "Output written to: #{output_file.path}"
 end
 
-def update_js_versions
+def update_versions
   major_num = Foundation::VERSION.split(".").first
   branch = `git branch`.lines.select {|l| l.start_with?("*")}.first.chop.split("* ").last
   tags = `git tag`.split("\n").map(&:chomp).select {|t| t.start_with?("v#{major_num}")}
@@ -32,6 +33,9 @@ def update_js_versions
     puts "Please update Foundation::VERSION (currently #{Foundation::VERSION})"
     return
   end
+
+  # Stage the version file
+  `git add ./lib/foundation/version.rb`
 
   # If no major tags available, then update everything
   if tags.select {|t| t.start_with?("v#{major_num}")}.empty?
@@ -53,14 +57,29 @@ def update_js_versions
 
   # Increment JS File Versions
   js_files.each do |pth|
-    extractor = JsVariableExtractor.new(pth)
-    extractor.set_version!(Foundation::VERSION)
+    if File.exists?(pth)
+      extractor = JsVariableExtractor.new(pth)
+      if extractor.set_version!(Foundation::VERSION)
+        # Stage commit
+        `git add #{pth}`
+      end
+    end
+  end
+
+  # Increment Sass File Versions
+  sass_files.each do |pth|
+    if File.exists?(pth)
+      extractor = SassVariableExtractor.new(pth)
+      if extractor.set_version!(Foundation::VERSION)
+        `git add #{pth}`
+      end
+    end
   end
 end
 
 desc "Update versions"
 task :update do
   update_sass_variables_from_components
-  update_js_versions
-  puts "Updated to v#{Foundation::VERSION}"
+  update_versions
+  puts "Updated to v#{Foundation::VERSION}, please commit changes"
 end

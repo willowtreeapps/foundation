@@ -9,9 +9,15 @@ class JsVariableExtractor
   end
 
   def set_version!(version)
-    content = File.read(@filepath).gsub(REGEX, "version: '#{version}'")
-    File.open(@filepath, "w") do |f|
-      f.puts content
+    content = File.read(@filepath)
+    if match=REGEX.match(content)
+      # Don't rewrite file if version unchanged
+      return false if match[4] == version
+      content.gsub!(REGEX, "version: '#{version}'")
+      File.open(@filepath, "w") do |f|
+        f.puts content
+      end
+      return true
     end
   end
 end
