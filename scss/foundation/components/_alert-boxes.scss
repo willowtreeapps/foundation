@@ -16,8 +16,6 @@
 // Alert Variables
 //
 $include-html-alert-classes: $include-html-classes !default;
-
-// We use this to control alert padding.
 $alert-padding-top: emCalc(11px) !default;
 $alert-padding-default-float: $alert-padding-top !default;
 $alert-padding-opposite-direction: $alert-padding-top + emCalc(10px) !default;
