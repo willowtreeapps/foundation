@@ -3,7 +3,7 @@
 //
 // Top Bar Variables
 //
-$include-html-top-bar-classes: $include-html-classes !default;
+$include-html-top-bar-classes: true !default;
 
 // Background color for the top bar
 $topbar-bg: #111 !default;
@@ -499,11 +499,11 @@ $topbar-sticky-class: ".sticky" !default;
         }
       }
     }
-    
-    // Degrade gracefully when Javascript is disabled. Displays dropdown and changes 
+
+    // Degrade gracefully when Javascript is disabled. Displays dropdown and changes
     // background & text color on hover.
     .no-js .top-bar-section {
-	  ul li {    
+	  ul li {
         // Apply the hover link color when it has that class
         &:hover > a {
           background: $topbar-link-bg-hover;
@@ -515,8 +515,8 @@ $topbar-sticky-class: ".sticky" !default;
           background: $topbar-link-bg-active;
           color: $topbar-link-color-active;
         }
-      }    
-      
+      }
+
 	  .has-dropdown {
         &:hover {
           & > .dropdown {
@@ -524,7 +524,7 @@ $topbar-sticky-class: ".sticky" !default;
           }
         }
 	  }
-	}    
+	}
   }
 
 }

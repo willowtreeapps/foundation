@@ -3,7 +3,7 @@
 //
 // Table Variables
 //
-$include-html-table-classes: $include-html-classes !default;
+$include-html-table-classes: true !default;
 
 // These control the background color for the table and even rows
 $table-bg: #fff !default;

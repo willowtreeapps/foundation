@@ -1,7 +1,7 @@
 @import "foundation/modules";
 
 // Orbit Settings
-$include-html-orbit-classes: $include-html-classes !default;
+$include-html-orbit-classes: true !default;
 
 // We use these to control the caption styles
 $orbit-container-bg: #f5f5f5 !default;

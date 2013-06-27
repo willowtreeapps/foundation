@@ -3,7 +3,7 @@
 //
 // Keystroke Variables
 //
-$include-html-type-classes: $include-html-classes !default;
+$include-html-type-classes: true !default;
 
 // We use these to control text styles.
 $keystroke-font: "Consolas", "Menlo", "Courier", monospace !default;

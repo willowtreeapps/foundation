@@ -3,7 +3,8 @@
 //
 // Typography Variables
 //
-$include-html-type-classes: $include-html-classes !default;
+$include-html-type-classes: true !default;
+$include-print-styles: true !default;
 
 // We use these to control header font styles
 $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;

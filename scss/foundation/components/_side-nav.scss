@@ -3,7 +3,7 @@
 //
 // Side Nav Variables
 //
-$include-html-nav-classes: $include-html-classes !default;
+$include-html-nav-classes: true !default;
 
 // We use this to control padding.
 $side-nav-padding: emCalc(14px) 0 !default;

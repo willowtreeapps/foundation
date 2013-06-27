@@ -1,14 +1,9 @@
 @import "foundation/modules";
 
 //
-// FIX THE "X" ON CUSTOM FORMS
-//
-
-
-//
 // Custom Form Variables
 //
-$include-html-custom-form-classes: $include-html-classes !default;
+$include-html-custom-form-classes: true !default;
 
 // We use these to control the basic form styles input styles
 $custom-form-border-color: #ccc !default;

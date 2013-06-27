@@ -3,7 +3,7 @@
 //
 // Pricing Table Variables
 //
-$include-html-pricing-classes: $include-html-classes !default;
+$include-html-pricing-classes: true !default;
 
 // We use this to control the border color
 $price-table-border: solid 1px #ddd !default;
