@@ -1,3 +1,32 @@
+$include-html-global-classes: false;
+@import "../scss/foundation/components/global";
+
+/* Grid Docs */
+.row.display {
+  // background: #f5f5f5;
+  border: dashed lighten($primary-color, 20%) 1px;
+  margin-bottom: 10px;
+
+  &.no-bottom .columns:first-child &.no-bottom .column:first-child { padding-bottom: 0; }
+
+  .columns,
+  .column {
+    font-size: 12px;
+    font-weight: bold;
+    text-indent: 3px;
+    color: darken($primary-color,10%);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: lighten($primary-color, 45%);
+    @include box-shadow(0px, 0px, 0px, 1px, #fff, inset);
+  }
+
+  .row { position: relative; top: 12px; margin-bottom: 0;
+    .columns,
+    .column { padding-bottom: 10px; }
+  }
+}
+
 /* Alert Docs */
 .alert-base {
   @include alert-base;

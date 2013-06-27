@@ -111,7 +111,15 @@ $opposite-direction: right !default;
     @if $experimental {
       -webkit-box-shadow: $shiny-edge-size $shiny-edge-active-color inset;
     }
-    box-shadow: $shiny-edge-size $shiny-edge-active-color inset; } }
+    box-shadow: $shiny-edge-size $shiny-edge-active-color inset; }
+  }
+}
+
+@mixin box-shadow($side-amount,$top-amount,$blur,$offset,$color,$position) {
+  @if $experimental {
+    -webkit-box-shadow: $side-amount $top-amount $blur $offset $color $position;
+  }
+  box-shadow: $side-amount $top-amount $blur $offset $color $position;
 }
 
 // We use this to add transitions to elements

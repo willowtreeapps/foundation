@@ -62,15 +62,13 @@ helpers do
   end
 
   def description_for(component)
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
     filepath = File.absolute_path(File.dirname(__FILE__) + "/../scss/foundation/components/_#{component}.scss")
-    markdown.render SassVariableExtractor.new(filepath).extract_docs[:description]
+    SassVariableExtractor.new(filepath).extract_docs[:description]
   end
 
   def title_for(component)
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
     filepath = File.absolute_path(File.dirname(__FILE__) + "/../scss/foundation/components/_#{component}.scss")
-    markdown.render SassVariableExtractor.new(filepath).extract_docs[:title]
+    SassVariableExtractor.new(filepath).extract_docs[:title]
   end
 
   def mixin_table_for(component)

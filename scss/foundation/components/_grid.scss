@@ -1,3 +1,13 @@
+//
+// @version
+//   4.3.0
+//
+// @title
+//   Grid
+//
+// @description
+//   With a default "small-#" grid, a 640-1024px "medium-#" grid, and a 1024+ "large-#" grid, we've got you covered for any layout you can think of.
+//
 @import "foundation/modules";
 
 //
@@ -9,9 +19,8 @@ $column-gutter: emCalc(30px) !default;
 $total-columns: 12 !default;
 
 //
-// Grid Function
+// Grid Calc Function
 //
-
 @function gridCalc($colNumber, $totalColumns) {
   @return percentage(($colNumber / $totalColumns));
 }

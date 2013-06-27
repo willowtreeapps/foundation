@@ -1,209 +1,5 @@
-<% @side_nav = "grid" %>
-<% @page_title = grid_title %>
-
-    <style>
-      .row.display { background: #eee; margin-bottom: 10px; }
-      .row.display .columns, .row.display .column { background: #e7e7e7; border: 1px solid #ddd; font-size: 13px; font-weight: bold; text-indent: 3px; padding-top: 8px; color: #444; padding-bottom: 8px; }
-      h5.row { font-size: 16px; }
-    </style>
-
-
-<h5 class="row">Small Only</h5>
-<div class="row display">
-  <div class="small-4 columns">s4</div>
-  <div class="small-4 columns">s4</div>
-  <div class="small-4 columns">s4</div>
-</div>
-
-<h5 class="row">Medium Only</h5>
-<div class="row display">
-  <div class="medium-4 columns">m4</div>
-  <div class="medium-4 columns">m4</div>
-  <div class="medium-4 columns">m4</div>
-</div>
-
-<h5 class="row">Large Only</h5>
-<div class="row display">
-  <div class="large-4 columns">l4</div>
-  <div class="large-4 columns">l4</div>
-  <div class="large-4 columns">l4</div>
-</div>
-
-<h5 class="row">Small &amp; Medium Only</h5>
-<div class="row display">
-  <div class="small-4 medium-2 columns">s4, m2</div>
-  <div class="small-4 medium-4 columns">s4, m4</div>
-  <div class="small-4 medium-6 columns">s4, m6</div>
-</div>
-
-<h5 class="row">Small, Medium &amp; Large</h5>
-<div class="row display">
-  <div class="medium-4 large-2 columns">m4, l2</div>
-  <div class="medium-4 large-4 columns">m4, l4</div>
-  <div class="medium-4 large-6 columns">m4, l6</div>
-</div>
-
-<h5 class="row">Small &amp; Large Only</h5>
-<div class="row display">
-  <div class="small-2 large-4 columns">s2, l4</div>
-  <div class="small-2 large-4 columns">s2, l4</div>
-  <div class="small-8 large-4 columns">s8, l4</div>
-</div>
-
-<h5 class="row">Medium &amp; Large Only</h5>
-<div class="row display">
-  <div class="medium-4 large-2 columns">m4, l2</div>
-  <div class="medium-4 large-8 columns">m4, l8</div>
-  <div class="medium-4 large-2 columns">m4, l2</div>
-</div>
-
-<h5 class="row">Nesting Small Grid</h5>
-<div class="row display">
-  <div class="small-12 columns">s12
-    <div class="row display">
-      <div class="small-8 columns">s8
-        <div class="row display">
-          <div class="small-8 columns">s8</div>
-          <div class="small-4 columns">s4</div>
-        </div>
-      </div>
-      <div class="small-4 columns">s4</div>
-    </div>
-  </div>
-</div>
-
-<h5 class="row">Nesting Medium Grid</h5>
-<div class="row display">
-  <div class="medium-12 columns">s12
-    <div class="row display">
-      <div class="medium-8 columns">s8
-        <div class="row display">
-          <div class="medium-8 columns">s8</div>
-          <div class="medium-4 columns">s4</div>
-        </div>
-      </div>
-      <div class="medium-4 columns">s4</div>
-    </div>
-  </div>
-</div>
-
-<h5 class="row">Nesting Large Grid</h5>
-<div class="row display">
-  <div class="large-12 columns">s12
-    <div class="row display">
-      <div class="large-8 columns">s8
-        <div class="row display">
-          <div class="large-8 columns">s8</div>
-          <div class="large-4 columns">s4</div>
-        </div>
-      </div>
-      <div class="large-4 columns">s4</div>
-    </div>
-  </div>
-</div>
-
-<h5 class="row">Shifting (Stacked > 2 stacked 1 sidebar > 2 sidebars and content</h5>
-<div class="row display">
-  <div class="medium-8 large-2 columns">s12, m8, l2</div>
-  <div class="medium-4 large-8 columns">s12, m4, l8</div>
-  <div class="medium-12 large-2 columns">s12, m8, l2</div>
-</div>
-<!--
-[      ]
-[      ]
-[      ]
-
-to
-
-[    ][]
-[    ]
-
-to
-
-[][  ][]
- -->
-
-<h5 class="row">Offset Small Only</h5>
-<div class="row display">
-  <div class="small-4 columns">s4</div>
-  <div class="small-4 small-offset-2 columns end">s4 so2</div>
-</div>
-
-<h5 class="row">Offset Medium Only</h5>
-<div class="row display">
-  <div class="medium-4 columns">m4</div>
-  <div class="medium-4 medium-offset-2 columns end">m4 mo2</div>
-</div>
-
-<h5 class="row">Offset Large Only</h5>
-<div class="row display">
-  <div class="large-4 columns">l4</div>
-  <div class="large-4 large-offset-2 columns end">l4 lo2</div>
-</div>
-
-<h5 class="row">Offset Small &amp; Medium</h5>
-<div class="row display">
-  <div class="small-4 medium-4 columns">s4, m4</div>
-  <div class="small-4 medium-4 small-offset-2 medium-offset-4 columns end">s4 so2, m4 mo4</div>
-</div>
-
-<h5 class="row">Offset Small &amp; Large Only</h5>
-<div class="row display">
-  <div class="small-4 medium-4 large-4 columns">s4, m4, l4</div>
-  <div class="small-4 medium-8 large-4 small-offset-2 medium-offset-0 large-offset-4 columns end">s4 so2, m8 mo0, l4 lo4</div>
-</div>
-
-<h5 class="row">Offset Medium &amp; Large Only</h5>
-<div class="row display">
-  <div class="small-6 medium-4 large-4 columns">s6, m4, l4</div>
-  <div class="small-6 medium-4 large-4 medium-offset-2 large-offset-4 columns end">s6, m4 mo2, l4 lo4</div>
-</div>
-
-
-<h5 class="row">Centered Small Only</h5>
-<div class="row display">
-  <div class="small-6 small-centered medium-4 medium-uncentered columns">s6 center, m4, l4</div>
-</div>
-
-<h5 class="row">Centered Medium Only</h5>
-<div class="row display">
-  <div class="small-6 medium-centered medium-4 large-uncentered columns">s6, m4 center, l4 uncenter</div>
-</div>
-
-<h5 class="row">Centered Large Only</h5>
-<div class="row display">
-  <div class="small-6 large-centered medium-4 columns">s6, m4, l4 center</div>
-</div>
-
-<h5 class="row">Centered Small &amp; Medium Only</h5>
-<div class="row display">
-  <div class="small-6 small-centered medium-4 large-uncentered columns">s6 cen, m4 cen, l4 uncen</div>
-</div>
-
-<h5 class="row">Centered Small &amp; Large Only</h5>
-<div class="row display">
-  <div class="small-6 small-centered medium-4 medium-uncentered large-centered columns">s6 cen, m4 uncen, l4 cen</div>
-</div>
-
-<h5 class="row">Centered Medium &amp; Large Only</h5>
-<div class="row display">
-  <div class="small-6 medium-4 medium-centered columns">s6, m4 cen, l4 cen</div>
-</div>
-
-<h5 class="row">Source Ordering for Medium &amp; Large</h5>
-<div class="row display">
-  <div class="small-4 medium-push-8 columns">s4, m4 m-psh 8</div>
-  <div class="small-8 medium-pull-4 columns">s8, m8 m-pll 4</div>
-</div>
-
-<h5 class="row">Source Ordering for Large Only</h5>
-<div class="row display">
-  <div class="small-4 large-push-8 columns">s4, m4, l4 l-psh 8</div>
-  <div class="small-8 large-pull-4 columns">s8, m8, l4 l-pll 4</div>
-</div>
-
-
-
+<% @side_nav = "css" %>
+<% @page_title = title_for('grid') %>
 
 <div class="row" id="mainContent">
   <div class="large-3 columns" role="complementary">
@@ -214,7 +10,7 @@ to
     <div class="row">
       <div class="large-12 columns">
         <h1><%= @page_title %></h1>
-        <h4 class="subheader"><%= grid_description %></h4>
+        <h4 class="subheader"><%= description_for('grid') %></h4>
       </div>
     </div>
 
@@ -226,7 +22,240 @@ to
           <section class="section">
             <h6 class="title" data-section-title><a href="#css">CSS</a></h6>
             <div class="content" data-slug="css">
-              <h3>CSS Example</h3>
+              <h3>Using the CSS Grid</h3>
+
+              <div class="row display">
+                <div class="small-4 columns">small-4</div>
+                <div class="small-4 columns">small-4</div>
+                <div class="small-4 columns">small-4</div>
+              </div>
+              <div class="row display">
+                <div class="medium-6 columns">medium-6</div>
+                <div class="medium-6 columns">medium-6</div>
+              </div>
+              <div class="row display">
+                <div class="large-2 columns">large-2</div>
+                <div class="large-2 columns">large-2</div>
+                <div class="large-2 columns">large-2</div>
+                <div class="large-2 columns">large-2</div>
+                <div class="large-2 columns">large-2</div>
+                <div class="large-2 columns">large-2</div>
+              </div>
+              <p><em><strong>Note: </strong>The grid examples on this page has styles on them to help show structure. The dashed lines represent rows and the blue background areas represent columns.</em></p>
+
+<%= code_example '
+<div class="row">
+  <div class="small-4 columns">small-4</div>
+  <div class="small-4 columns">small-4</div>
+  <div class="small-4 columns">small-4</div>
+</div>
+<div class="row">
+  <div class="medium-6 columns">medium-6</div>
+  <div class="medium-6 columns">medium-6</div>
+</div>
+<div class="row">
+  <div class="large-2 columns">large-2</div>
+  <div class="large-2 columns">large-2</div>
+  <div class="large-2 columns">large-2</div>
+  <div class="large-2 columns">large-2</div>
+  <div class="large-2 columns">large-2</div>
+  <div class="large-2 columns">large-2</div>
+</div>', :html %>
+
+              <hr>
+
+              <h3>Grid Basics</h3>
+
+              <h6>Classes</h6>
+              <ul>
+                <li><code>row:</code> Creats a division of the page that will contain columns. This must be wrapped around columns.</li>
+                <li><code>collapse:</code> Chain to a row class like the examples on this page show to remove default gutters.</li>
+              </ul>
+              <div class="row display" style="padding: 20px;"></div>
+
+              <hr>
+
+              <h3>Small Grid Columns</h3>
+
+              <h6>Classes</h6>
+              <p>By using only the small grid your design will hold its layout through all the breakpoints.</p>
+              <ul>
+                <li><code>column(s):</code> Used inside or rows to create columns in your layout, should be chained to other column classes.</li>
+                <li><code>small-#:</code> "#" can be 1-12 . Tis controls the width of the column.</li>
+                <li><code>small-offset-#:</code> "#" can be 1-10. Pushes columns over by altering margins and should be chained.</li>
+                <li><code>small-centered:</code> Center a single column inside a row. This shoudl be chained to other column classes.</li>
+              </ul>
+              <div class="row display">
+                <div class="small-3 columns">small-3</div>
+                <div class="small-3 columns">small-3</div>
+                <div class="small-3 columns">small-3</div>
+                <div class="small-3 columns">small-3</div>
+              </div>
+              <div class="row display">
+                <div class="small-3 columns">small-3</div>
+                <div class="small-3 small-offset-6 columns">small-3 offset-6</div>
+              </div>
+              <div class="row display">
+                <div class="small-6 small-centered columns">small-3 centered</div>
+              </div>
+<%= code_example '
+<div class="row display">
+  <div class="small-3 columns">small-3</div>
+  <div class="small-3 columns">small-3</div>
+  <div class="small-3 columns">small-3</div>
+  <div class="small-3 columns">small-3</div>
+</div>
+<div class="row display">
+  <div class="small-3 columns">small-3</div>
+  <div class="small-3 small-offset-6 columns">small-3 offset-6</div>
+</div>
+<div class="row display">
+  <div class="small-6 small-centered columns">small-3 centered</div>
+</div>', :html %>
+
+              <hr>
+
+              <h3>Medium Grid Columns</h3>
+
+              <h6>Classes</h6>
+              <p>By using only the medium grid your columns will hold its layout through the large breakpoints and stack below the medium breakpoint.</p>
+              <ul>
+                <li><code>medium-#:</code> "#" can be 1-12. This controls the width of the column.</li>
+                <li><code>medium-offset-#:</code> "#" can be 1-10. Pushes columns over by altering margins and should be chained.</li>
+                <li><code>medium-centered:</code> Center a single column inside a row. This shoudl be chained to other column classes.</li>
+                <li><code>medium-uncentered:</code> If you've set the small column to be centered and want to stop that for the medium breakpoint, use this class.</li>
+                <li><code>medium-push-#:</code> "#" can be 1-11. Push the source ordering of content to the left for our medium breakpoint.</li>
+                <li><code>medium-pull-#:</code> "#" can be 1-11. Pull the source ordering of content to the right for our medium breakpoint.</li>
+              </ul>
+              <div class="row display">
+                <div class="medium-3 columns">medium-3</div>
+                <div class="medium-3 columns">medium-3</div>
+                <div class="medium-3 columns">medium-3</div>
+                <div class="medium-3 columns">medium-3</div>
+              </div>
+              <div class="row display">
+                <div class="medium-3 columns">medium-3</div>
+                <div class="medium-3 medium-offset-6 columns">medium-3 offset-6</div>
+              </div>
+              <div class="row display">
+                <div class="medium-6 medium-centered columns">medium-3 centered</div>
+              </div>
+              <div class="row display">
+                <div class="small-6 small-centered medium-uncentered columns">small-6 centered, medium uncentered</div>
+              </div>
+              <div class="row display">
+                <div class="small-3 columns medium-push-9">small-3, medium-push-9</div>
+                <div class="small-9 columns medium-pull-3">small-9, medium-pull-3</div>
+              </div>
+<%= code_example '
+<div class="row display">
+  <div class="medium-3 columns">medium-3</div>
+  <div class="medium-3 columns">medium-3</div>
+  <div class="medium-3 columns">medium-3</div>
+  <div class="medium-3 columns">medium-3</div>
+</div>
+<div class="row display">
+  <div class="medium-3 columns">medium-3</div>
+  <div class="medium-3 medium-offset-6 columns">medium-3 offset-6</div>
+</div>
+<div class="row display">
+  <div class="medium-6 medium-centered columns">medium-3 centered</div>
+</div>
+<div class="row display">
+  <div class="small-6 small-centered medium-uncentered columns">small-6 centered, medium uncentered</div>
+</div>
+<div class="row display">
+  <div class="small-3 columns medium-push-9">small-3, medium-push-9</div>
+  <div class="small-9 columns medium-pull-3">small-9, medium-pull-3</div>
+</div>', :html %>
+
+              <hr>
+
+              <h3>Large Grid Columns</h3>
+
+              <h6>Classes</h6>
+              <p>By using only the large grid your columns will stack below the large breakpoint.</p>
+              <ul>
+                <li><code>large-#:</code> "#" can be 1-12. This controls the width of the column.</li>
+                <li><code>large-offset-#:</code> "#" can be 1-10. Pushes columns over by altering margins and should be chained.</li>
+                <li><code>large-centered:</code> Center a single column inside a row. This shoudl be chained to other column classes.</li>
+                <li><code>large-uncentered:</code> If you've set the small column to be centered and want to stop that for the large breakpoint, use this class.</li>
+                <li><code>large-push-#:</code> "#" can be 1-11. Push the source ordering of content to the left for our large breakpoint.</li>
+                <li><code>large-pull-#:</code> "#" can be 1-11. Pull the source ordering of content to the right for our large breakpoint.</li>
+              </ul>
+              <div class="row display">
+                <div class="large-3 columns">large-3</div>
+                <div class="large-3 columns">large-3</div>
+                <div class="large-3 columns">large-3</div>
+                <div class="large-3 columns">large-3</div>
+              </div>
+              <div class="row display">
+                <div class="large-3 columns">large-3</div>
+                <div class="large-3 large-offset-6 columns">large-3 offset-6</div>
+              </div>
+              <div class="row display">
+                <div class="large-6 large-centered columns">large-3 centered</div>
+              </div>
+              <div class="row display">
+                <div class="small-6 small-centered large-uncentered columns">small-6 centered, large uncentered</div>
+              </div>
+              <div class="row display">
+                <div class="small-3 columns large-push-9">small-3, large-push-9</div>
+                <div class="small-9 columns large-pull-3">small-9, large-pull-3</div>
+              </div>
+<%= code_example '
+<div class="row display">
+  <div class="large-3 columns">large-3</div>
+  <div class="large-3 columns">large-3</div>
+  <div class="large-3 columns">large-3</div>
+  <div class="large-3 columns">large-3</div>
+</div>
+<div class="row display">
+  <div class="large-3 columns">large-3</div>
+  <div class="large-3 large-offset-6 columns">large-3 offset-6</div>
+</div>
+<div class="row display">
+  <div class="large-6 large-centered columns">large-3 centered</div>
+</div>
+<div class="row display">
+  <div class="small-6 small-centered large-uncentered columns">small-6 centered, large uncentered</div>
+</div>
+<div class="row display">
+  <div class="small-3 columns large-push-9">small-3, large-push-9</div>
+  <div class="small-9 columns large-pull-3">small-9, large-pull-3</div>
+</div>', :html %>
+
+              <hr>
+
+              <h3>Nesting the Grid</h3>
+              <p>You can nest rows within columns as deep as you'd like, but at some point those columns are going to be really small.</p>
+              <div class="row display no-bottom">
+                <div class="small-9 columns">small-9
+
+                  <div class="row">
+                    <div class="small-4 columns">small-4</div>
+                    <div class="small-4 columns">small-4</div>
+                    <div class="small-4 columns">small-4</div>
+                  </div>
+
+                </div>
+                <div class="small-3 columns">small-3</div>
+              </div>
+<%= code_example '
+<div class="row">
+  <div class="small-9 columns">
+    small-9
+
+    <div class="row">
+      <div class="small-4 columns">small-4</div>
+      <div class="small-4 columns">small-4</div>
+      <div class="small-4 columns">small-4</div>
+    </div>
+
+  </div>
+  <div class="small-3 columns">small-3</div>
+</div>', :html %>
+
             </div>
           </section>
 
