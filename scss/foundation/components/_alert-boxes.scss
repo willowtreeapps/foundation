@@ -93,7 +93,7 @@ $alert-close-padding: 5px 4px 4px !default;
 // Controls output of default classes
 @if $include-html-alert-classes != false {
 
-  .alert-bar { // Changed to alert-bar so that we can have a more detailed alert-box that has header and button area.
+  .alert-box { // Changed to alert-bar so that we can have a more detailed alert-box that has header and button area.
     @include alert;
 
     &.success { @include alert-style($success-color); }
@@ -103,12 +103,6 @@ $alert-close-padding: 5px 4px 4px !default;
     &.round { @include radius($global-rounded); }
 
     .close { @include alert-close; }
-  }
-
-  .alert-box {
-    .alert-box-title {
-      @include alert;
-    }
   }
 
 }
