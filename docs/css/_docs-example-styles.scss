@@ -2,7 +2,7 @@ $include-html-global-classes: false;
 @import "../scss/foundation/components/global";
 
 /* Grid Docs */
-.row.display {
+.display {
   // background: #f5f5f5;
   border: dashed lighten($primary-color, 20%) 1px;
   margin-bottom: 10px;
@@ -10,7 +10,9 @@ $include-html-global-classes: false;
   &.no-bottom .columns:first-child &.no-bottom .column:first-child { padding-bottom: 0; }
 
   .columns,
-  .column {
+  .column,
+  .columns-example,
+  .column-example {
     font-size: 12px;
     font-weight: bold;
     text-indent: 3px;
@@ -21,10 +23,97 @@ $include-html-global-classes: false;
     @include box-shadow(0px, 0px, 0px, 1px, #fff, inset);
   }
 
-  .row { position: relative; top: 12px; margin-bottom: 0;
+  .row, .row-example { position: relative; top: 12px; margin-bottom: 0;
     .columns,
-    .column { padding-bottom: 10px; }
+    .column,
+    .columns-example,
+    .column-example { padding-bottom: 10px; }
   }
+}
+
+/* Grid HTML Classes */
+.row-example {
+  @include grid-row($behavior:nest);
+
+  &.collapse {
+    .column-example,
+    .columns-example { @include grid-column($collapse:true); }
+  }
+
+  .row-example { @include grid-row($behavior:nest);
+    &.collapse { @include grid-row($behavior:nest-collapse); }
+  }
+}
+
+.column-example,
+.columns-example { @include grid-column($columns:$total-columns, $include-position-relative: true); }
+
+@media only screen {
+
+  @for $i from 1 through $total-columns {
+    .small#{-$i}-example { @include grid-column($columns:$i,$collapse:null,$float:false); }
+  }
+
+  @for $i from 0 through $total-columns - 2 {
+    .small-offset-#{$i}-example { @include grid-column($offset:$i, $collapse:null,$float:false); }
+  }
+
+  .column-example.small-centered-example,
+  .columns-example.small-centered-example { @include grid-column($center:true, $collapse:null, $float:false); }
+}
+
+@media only screen and (min-width: 640px) {
+
+  @for $i from 1 through $total-columns {
+    .medium#{-$i}-example { @include grid-column($columns:$i,$collapse:null,$float:false); }
+  }
+
+  @for $i from 0 through $total-columns - 1 {
+    .medium-offset-#{$i}-example { @include grid-column($offset:$i, $collapse:null,$float:false); }
+  }
+
+  @for $i from 1 through $total-columns - 1 {
+    .medium-push#{-$i}-example { @include grid-column($push:$i, $collapse:null, $float:false); }
+    .medium-pull#{-$i}-example { @include grid-column($pull:$i, $collapse:null, $float:false); }
+  }
+
+  .column.medium-centered-example,
+  .columns.medium-centered-example { @include grid-column($center:true, $collapse:null, $float:false); }
+
+  .column.medium-uncentered-example,
+  .columns.medium-uncentered-example {
+    margin-#{$default-float}: 0;
+    margin-#{$opposite-direction}: 0;
+    float: $default-float !important;
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+  @for $i from 1 through $total-columns {
+    .large#{-$i}-example { @include grid-column($columns:$i,$collapse:null,$float:false); }
+  }
+
+  @for $i from 0 through $total-columns - 1 {
+    .large-offset-#{$i}-example { @include grid-column($offset:$i, $collapse:null,$float:false); }
+  }
+
+  @for $i from 1 through $total-columns - 1 {
+    .large-push#{-$i}-example { @include grid-column($push:$i, $collapse:null, $float:false); }
+    .large-pull#{-$i}-example { @include grid-column($pull:$i, $collapse:null, $float:false); }
+  }
+
+  .column.large-centered-example,
+  .columns.large-centered-example { @include grid-column($center:true, $collapse:null, $float:false); }
+
+  .column.large-uncentered-example,
+  .columns.large-uncentered-example {
+    margin-#{$default-float}: 0;
+    margin-#{$opposite-direction}: 0;
+    float: $default-float !important;
+  }
+
 }
 
 /* Alert Docs */

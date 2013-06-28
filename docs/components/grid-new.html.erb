@@ -17,7 +17,7 @@
     <div class="row">
       <div class="large-12 columns">
 
-        <div class="section-container tabs switcheroo" data-section="tabs" data-options="one_Up: false; deep_linking: true">
+        <div class="section-container tabs switcheroo" data-section="tabs" data-options="one_up: false; deep_linking: true">
 
           <section class="section">
             <h6 class="title" data-section-title><a href="#css">CSS</a></h6>
@@ -262,7 +262,83 @@
           <section class="section">
             <h6 class="title" data-section-title><a href="#scss">SCSS</a></h6>
             <div class="content" data-slug="scss">
-              <h3>SCSS Example</h3>
+
+              <h3>Using the SCSS Grid</h3>
+
+              <div class="row-example display">
+                <div class="small-4-example columns-example">small-third</div>
+                <div class="small-4-example columns-example">small-third</div>
+                <div class="small-4-example columns-example">small-third</div>
+              </div>
+              <div class="row-example display">
+                <div class="medium-6-example columns-example">medium-half</div>
+                <div class="medium-6-example columns-example">medium-half</div>
+              </div>
+              <div class="row-example display">
+                <div class="large-6-example columns-example">large-half</div>
+                <div class="large-6-example columns-example">large-half</div>
+              </div>
+              <p><em><strong>Note: </strong>The grid examples on this page has styles on them to help show structure. The dashed lines represent rows and the blue background areas represent columns.</em></p>
+<%= code_example '
+<div class="row-example">
+  <div class="small-third">small-third</div>
+  <div class="small-third">small-third</div>
+  <div class="small-third">small-third</div>
+</div>
+<div class="row-example">
+  <div class="medium-half">medium-half</div>
+  <div class="medium-half">medium-half</div>
+</div>
+<div class="row-example">
+  <div class="large-half">large-half</div>
+  <div class="large-half">large-half</div>
+</div>', :html %>
+
+<%= code_example '
+.row-example { @include grid-row; }
+
+.small-third { @include grid-column($columns:4); }
+
+@media only screen and (min-width: 640px) {
+  .medium-half { @include grid-column($columns:6);
+}
+
+@media only screen and (min-width: 1024px) {
+  .large-half { @include grid-column($columns:6);
+}', :css %>
+
+              <hr>
+
+              <h3>Grid Row Mixin</h3>
+              <ul>
+                <li><code>@include grid-row($behavior):</code> Mixin for creating grid row styles. You can control the behavior for nesting and collapsed.
+                  <ul>
+                    <li><code>($behavior: false)</code> This is the default behavior for grid rows.</li>
+                    <li><code>($behavior: nest)</code> Add negative margins to compensate for nesting columns.</li>
+                    <li><code>($behavior: collapse)</code> Remove gutters for collapsing columns.</li>
+                    <li><code>($behavior: nest-collapse)</code> Remove gutters for nested collapsing columns.</li>
+                  </ul>
+                </li>
+              </ul>
+
+              <hr>
+
+              <h3>Grid Column Mixin</h3>
+              <ul>
+                <li><code>@include grid-column($columns, $last-column, $center, $offset, $push, $pull, $collapse, $float, $include-position-relative)</code> Create grid column styles. You can control the options for each column you use the mixin on.
+                  <ul>
+                    <li><code>($columns)</code> </li>
+                    <li><code>($last-column)</code> </li>
+                    <li><code>($center)</code> </li>
+                    <li><code>($offset)</code> </li>
+                    <li><code>($push)</code> </li>
+                    <li><code>($pull)</code> </li>
+                    <li><code>($collapse)</code> </li>
+                    <li><code>($float)</code> </li>
+                    <li><code>($include-position-relative)</code> </li>
+                  </ul>
+                </li>
+              </ul>
             </div>
           </section>
 

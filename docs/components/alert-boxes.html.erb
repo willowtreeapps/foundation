@@ -127,10 +127,14 @@
 
               <hr>
 
-              <h3>Mixin Options</h3>
+              <h3>Default Mixin</h3>
 
               <ul>
-                <li><code>$bg:</code> Control the background color of the alert box. This also changes the font color based on bg-lightness.</li>
+                <li><code>@include alert($bg):</code> Default mixin for creating alert box styles.
+                  <ul>
+                    <li><code>($bg)</code> Control the background color of the alert box. This also changes the font color based on bg-lightness.</li>
+                  </ul>
+                </li>
               </ul>
 
               <div data-alert class="alert-base custom-bg">
@@ -155,7 +159,7 @@
                 <li><code>@include alert-base;</code> Create the basic structure of an alert box.</li>
                 <li><code>@include alert-style($bg);</code> Add the default style of an alert box.
                   <ul>
-                    <li><code>$bg</code> Set to any hex value, controls background, border and font-color.</li>
+                    <li><code>($bg)</code> Set to any hex value, controls background, border and font-color.</li>
                   </ul>
                 </li>
               </ul>
