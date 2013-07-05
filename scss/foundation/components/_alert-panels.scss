@@ -1,0 +1,222 @@
+//
+// @version
+//   5.0.0
+//
+// @title
+//   Alert Panels
+//
+// @description
+//   These are great for alerting people when you need a bit more structure than an Alert Box.
+//
+@import "foundation/modules";
+
+// Global options
+$alert-panel-margin-bottom: 1.5em !default;
+$alert-panel-reset-selectors: "p,a" !default;
+$alert-panel-border-radius: 3px !default;
+
+// Title area Close "X" Button
+$alert-panel-close-bg: lighten($primary-color, 15%) !default;
+$alert-panel-close-bg-hover: darken($primary-color, 10%) !default;
+$alert-panel-close-border: solid 1px darken($primary-color, 10%) !default;
+$alert-panel-close-border-hover: solid 1px darken($primary-color, 10%) !default;
+$alert-panel-close-color: darken($primary-color, 10%) !default;
+$alert-panel-close-color-hover: lighten($primary-color, 40%) !default;
+$alert-panel-close-font-size: 1em !default;
+$alert-panel-close-font-weight: bold !default;
+$alert-panel-close-height: 0 !default;
+$alert-panel-close-padding: 0px 12px .25em !default;
+$alert-panel-close-transition-property: all !default;
+$alert-panel-close-transition-speed: 300ms !default;
+$alert-panel-close-transition-timing: linear !default;
+
+// Title area options
+$alert-panel-title-bg: $primary-color !default;
+$alert-panel-title-border: solid 1px darken($primary-color, 10%) !default;
+$alert-panel-title-color: darken($primary-color, 35%) !default;
+$alert-panel-title-font-size: 1em !default;
+$alert-panel-title-font-weight: bold !default;
+$alert-panel-title-line-height: 1.3em !default;
+$alert-panel-title-padding: 10px 34px 10px 10px !default;
+
+// Message area options
+$alert-panel-message-bg: #fff !default;
+$alert-panel-message-border: solid 1px $primary-color !default;
+$alert-panel-message-color: #222 !default;
+$alert-panel-message-font-size: .875em !default;
+$alert-panel-message-font-weight: normal !default;
+$alert-panel-message-line-height: 1.3 !default;
+$alert-panel-message-padding: 20px !default;
+
+// Action area options
+$alert-panel-action-align: right !default;
+$alert-panel-action-bg: lighten($primary-color, 45%) !default;
+$alert-panel-action-border: solid 1px lighten($primary-color, 15%) !default;
+$alert-panel-action-padding: 10px !default;
+
+
+//
+// Alert Panel Mixins
+//
+
+// Create the container
+@mixin alert-panel-container($margin-bottom:$alert-panel-margin-bottom, $reset-selectors:$alert-panel-reset-selectors) {
+  margin-bottom: $margin-bottom;
+
+  // Reset some margins to avoid annoyance
+  #{$reset-selectors} { margin-bottom: 0; margin-top: 0; }
+}
+
+// Creating the Title base structure
+@mixin alert-panel-title($bg:$alert-panel-title-bg, $border:$alert-panel-title-border, $font-color:$alert-panel-title-color, $font-size:$alert-panel-title-font-size, $font-weight:$alert-panel-title-font-weight, $line-height:$alert-panel-title-line-height, $padding:$alert-panel-title-padding) {
+  background-color: $bg;
+  border: $border;
+  color: $font-color;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  padding: $padding;
+  position: relative;
+}
+
+// Global mixin for Alert Panel message
+@mixin alert-panel-message($bg:$alert-panel-message-bg, $border:$alert-panel-message-border, $font-size:$alert-panel-message-font-size, $line-height:$alert-panel-message-line-height, $padding:$alert-panel-message-padding) {
+  background: $bg;
+  border-left: $border;
+  border-right: $border;
+  font-size: $font-size;
+  line-height: $line-height;
+  padding: $padding;
+}
+
+// Global mixin for Alert Panel action area
+@mixin alert-panel-action($bg:$alert-panel-action-bg, $border:$alert-panel-action-border, $align:$alert-panel-action-align, $padding:$alert-panel-action-padding) {
+  background: $bg;
+  border: $border;
+  text-align: $align;
+  padding: $padding;
+}
+
+// Global mixin for Alert Panel close
+@mixin alert-panel-close($bg:$alert-panel-close-bg, $border:$alert-panel-close-border, $font-color:$alert-panel-close-color, $line-height:$alert-panel-close-height - 4px, $font-size:$alert-panel-close-font-size, $font-weight:$alert-panel-close-font-weight, $padding: $alert-panel-close-padding, $include-position-styles:true) {
+
+  // Position styles can be removed to reduce CSS bloat when chaining classes
+  @if $include-position-styles {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+
+  // Default styles
+  background-color: $bg;
+  border-bottom: $border;
+  border-left: $border;
+  color: $font-color;
+  line-height: $line-height;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  padding: $padding;
+}
+
+// Include hover styles on the close button
+@mixin alert-panel-close-hover($bg:$alert-panel-close-bg-hover, $border:$alert-panel-close-border-hover, $font-color:$alert-panel-close-color-hover) {
+  &:hover,
+  &:active {
+    background-color: $bg;
+    border-bottom: $border;
+    border-left: $border;
+    color: $font-color;
+  }
+}
+
+//
+// Alert Panel HTML Classes //
+//
+
+/* Alert panel container */
+.alert-panel {
+  @include alert-panel-container;
+}
+
+/* Alert panel title */
+.alert-panel-title {
+  @include alert-panel-title;
+
+  // With border radii
+  .alert-panel.radius & { @include side-radius(top, $alert-panel-border-radius); }
+
+  // Optional Style Classes
+  .alert-panel.secondary & {
+    @include alert-panel-title($secondary-color, solid 1px darken($secondary-color, 15%), darken($secondary-color, 45%), null, null, null, null);
+  }
+  .alert-panel.success & {
+    @include alert-panel-title($success-color, solid 1px darken($success-color, 15%),darken($success-color, 45%), null, null, null, null);
+  }
+  .alert-panel.alert & {
+    @include alert-panel-title($alert-color, solid 1px darken($alert-color, 15%),darken($alert-color, 45%), null, null, null, null);
+  }
+}
+
+/* Alert panel close button */
+.alert-panel.close {
+  @include alert-panel-close;
+  @include single-transition($alert-panel-close-transition-property, $alert-panel-close-transition-speed, $alert-panel-close-transition-timing);
+  @include alert-panel-close-hover;
+
+  // With border radii
+  .alert-panel.radius & {
+    @include corner-radius(topright, ($alert-panel-border-radius - 1));
+    @include corner-radius(bottomleft, ($alert-panel-border-radius - 1));
+  }
+
+  // Optional Style Classes
+  .alert-panel.secondary & {
+    @include alert-panel-close(lighten($secondary-color, 5%), solid 1px darken($secondary-color, 10%), darken($secondary-color, 15%), null, null, null, null, null);
+    @include alert-panel-close-hover(darken($secondary-color, 15%), solid 1px darken($secondary-color, 15%), lighten($secondary-color, 35%));
+  }
+  .alert-panel.success & {
+    @include alert-panel-close(lighten($success-color, 5%), solid 1px darken($success-color, 10%), darken($success-color, 15%), null, null, null, null, null);
+    @include alert-panel-close-hover(darken($success-color, 15%), solid 1px darken($success-color, 15%), lighten($success-color, 35%));
+  }
+  .alert-panel.alert & {
+    @include alert-panel-close(lighten($alert-color, 5%), solid 1px darken($alert-color, 10%), darken($alert-color, 15%), null, null, null, null, null);
+    @include alert-panel-close-hover(darken($alert-color, 15%), solid 1px darken($alert-color, 15%), lighten($alert-color, 35%));
+  }
+}
+
+/* Alert panel message area */
+.alert-panel-message {
+  @include alert-panel-message;
+
+  // Optional Style Classes
+  .alert-panel.secondary & {
+    @include alert-panel-message(null, solid 1px darken($secondary-color, 10%), null, null, null);
+  }
+  .alert-panel.success & {
+    @include alert-panel-message(null, solid 1px darken($success-color, 10%), null, null, null);
+  }
+  .alert-panel.alert & {
+    @include alert-panel-message(null, solid 1px darken($alert-color, 10%), null, null, null);
+  }
+}
+
+/* Alert panel action area */
+.alert-panel-action {
+  @include alert-panel-action;
+
+  // With border radii
+  &.radius {
+    @include side-radius(bottom, $alert-panel-border-radius);
+  }
+
+  // Optional Style Classes
+  .alert-panel.secondary & {
+    @include alert-panel-action(lighten($secondary-color, 5%), solid 1px darken($secondary-color, 10%), null, null);
+  }
+  .alert-panel.success & {
+    @include alert-panel-action(lighten($success-color, 35%), solid 1px darken($success-color, 10%), null, null);
+  }
+  .alert-panel.alert & {
+    @include alert-panel-action(lighten($alert-color, 35%), solid 1px darken($alert-color, 10%), null, null);
+  }
+}

@@ -50,9 +50,42 @@ $opposite-direction: right !default;
 @mixin radius($radius:$global-radius) {
   @if $radius {
     @if $experimental {
+      -moz-border-radius: $radius;
       -webkit-border-radius: $radius;
     }
     border-radius: $radius;
+  }
+}
+
+// Create border radii on a single corner of an element.
+@mixin corner-radius($corner, $radius) {
+  @if $corner == topleft {
+    @if $experimental {
+      -moz-border-radius-topleft: $radius;
+      -webkit-border-top-left-radius: $radius;
+    }
+    border-top-left-radius: $radius;
+  }
+  @elseif $corner == topright {
+    @if $experimental {
+      -moz-border-radius-topright: $radius;
+      -webkit-border-top-right-radius: $radius;
+    }
+    border-top-right-radius: $radius;
+  }
+  @elseif $corner == bottomright {
+    @if $experimental {
+      -moz-border-radius-bottomright: $radius;
+      -webkit-border-bottom-right-radius: $radius;
+    }
+    border-bottom-right-radius: $radius;
+  }
+  @elseif $corner == bottomleft {
+    @if $experimental {
+      -moz-border-radius-bottomleft: $radius;
+      -webkit-border-bottom-left-radius: $radius;
+    }
+    border-bottom-left-radius: $radius;
   }
 }
 

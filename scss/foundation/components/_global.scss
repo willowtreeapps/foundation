@@ -68,4 +68,7 @@ $include-html-global-classes: true !default;
   // Make select elements 100% width by default
   select { width: 100%; }
 
+  .left { float: left !important; }
+  .right { float: right !important; }
+
 }

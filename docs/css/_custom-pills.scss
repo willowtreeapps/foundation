@@ -18,11 +18,12 @@
       }
     }
 
-    &.active .title {
-      a { color: #fff; background-color: #333; }
-    }
+    &.active .title a { color: #fff; background-color: #333; }
 
-    .content { border: 0; padding: 20px 0 0 0;
+    .content {
+      border: 0;
+      padding: 20px 0 0 0;
+
       .well:first-child { padding-top: 30px; }
     }
 

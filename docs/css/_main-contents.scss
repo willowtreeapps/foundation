@@ -3,14 +3,13 @@
   position: relative;
   margin-top: 20px;
 
-  h3 { font-weight: bold; }
-  h6 { font-weight: normal; }
-  h1 { margin-bottom: 0px; }
-  @media #{$small} { margin-top: 44px;
-    h1 { margin-top: -12px; }
+  h1.main-title {
+    margin-bottom: 0px;
+    margin-top: 44px;
+    @media #{$small} { margin-top: -12px; }
   }
 
-  > [role="main"] ul:not(.inline-list), [role="main"] ol { margin-left: 34px; }
+  .docs-list { margin-left: 34px !important; }
 }
 
 /* Next Steps Panel */
@@ -59,6 +58,5 @@
   &.panel .button.secondary { background-color: #fff;
     &:hover { background-color: #ddd; }
   }
-
 
 }

@@ -9,7 +9,7 @@
   <div class="large-9 columns" role="main">
     <div class="row">
       <div class="large-12 columns">
-        <h1><%= @page_title %></h1>
+        <h1 class="main-title"><%= @page_title %></h1>
         <h4 class="subheader"><%= description_for('alert-boxes') %></h4>
       </div>
     </div>
@@ -23,7 +23,7 @@
             <h6 class="title" data-section-title><a href="#css">CSS</a></h6>
             <div class="content" data-slug="css">
 
-              <h3>CSS Example</h3>
+              <h3><strong>CSS Example</strong></h3>
 
               <div data-alert class="alert-box">
                 This is a standard alert.
@@ -40,22 +40,22 @@
 
               <hr>
 
-              <h3>Available Classes</h3>
+              <h3><strong>Available Classes</strong></h3>
 
               <h6>Default Class</h6>
-              <ul>
+              <ul class="docs-list">
                 <li><code>alert-box:</code> Contains all the default styles for an alert box.</li>
               </ul>
 
               <h6>Color Modifier Classes</h6>
-              <ul>
+              <ul class="docs-list">
                 <li><code>success:</code> Turn the background green, great for success messages.</li>
                 <li><code>alert:</code> Turn the background red, great for error messages.</li>
                 <li><code>secondary:</code> Turn the background gray, great for subtle messages.</li>
               </ul>
 
               <h6>Style Modifier Classes</h6>
-              <ul>
+              <ul class="docs-list">
                 <li><code>radius:</code> Add a 3px radius to the corners.</li>
                 <li><code>round:</code> Add a 1000px radius to the corners, making it look like a pill.</li>
               </ul>
@@ -87,7 +87,7 @@
 
               <hr>
 
-              <h3>The Close Button</h3>
+              <h3><strong>The Close Button</strong></h3>
               <p>If you don't want people to have access to a close button, simply leave out the anchor and the <code>data-alert</code> attribute, like so:</p>
 
               <div class="alert-box">
@@ -106,7 +106,7 @@
             <h6 class="title" data-section-title><a href="#scss">SCSS</a></h6>
             <div class="content" data-slug="scss">
 
-              <h3>SCSS Mixin Example</h3>
+              <h3><strong>SCSS Mixin Example</strong></h3>
 
               <div data-alert class="alert-box">
                 This is a standard alert.
@@ -127,11 +127,11 @@
 
               <hr>
 
-              <h3>Default Mixin</h3>
+              <h3><strong>Default Mixin</strong></h3>
 
-              <ul>
+              <ul class="docs-list">
                 <li><code>@include alert($bg):</code> Default mixin for creating alert box styles.
-                  <ul>
+                  <ul class="docs-list">
                     <li><code>($bg)</code> Control the background color of the alert box. This also changes the font color based on bg-lightness.</li>
                   </ul>
                 </li>
@@ -153,12 +153,12 @@
 
               <hr>
 
-              <h3>Internal Mixins</h3>
+              <h3><strong>Internal Mixins</strong></h3>
 
-              <ul>
+              <ul class="docs-list">
                 <li><code>@include alert-base;</code> Create the basic structure of an alert box.</li>
                 <li><code>@include alert-style($bg);</code> Add the default style of an alert box.
-                  <ul>
+                  <ul class="docs-list">
                     <li><code>($bg)</code> Set to any hex value, controls background, border and font-color.</li>
                   </ul>
                 </li>
@@ -181,7 +181,7 @@
 
               <hr>
 
-              <h3>Close Button Mixin</h3>
+              <h3><strong>Close Button Mixin</strong></h3>
               <p>Include the close button markup and <code>data-alert</code> attribute. Remove the anchor and data-attribute if you don't want people to be able to close it.</p>
 
               <div data-alert class="alert-base">&nbsp;
@@ -195,7 +195,7 @@
 
               <hr>
 
-              <h3>Default SCSS Variables</h3>
+              <h3><strong>Default SCSS Variables</strong></h3>
 
               <%= settings_table_for('alert-boxes') %>
 
@@ -206,8 +206,8 @@
             <h6 class="title" data-section-title><a href="#js">JS</a></h6>
             <div class="content" data-slug="js">
 
-              <h3>Initialization</h3>
-              <ul>
+              <h3><strong>Initialization</strong></h3>
+              <ul class="docs-list">
                 <li><code>$(document).foundation();</code></li>
                 <li><code>$(document).foundation('alerts');</code></li>
                 <li><code>$('#id').foundation('alert');</code></li>
@@ -219,8 +219,8 @@
 
               <hr>
 
-              <h3>Configuration (Settings)</h3>
-              <ul>
+              <h3><strong>Configuration (Settings)</strong></h3>
+              <ul class="docs-list">
                 <li>$(document).foundation('alerts', {speed: 500});</li>
                 <li>data-options="speed:500"</li>
               </ul>
@@ -230,8 +230,8 @@
 
               <hr>
 
-              <h3>Loading After Page Loads</h3>
-              <ul>
+              <h3><strong>Loading After Page Loads</strong></h3>
+              <ul class="docs-list">
                 <li>$(document).foundation('alerts', 'reflow');</li>
               </ul>
 
@@ -240,8 +240,8 @@
 
               <hr>
 
-              <h3>Public Methods</h3>
-              <ul>
+              <h3><strong>Public Methods</strong></h3>
+              <ul class="docs-list">
                 <li>reflow, close</li>
                 <li>Options, bulleted</li>
                 <li>Examples in code</li>
@@ -252,8 +252,8 @@
 
               <hr>
 
-              <h3>Callbacks &amp; Events</h3>
-              <ul>
+              <h3><strong>Callbacks &amp; Events</strong></h3>
+              <ul class="docs-list">
                 <li>Callback function?</li>
                 <li>Event Callback</li>
               </ul>
