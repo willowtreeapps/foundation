@@ -11,37 +11,37 @@
 @import "foundation/modules";
 
 // Global options
-$alert-panel-margin-bottom: 1.5em !default;
+$alert-panel-margin-bottom: emCalc(30px) !default;
 $alert-panel-reset-selectors: "p,a" !default;
-$alert-panel-border-radius: 3px !default;
-
-// Title area Close "X" Button
-$alert-panel-close-bg: lighten($primary-color, 15%) !default;
-$alert-panel-close-bg-hover: darken($primary-color, 10%) !default;
-$alert-panel-close-border: solid 1px darken($primary-color, 10%) !default;
-$alert-panel-close-border-hover: solid 1px darken($primary-color, 10%) !default;
-$alert-panel-close-color: darken($primary-color, 10%) !default;
-$alert-panel-close-color-hover: lighten($primary-color, 40%) !default;
-$alert-panel-close-font-size: 1em !default;
-$alert-panel-close-font-weight: bold !default;
-$alert-panel-close-height: 0 !default;
-$alert-panel-close-padding: 0px 12px .25em !default;
-$alert-panel-close-transition-property: all !default;
-$alert-panel-close-transition-speed: 300ms !default;
-$alert-panel-close-transition-timing: linear !default;
+$alert-panel-border-radius: $global-radius !default;
 
 // Title area options
 $alert-panel-title-bg: $primary-color !default;
-$alert-panel-title-border: solid 1px darken($primary-color, 10%) !default;
-$alert-panel-title-color: darken($primary-color, 35%) !default;
+$alert-panel-title-border: solid 1px darken($alert-panel-title-bg, 10%) !default;
+$alert-panel-title-color: #fff !default;
 $alert-panel-title-font-size: 1em !default;
 $alert-panel-title-font-weight: bold !default;
 $alert-panel-title-line-height: 1.3em !default;
 $alert-panel-title-padding: 10px 34px 10px 10px !default;
 
+// Title area Close "X" Button
+$alert-panel-close-bg: lighten($alert-panel-title-bg, 15%) !default;
+$alert-panel-close-bg-hover: lighten($alert-panel-close-bg, 10%) !default;
+$alert-panel-close-border: solid 1px darken($alert-panel-title-bg, 10%) !default;
+$alert-panel-close-border-hover: solid 1px darken($alert-panel-title-bg, 10%) !default;
+$alert-panel-close-color: darken($alert-panel-title-bg, 10%) !default;
+$alert-panel-close-color-hover: darken($alert-panel-title-bg, 15%) !default;
+$alert-panel-close-font-size: 1em !default;
+$alert-panel-close-font-weight: bold !default;
+$alert-panel-close-height: 0px !default;
+$alert-panel-close-padding: 0px 12px .25em !default;
+$alert-panel-close-transition-property: all !default;
+$alert-panel-close-transition-speed: 300ms !default;
+$alert-panel-close-transition-timing: linear !default;
+
 // Message area options
 $alert-panel-message-bg: #fff !default;
-$alert-panel-message-border: solid 1px $primary-color !default;
+$alert-panel-message-border: solid 1px darken(#eee, 15%) !default;
 $alert-panel-message-color: #222 !default;
 $alert-panel-message-font-size: .875em !default;
 $alert-panel-message-font-weight: normal !default;
@@ -50,9 +50,9 @@ $alert-panel-message-padding: 20px !default;
 
 // Action area options
 $alert-panel-action-align: right !default;
-$alert-panel-action-bg: lighten($primary-color, 45%) !default;
-$alert-panel-action-border: solid 1px lighten($primary-color, 15%) !default;
-$alert-panel-action-padding: 10px !default;
+$alert-panel-action-bg: darken(#fff, 5%) !default;
+$alert-panel-action-border: $alert-panel-message-border !default;
+$alert-panel-action-padding: 5px 5px 6px 5px !default;
 
 
 //
@@ -143,17 +143,19 @@ $alert-panel-action-padding: 10px !default;
   @include alert-panel-title;
 
   // With border radii
-  .alert-panel.radius & { @include side-radius(top, $alert-panel-border-radius); }
+  .alert-panel.radius & {
+    @include side-radius(top, $alert-panel-border-radius);
+  }
 
   // Optional Style Classes
   .alert-panel.secondary & {
-    @include alert-panel-title($secondary-color, solid 1px darken($secondary-color, 15%), darken($secondary-color, 45%), null, null, null, null);
+    @include alert-panel-title($secondary-color, solid 1px darken($secondary-color, 10%), #555, null, null, null, null);
   }
   .alert-panel.success & {
-    @include alert-panel-title($success-color, solid 1px darken($success-color, 15%),darken($success-color, 45%), null, null, null, null);
+    @include alert-panel-title($success-color, solid 1px darken($success-color, 10%), null, null, null, null, null);
   }
   .alert-panel.alert & {
-    @include alert-panel-title($alert-color, solid 1px darken($alert-color, 15%),darken($alert-color, 45%), null, null, null, null);
+    @include alert-panel-title($alert-color, solid 1px darken($alert-color, 10%), null, null, null, null, null);
   }
 }
 
@@ -171,33 +173,22 @@ $alert-panel-action-padding: 10px !default;
 
   // Optional Style Classes
   .alert-panel.secondary & {
-    @include alert-panel-close(lighten($secondary-color, 5%), solid 1px darken($secondary-color, 10%), darken($secondary-color, 15%), null, null, null, null, null);
-    @include alert-panel-close-hover(darken($secondary-color, 15%), solid 1px darken($secondary-color, 15%), lighten($secondary-color, 35%));
+    @include alert-panel-close(lighten($secondary-color, 15%), solid 1px darken($secondary-color, 10%), darken($secondary-color, 10%), null, null, null, null, null);
+    @include alert-panel-close-hover(lighten($secondary-color, 20%), solid 1px darken($secondary-color, 10%), darken($secondary-color, 30%));
   }
   .alert-panel.success & {
-    @include alert-panel-close(lighten($success-color, 5%), solid 1px darken($success-color, 10%), darken($success-color, 15%), null, null, null, null, null);
-    @include alert-panel-close-hover(darken($success-color, 15%), solid 1px darken($success-color, 15%), lighten($success-color, 35%));
+    @include alert-panel-close(lighten($success-color, 5%), solid 1px darken($success-color, 10%), darken($success-color, 10%), null, null, null, null, null);
+    @include alert-panel-close-hover(lighten($success-color, 20%), solid 1px darken($success-color, 10%), darken($success-color, 15%));
   }
   .alert-panel.alert & {
-    @include alert-panel-close(lighten($alert-color, 5%), solid 1px darken($alert-color, 10%), darken($alert-color, 15%), null, null, null, null, null);
-    @include alert-panel-close-hover(darken($alert-color, 15%), solid 1px darken($alert-color, 15%), lighten($alert-color, 35%));
+    @include alert-panel-close(lighten($alert-color, 5%), solid 1px darken($alert-color, 10%), darken($alert-color, 10%), null, null, null, null, null);
+    @include alert-panel-close-hover(lighten($alert-color, 20%), solid 1px darken($alert-color, 10%), darken($alert-color, 15%));
   }
 }
 
 /* Alert panel message area */
 .alert-panel-message {
   @include alert-panel-message;
-
-  // Optional Style Classes
-  .alert-panel.secondary & {
-    @include alert-panel-message(null, solid 1px darken($secondary-color, 10%), null, null, null);
-  }
-  .alert-panel.success & {
-    @include alert-panel-message(null, solid 1px darken($success-color, 10%), null, null, null);
-  }
-  .alert-panel.alert & {
-    @include alert-panel-message(null, solid 1px darken($alert-color, 10%), null, null, null);
-  }
 }
 
 /* Alert panel action area */
@@ -205,18 +196,7 @@ $alert-panel-action-padding: 10px !default;
   @include alert-panel-action;
 
   // With border radii
-  &.radius {
+  .alert-panel.radius & {
     @include side-radius(bottom, $alert-panel-border-radius);
-  }
-
-  // Optional Style Classes
-  .alert-panel.secondary & {
-    @include alert-panel-action(lighten($secondary-color, 5%), solid 1px darken($secondary-color, 10%), null, null);
-  }
-  .alert-panel.success & {
-    @include alert-panel-action(lighten($success-color, 35%), solid 1px darken($success-color, 10%), null, null);
-  }
-  .alert-panel.alert & {
-    @include alert-panel-action(lighten($alert-color, 35%), solid 1px darken($alert-color, 10%), null, null);
   }
 }
