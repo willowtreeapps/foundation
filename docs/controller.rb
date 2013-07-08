@@ -128,6 +128,13 @@ helpers do
     'Drop these into forms or inline on a page to communicate success, warnings, failure or any information.'
   end
 
+  def alert_panels_title
+    'Alert Panels'
+  end
+  def alert_boxes_description
+    'These are great for alerting people when you need a bit more structure than an Alert Box.'
+  end
+
   def block_grid_title
     'Block Grids'
   end
