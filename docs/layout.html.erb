@@ -21,18 +21,16 @@
   </head>
   <body class="off-canvas antialiased">
 
+    <!--
     <nav class="top-bar hide-for-small">
       <ul class="title-area">
-        <!-- Title Area -->
         <li class="name">
-          <h1><a href="/">Foundation</a></h1>
+          <a href="/">Foundation</a>
         </li>
-        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        <li class="toggle-topbar menu-icon"><a href="#">Menu<span></span></a></li>
       </ul>
 
       <section class="top-bar-section">
-        <!-- Right Nav Section -->
         <ul class="right">
           <li class="divider"></li>
           <li><a href="<%= features_path %>">Features</a></li>
@@ -69,10 +67,12 @@
       </div>
     </header>
 
+    -->
     <%= render "_component-list.html.erb" %>
 
     <%= yield %>
 
+    <!--
     <div class="zurb-footer-top bg-blue">
       <div class="row property">
         <div class="large-4 columns">
@@ -160,6 +160,7 @@
         </div>
       </div>
     </div>
+    -->
 
     <script>
 
