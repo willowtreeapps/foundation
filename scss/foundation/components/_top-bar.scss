@@ -225,6 +225,7 @@ $topbar-sticky-class: ".sticky" !default;
     position: relative;
     width: auto;
     @include single-transition($default-float, $topbar-transition-speed);
+    @include clearfix;
 
     ul {
       width: 100%;
