@@ -106,9 +106,8 @@ $topbar-sticky-class: ".sticky" !default;
     line-height: $topbar-height;
     position: relative;
     margin-bottom: $topbar-margin-bottom;
-    @include box-sizing(content-box);
-
     border-bottom: $topbar-border-bottom;
+    @include box-sizing(content-box);
     
     // Topbar Global list Styles
     ul {
@@ -154,7 +153,6 @@ $topbar-sticky-class: ".sticky" !default;
         }
       }
     }
-
     
     // Menu toggle button on small devices
     .toggle-topbar {
@@ -207,8 +205,9 @@ $topbar-sticky-class: ".sticky" !default;
     }
 
     // Change things up when the top-bar is expanded
-    &.expanded { height: auto;
-
+    &.expanded { 
+      height: auto;
+      
       .toggle-topbar {
         a { color: $topbar-menu-link-color-toggled; }
         &.menu-icon span, 
@@ -216,7 +215,6 @@ $topbar-sticky-class: ".sticky" !default;
         &.menu-icon span:after { background-color: $topbar-menu-icon-color-toggled; }
       }
     }
-
   }
 
   // Right and Left Navigation that stacked by default
@@ -225,7 +223,6 @@ $topbar-sticky-class: ".sticky" !default;
     position: relative;
     width: auto;
     @include single-transition($default-float, $topbar-transition-speed);
-    @include clearfix;
 
     ul {
       width: 100%;
