@@ -284,7 +284,6 @@ $topbar-sticky-class: ".sticky" !default;
       }
     }
 
-
     .divider,
     [role="separator"] {
       border-bottom: $topbar-divider-border-bottom;
@@ -378,17 +377,16 @@ $topbar-sticky-class: ".sticky" !default;
       .name { width: auto; margin-right: $topbar-height/3; }
     }
 
-    input,
-    .button {
-      line-height: 2em;
-      font-size: emCalc(14px);
-      height: 2em;
-      padding: 0 10px;
-      position: relative;
-      top: 8px;
-    }
+    // input,
+    // .button {
+    //   line-height: 2em;
+    //   font-size: emCalc(14px);
+    //   height: 2em;
+    //   padding: 0 10px;
+    //   position: relative;
+    //   top: 8px;
+    // }
 
-    &.expanded { background: $topbar-bg; }
   }
 
   .contain-to-grid .top-bar {
@@ -515,13 +513,13 @@ $topbar-sticky-class: ".sticky" !default;
   .no-js .top-bar-section {
 	  ul li {
         // Apply the hover link color when it has that class
-        &:hover > a {
+        &:hover > a:not(.button) {
           background: $topbar-link-bg-hover;
           color: $topbar-link-color-hover;
         }
 
         // Apply the active link color when it has that class
-        &:active > a {
+        &:active > a:not(.button) {
           background: $topbar-link-bg-active;
           color: $topbar-link-color-active;
         }
