@@ -166,7 +166,7 @@ if (typeof jQuery === "undefined" &&
   window.Foundation = {
     name : 'Foundation',
 
-    version : '4.2.2',
+    version : '5.0.0',
 
     cache : {},
 
@@ -189,18 +189,14 @@ if (typeof jQuery === "undefined" &&
       if (libraries && typeof libraries === 'string' && !/reflow/i.test(libraries)) {
         if (/off/i.test(libraries)) return this.off();
 
-        library_arr = libraries.split(' ');
-
-        if (library_arr.length > 0) {
-          for (var i = library_arr.length - 1; i >= 0; i--) {
-            responses.push(this.init_lib(library_arr[i], args));
-          }
+        if (this.libs.hasOwnProperty(libraries)) {
+          responses.push(this.init_lib(libraries, args));
         }
       } else {
-        if (/reflow/i.test(libraries)) args[1] = 'reflow';
+        // if (/reflow/i.test(libraries)) args[1] = 'reflow';
 
         for (var lib in this.libs) {
-          responses.push(this.init_lib(lib, args));
+          responses.push(this.init_lib(lib, libraries));
         }
       }
 
@@ -209,45 +205,23 @@ if (typeof jQuery === "undefined" &&
         args.unshift(libraries);
       }
 
-      return this.response_obj(responses, args);
-    },
-
-    response_obj : function (response_arr, args) {
-      for (var i = 0, len = args.length; i < len; i++) {
-        if (typeof args[i] === 'function') {
-          return args[i]({
-            errors: response_arr.filter(function (s) {
-              if (typeof s === 'string') return s;
-            })
-          });
-        }
-      }
-
-      return response_arr;
+      return scope;
     },
 
     init_lib : function (lib, args) {
-      return this.trap(function () {
-        if (this.libs.hasOwnProperty(lib)) {
-          this.patch(this.libs[lib]);
-          return this.libs[lib].init.apply(this.libs[lib], args);
-        }
-        else {
-          return function () {};
-        }
-      }.bind(this), lib);
-    },
+      if (this.libs.hasOwnProperty(lib)) {
+        this.patch(this.libs[lib]);
 
-    trap : function (fun, lib) {
-      if (!this.nc) {
-        try {
-          return fun();
-        } catch (e) {
-          return this.error({name: lib, message: 'could not be initialized', more: e.name + ' ' + e.message});
+        if (args && args.hasOwnProperty(lib)) {
+          // if additional configuration has been passed in, 
+          // pass it to the respective plugin
+          return this.libs[lib].init.apply(this.libs[lib], [this.scope, args[lib]]);
         }
+
+        return this.libs[lib].init.apply(this.libs[lib], args);
       }
-
-      return fun();
+      
+      return function () {};
     },
 
     patch : function (lib) {
@@ -427,11 +401,7 @@ if (typeof jQuery === "undefined" &&
     },
 
     zj : function () {
-      if (typeof Zepto !== 'undefined') {
-        return Zepto;
-      } else {
-        return jQuery;
-      }
+      return $;
     }()
   };
 
