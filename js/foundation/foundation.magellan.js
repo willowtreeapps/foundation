@@ -24,9 +24,12 @@
       $(this.scope)
         .off('.magellan')
         .on('arrival.fndtn.magellan', '[data-magellan-arrival]', function (e) {
+          // Destination is whatever it is
           var $destination = $(this),
+              // whatever destination is closest expedition
               $expedition = $destination.closest('[data-magellan-expedition]'),
-              active_class = $expedition.attr('data-magellan-active-class') 
+              // Add active_class to expedition
+              active_class = $expedition.attr('data-magellan-active-class')
                 || self.settings.active_class;
 
             $destination
@@ -50,18 +53,24 @@
           this.fixed_magellan.trigger('update-position');
         }.bind(this))
         .on('scroll.fndtn.magellan', function() {
+          // Get the current vertical position of the scroll bar for the first element in the set
+          // of matched elements or set the vertical position of the scroll bar for every matched element.
           var windowScrollTop = $(window).scrollTop();
           self.fixed_magellan.each(function() {
             var $expedition = $(this);
             if (typeof $expedition.data('magellan-top-offset') === 'undefined') {
+              // Get the current coordinates of the first element in the set of matched elements
+              // relative to the document.
               $expedition.data('magellan-top-offset', $expedition.offset().top);
             }
             if (typeof $expedition.data('magellan-fixed-position') === 'undefined') {
               $expedition.data('magellan-fixed-position', false)
             }
             var fixed_position = (windowScrollTop + self.settings.threshold) > $expedition.data("magellan-top-offset");
-            var attr = $expedition.attr('data-magellan-top-offset');
 
+            var attr = $expedition.attr('data-magellan-top-offset'); // top-offset, where is this defined?
+
+            // Setting fixed position
             if ($expedition.data("magellan-fixed-position") != fixed_position) {
               $expedition.data("magellan-fixed-position", fixed_position);
               if (fixed_position) {
@@ -78,9 +87,12 @@
           });
         });
 
-
+      // if it's not at the last destination
+      // execute function
+      // this = window in this context
       if (this.last_destination.length > 0) {
         $(window).on('scroll.fndtn.magellan', function (e) {
+          // vertical position in window from top
           var windowScrollTop = $(window).scrollTop(),
               scrolltopPlusHeight = windowScrollTop + $(window).height(),
               lastDestinationTop = Math.ceil(self.last_destination.offset().top);
@@ -88,7 +100,7 @@
           $('[data-magellan-destination]').each(function () {
             var $destination = $(this),
                 destination_name = $destination.attr('data-magellan-destination'),
-                topOffset = $destination.offset().top - windowScrollTop;
+                topOffset = $destination.offset().top + this.height() - windowScrollTop;
 
             if (topOffset <= self.settings.threshold) {
               $("[data-magellan-arrival='" + destination_name + "']").trigger('arrival');
@@ -104,7 +116,7 @@
 
     set_threshold : function () {
       if (typeof this.settings.threshold !== 'number') {
-        this.settings.threshold = (this.fixed_magellan.length > 0) ? 
+        this.settings.threshold = (this.fixed_magellan.length > 0) ?
           this.fixed_magellan.outerHeight(true) : 0;
       }
     },
