@@ -8,12 +8,11 @@
 
         <div data-magellan-expedition="fixed">
           <dl class="sub-nav">
-            <dd data-magellan-arrival="build"><a href="#build">Build with HTML</a></dd>
+            <dd class="active" data-magellan-arrival="build"><a href="#build">Build with HTML</a></dd>
             <dd data-magellan-arrival="js"><a href="#js">Using Javascript</a></dd>
           </dl>
         </div>
 
-        <hr>
       </div>
     </div>
 
@@ -21,6 +20,8 @@
       <div class="full-grid">
 
         <a name="build"></a>
+        <hr>
+
         <h3 data-magellan-destination="build">Build With Predefined HTML Structure</h3>
         <p>When we set out to build Magellan, we wanted it to be really lightweight and stay out of your way. With that in mind, we kept custom styles out of the game. Magellan is style agnostic, meaning you can attach it to anything. There are a few built-in lists in Foundation that will work, including the sub-nav. If you look at the top of this page you'll see our sub-nav. As you scroll, you'll see Magellan in action!</p>
 
@@ -44,10 +45,11 @@
 
         <p>For these styles to come across, make sure you have the default Foundation CSS package or that you've selected <strong>magellan from a custom package</strong>. These should be linked up following our default <a href="../index.html#basicHTMLMarkup">HTML page structure</a>.</p>
 
+        <a name="js"></a>
         <hr>
 
-        <a name="js"></a>
         <h3 data-magellan-destination="js">Using Our JavaScript</h3>
+
         <div class="panel">
           Before you can use Magellan you'll want to verify that both jQuery (or Zepto) and <code>foundation.js</code> are available on your page. You can refer to the <a href="../javascript.html">javascript documentation</a> on setting that up.
         </div>
