@@ -85,7 +85,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: ['js/**/*.js', 'doc/assets/js/**/*.js'],
-        tasks: ['concat:dist']
+        tasks: ['concat']
       },
       docs: {
         files: ['doc/**/*'],
@@ -97,7 +97,7 @@ module.exports = function(grunt) {
       }
     }
   });
-  
+
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');

@@ -8,7 +8,7 @@
 
     settings : {
       active_class: 'active',
-      threshold: 0
+      threshold: 3
     },
 
     init : function (scope, method, options) {
@@ -100,7 +100,7 @@
           $('[data-magellan-destination]').each(function () {
             var $destination = $(this),
                 destination_name = $destination.attr('data-magellan-destination'),
-                topOffset = $destination.offset().top + this.height() - windowScrollTop;
+                topOffset = $destination.offset().top - $destination.outerHeight(true) - windowScrollTop;
 
             if (topOffset <= self.settings.threshold) {
               $("[data-magellan-arrival='" + destination_name + "']").trigger('arrival');
