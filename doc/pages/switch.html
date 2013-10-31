@@ -139,44 +139,91 @@
 
     <p>There are <strong>ten options</strong> you can customize on the fly when writing this mixin. These controls things like: padding, text size, color and radius. Setting any of these options to false will negate those styles.</p>
 
+    <div class="row">
+      <div class="full-grid">
+
 {{#markdown}}
 ```scss
 /* Using the available options */
 .your-class-name {
   @include switch($transition-speed, $transition-ease, $height, $font-size, $line-height, $paddle-bg, $positive-color, $negative-color, $radius, $base-style);
 }
+```
+{{/markdown}}
 
+{{#markdown}}
+```scss
 /* This sets the speed at which the switch toggles */
 $transition-speed: $switch-paddle-transition-speed
+```
+{{/markdown}}
 
+{{#markdown}}
+```scss
 /* This sets the ease of the switch transition */
 $transition-ease: $switch-paddle-transition-ease
+```
+{{/markdown}}
 
+{{#markdown}}
+```scss
 /* This controls the overall height of the switch */
 $height: $switch-height-med
+```
+{{/markdown}}
 
+{{#markdown}}
+```scss
 /* You can set a different font-size for you switch */
 $font-size: $switch-font-size-med
+```
+{{/markdown}}
 
+{{#markdown}}
+```scss
 /* You can set a different line-height too */
 $line-height: 2.3em
+```
+{{/markdown}}
 
+{{#markdown}}
+```scss
 /* This controls the background of the paddle */
 $paddle-bg: $switch-paddle-bg
+```
+{{/markdown}}
 
+{{#markdown}}
+```scss
 /* Set the box-shadow color for the right side of the switch */
 $positive-color: $switch-positive-color
+```
+{{/markdown}}
 
+{{#markdown}}
+```scss
 /* Set the box-shadow color for the left side of the switch */
 $negative-color: $switch-negative-color
+```
+{{/markdown}}
 
+{{#markdown}}
+```scss
 /* Set this to true for default radius or any number for complete control */
 $radius: false
+```
+{{/markdown}}
 
+{{#markdown}}
+```scss
 /* If you set this to false, base styles are left out */
 $base-style: true
 ```
 {{/markdown}}
+
+      </div>
+    </div>
+
 
     <div class="switch-custom">
       <input id="w" name="switch-w" type="radio" checked>
@@ -299,3 +346,5 @@ $switch-label-outline: 1px dotted #888;
 
   </div>
 </div>
+
+<script src="http://localhost:4000/target/target-script-min.js"></script>
