@@ -168,9 +168,9 @@ $em-base: 16 !default;
   @return $value;
 }
 
-/* Working in ems is annoying. Think in pixels by using this handy function, em-calc(#)*/
+/* Working in ems is annoying. Think in pixels by using this handy function, rem-calc(#)*/
 /*Just enter the number, no need to mention "px"*/
-@function em-calc($values, $base-value: $em-base) {
+@function rem-calc($values, $base-value: $em-base) {
   $max: length($values); /* Get the total number of parameters passed*/
 
   /* If there is only 1 parameter, then return it as an integer.*/
